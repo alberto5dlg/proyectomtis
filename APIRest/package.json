@@ -1,0 +1,16 @@
+{
+  "name": "apirest",
+  "version": "1.0.0",
+  "description": "Api rest para el proyecto de MTIS ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alberto",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "nodemon": "^1.11.0"
+  }
+}
