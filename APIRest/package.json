@@ -11,7 +11,10 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
+<<<<<<< 533092e3146b7ff5d267415e4a454a0063ee5322
     "mysql": "^2.13.0",
+=======
+>>>>>>> Skeleton API REST
     "nodemon": "^1.11.0"
   }
 }
