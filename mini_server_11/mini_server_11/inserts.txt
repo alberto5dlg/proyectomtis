@@ -1,0 +1,5 @@
+insert into aerolinea1 (Origen,Destino,Fecha,Hora,Coste) values('Alicante','Madrid','2017-08-15','12:00:00','96');
+insert into aerolinea1 (Origen,Destino,Fecha,Hora,Coste) values('Alicante','Madrid','2017-08-15','16:58:00','50');
+insert into aerolinea1 (Origen,Destino,Fecha,Hora,Coste) values('Alicante','Barcelona','2017-08-11','13:20:00','105');
+insert into aerolinea1 (Origen,Destino,Fecha,Hora,Coste) values('Alicante','Madrid','2017-08-15', '12:00:00','180');
+insert into aerolinea1 (Origen,Destino,Fecha,Hora,Coste) values('Alicante','Dubai','2017-08-15','12:30:00','300');
