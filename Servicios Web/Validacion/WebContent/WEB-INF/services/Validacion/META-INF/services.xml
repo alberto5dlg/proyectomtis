@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
+    <service name="Validacion">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.validacion.ValidacionMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.example.www.validacion.ValidacionSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="ValidarIBAN" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Validacion/">
+            <actionMapping>http://www.example.org/Validacion/ValidarIBAN</actionMapping>
+            <outputActionMapping>http://www.example.org/Validacion/Validacion/ValidarIBANResponse</outputActionMapping>
+        </operation>
+        <operation name="ValidarFecha" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Validacion/">
+            <actionMapping>http://www.example.org/Validacion/ValidarFecha</actionMapping>
+            <outputActionMapping>http://www.example.org/Validacion/Validacion/ValidarFechaResponse</outputActionMapping>
+        </operation>
+        <operation name="ValidarDNI" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Validacion/">
+            <actionMapping>http://www.example.org/Validacion/ValidarDNI</actionMapping>
+            <outputActionMapping>http://www.example.org/Validacion/Validacion/ValidarDNIResponse</outputActionMapping>
+        </operation>
+        <operation name="ValidarTarjeta" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Validacion/">
+            <actionMapping>http://www.example.org/Validacion/ValidarTarjeta</actionMapping>
+            <outputActionMapping>http://www.example.org/Validacion/Validacion/ValidarTarjetaResponse</outputActionMapping>
+        </operation>
+        <operation name="ValidarUsuario" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Validacion/">
+            <actionMapping>http://www.example.org/Validacion/ValidarUsuario</actionMapping>
+            <outputActionMapping>http://www.example.org/Validacion/Validacion/ValidarUsuarioResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

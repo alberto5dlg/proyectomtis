@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/Validacion/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Validacion" targetNamespace="http://www.example.org/Validacion/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/Validacion/">
+      <xsd:element name="ValidarDNI">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="dni" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidarDNIResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="valido" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidarFecha">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="fechaInicio" type="xsd:date"></xsd:element>
+      			<xsd:element name="fechaFin" type="xsd:date"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidarFechaResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="valido" type="xsd:boolean"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidarIBAN">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="nIban" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidarIBANResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="valido" type="xsd:boolean"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidarUsuario">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="usuario" type="xsd:string"></xsd:element>
+      			<xsd:element name="password" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidarUsuarioResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="valido" type="xsd:boolean"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidarTarjeta">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="nTarjeta" type="xsd:string"></xsd:element>
+      			<xsd:element name="fechaCad" type="xsd:string"></xsd:element>
+      			<xsd:element name="numeroSecreto" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidarTarjetaResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ValidarDNIRequest">
+    <wsdl:part element="tns:ValidarDNI" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ValidarDNIResponse">
+    <wsdl:part element="tns:ValidarDNIResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ValidarFechaRequest">
+  	<wsdl:part name="parameters" element="tns:ValidarFecha"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidarFechaResponse">
+  	<wsdl:part name="parameters" element="tns:ValidarFechaResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidarIBANRequest">
+  	<wsdl:part name="parameters" element="tns:ValidarIBAN"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidarIBANResponse">
+  	<wsdl:part name="parameters" element="tns:ValidarIBANResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidarUsuarioRequest">
+  	<wsdl:part name="parameters" element="tns:ValidarUsuario"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidarUsuarioResponse">
+  	<wsdl:part name="parameters" element="tns:ValidarUsuarioResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidarTarjetaRequest">
+  	<wsdl:part name="parameters" element="tns:ValidarTarjeta"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidarTarjetaResponse">
+  	<wsdl:part name="parameters" element="tns:ValidarTarjetaResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Validacion">
+    <wsdl:operation name="ValidarDNI">
+      <wsdl:input message="tns:ValidarDNIRequest"/>
+      <wsdl:output message="tns:ValidarDNIResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarFecha">
+    	<wsdl:input message="tns:ValidarFechaRequest"></wsdl:input>
+    	<wsdl:output message="tns:ValidarFechaResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarIBAN">
+    	<wsdl:input message="tns:ValidarIBANRequest"></wsdl:input>
+    	<wsdl:output message="tns:ValidarIBANResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarUsuario">
+    	<wsdl:input message="tns:ValidarUsuarioRequest"></wsdl:input>
+    	<wsdl:output message="tns:ValidarUsuarioResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarTarjeta">
+    	<wsdl:input message="tns:ValidarTarjetaRequest"></wsdl:input>
+    	<wsdl:output message="tns:ValidarTarjetaResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ValidacionSOAP" type="tns:Validacion">
+
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="ValidarDNI">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/Validacion/ValidarDNI" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="ValidarFecha">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/Validacion/ValidarFecha" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="ValidarIBAN">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/Validacion/ValidarIBAN" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="ValidarUsuario">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/Validacion/ValidarUsuario" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="ValidarTarjeta">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/Validacion/ValidarTarjeta" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Validacion">
+    <wsdl:port binding="tns:ValidacionSOAP" name="ValidacionSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
