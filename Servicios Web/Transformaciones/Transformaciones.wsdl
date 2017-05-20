@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/Transformaciones/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Transformaciones" targetNamespace="http://www.example.org/Transformaciones/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/Transformaciones/">
+      <xsd:element name="JSONtoXML">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="json" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="JSONtoXMLResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="xml" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="facturaToPDF">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="factura" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="facturaToPDFResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="creada" type="xsd:boolean"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="fechas">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="fechaInicio" type="xsd:string"></xsd:element>
+      			<xsd:element name="fechaFin" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="fechasResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="fechaInicio" type="xsd:date"></xsd:element>
+      			<xsd:element name="fechaFin" type="xsd:date"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="JSONtoXMLRequest">
+    <wsdl:part element="tns:JSONtoXML" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="JSONtoXMLResponse">
+    <wsdl:part element="tns:JSONtoXMLResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="facturaToPDFRequest">
+  	<wsdl:part name="parameters" element="tns:facturaToPDF"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="facturaToPDFResponse">
+  	<wsdl:part name="parameters" element="tns:facturaToPDFResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fechasRequest">
+  	<wsdl:part name="parameters" element="tns:fechas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fechasResponse">
+  	<wsdl:part name="parameters" element="tns:fechasResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Transformaciones">
+    <wsdl:operation name="JSONtoXML">
+      <wsdl:input message="tns:JSONtoXMLRequest"/>
+      <wsdl:output message="tns:JSONtoXMLResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="facturaToPDF">
+    	<wsdl:input message="tns:facturaToPDFRequest"></wsdl:input>
+    	<wsdl:output message="tns:facturaToPDFResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fechas">
+    	<wsdl:input message="tns:fechasRequest"></wsdl:input>
+    	<wsdl:output message="tns:fechasResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TransformacionesSOAP"
+  	type="tns:Transformaciones">
+
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="JSONtoXML">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/Transformaciones/JSONtoXML" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="facturaToPDF">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/Transformaciones/facturaToPDF" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="fechas">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/Transformaciones/fechas" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Transformaciones">
+    <wsdl:port binding="tns:TransformacionesSOAP" name="TransformacionesSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
