@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Pagos" targetNamespace="http://www.example.org/Pagos/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/Pagos/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/Pagos/">
+      <xsd:element name="RealizarPago">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="idFactura" type="xsd:int"/>
+          	<xsd:element name="idUsuario" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RealizarPagoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="pagada" type="xsd:boolean"/>
+          	<xsd:element name="detalles" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidarPago">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="in" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidarPagoResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ComprobarPago">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idFactura" type="xsd:int"/>
+      			<xsd:element name="idUsuario" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ComprobarPagoResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="pagada" type="xsd:boolean"/>
+      			<xsd:element name="detalles" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ValidarPagoResponse">
+    <wsdl:part name="parameters" element="tns:ValidarPagoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ComprobarPagoResponse">
+    <wsdl:part name="parameters" element="tns:ComprobarPagoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RealizarPagoRequest">
+    <wsdl:part name="parameters" element="tns:RealizarPago">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidarPagoRequest">
+    <wsdl:part name="parameters" element="tns:ValidarPago">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RealizarPagoResponse">
+    <wsdl:part name="parameters" element="tns:RealizarPagoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ComprobarPagoRequest">
+    <wsdl:part name="parameters" element="tns:ComprobarPago">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Pagos">
+    <wsdl:operation name="RealizarPago">
+      <wsdl:input message="tns:RealizarPagoRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:RealizarPagoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComprobarPago">
+      <wsdl:input message="tns:ComprobarPagoRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ComprobarPagoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PagosSOAP" type="tns:Pagos">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="RealizarPago">
+      <soap:operation soapAction="http://www.example.org/Pagos/RealizarPago"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComprobarPago">
+      <soap:operation soapAction="http://www.example.org/Pagos/ComprobarPago"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Pagos">
+    <wsdl:port name="PagosSOAP" binding="tns:PagosSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
