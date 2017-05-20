@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
+    <service name="Aerolinea-1">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.aerolinea_1.Aerolinea1MessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.example.www.aerolinea_1.Aerolinea1Skeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="reservarVuelo" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-1/">
+            <actionMapping>http://www.example.org/Aerolinea-1/reservarVuelo</actionMapping>
+            <outputActionMapping>http://www.example.org/Aerolinea-1/Aerolinea-1/reservarVueloResponse</outputActionMapping>
+        </operation>
+        <operation name="disponibilidadVuelos" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-1/">
+            <actionMapping>http://www.example.org/Aerolinea-1/disponibilidadVuelos</actionMapping>
+            <outputActionMapping>http://www.example.org/Aerolinea-1/Aerolinea-1/disponibilidadVuelosResponse</outputActionMapping>
+        </operation>
+        <operation name="hayPlazas" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-1/">
+            <actionMapping>http://www.example.org/Aerolinea-1/hayPlazas</actionMapping>
+            <outputActionMapping>http://www.example.org/Aerolinea-1/Aerolinea-1/hayPlazasResponse</outputActionMapping>
+        </operation>
+        <operation name="cancelarVuelo" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-1/">
+            <actionMapping>http://www.example.org/Aerolinea-1/cancelarVuelo</actionMapping>
+            <outputActionMapping>http://www.example.org/Aerolinea-1/Aerolinea-1/cancelarVueloResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>
