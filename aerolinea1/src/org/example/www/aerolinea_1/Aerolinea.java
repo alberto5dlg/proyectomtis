@@ -21,6 +21,7 @@ public class Aerolinea {
 	private static boolean salidaJson = true;
 	private static Connection conexion;
 	private static int balance = 3;
+	public static int plazasLibres = 0;
 	
 	private static Statement prepararConexion() throws Exception{
 		DriverManager.registerDriver(new org.gjt.mm.mysql.Driver());
@@ -64,8 +65,9 @@ public class Aerolinea {
 	}
 	*/
 	public static boolean  reservarVuelo(int idAerolinea, int idVuelo,String idCliente,int plazas) throws Exception {
-        int plazasDespues = numPlazas(idAerolinea,idVuelo,plazas);
+        int plazasDespues = numPlazas(idAerolinea,idVuelo);
         boolean estado = true;
+        plazasDespues = plazasDespues - plazas;
         if(plazasDespues <= -1){
         	System.out.println("No se puede actualizar el numero de plazas a negativo para el vuelo: " + idVuelo);
         	return false;//throw new Exception("Producto de Almacen NO Actualizado A Stock Negativo!!!");
@@ -95,26 +97,25 @@ public class Aerolinea {
     }
 
 	
-	public static boolean hayPlazas(int idAerolinea, int idVuelo,int plazas) throws Exception{
-		return numPlazas(idAerolinea,idVuelo,plazas) >= 0;
+	public static boolean hayPlazas(int idAerolinea, int idVuelo) throws Exception{
+		return numPlazas(idAerolinea,idVuelo) > 0;
 	}
 	
-	private static int  numPlazas(int idAerolinea, int idVuelo,int plazas) throws Exception {
+	private static int  numPlazas(int idAerolinea, int idVuelo) throws Exception {
         ResultSet resultado;
-        int plazasActual = -1;
     	String sql = "select plazas from aerolinea" + idAerolinea + " where id = "+ idVuelo + ";";
     	System.out.println(sql);
         Statement s = prepararConexion();
         resultado = s.executeQuery (sql);             
         resultado.last(); 
         if(resultado.getRow() >= 1){ //devuelve la fila actual de la select
-        	plazasActual = resultado.getInt(1);
-            System.out.println("Plazas: " + plazasActual);
+        	plazasLibres = resultado.getInt(1);
+            System.out.println("Plazas: " + plazasLibres);
         } else {
 			System.out.println("No encontradas plazas para el vuelo " + idVuelo); 
 		}         	
         conexion.close();     
-        return plazasActual - plazas;
+        return plazasLibres;
     }
 	
 	

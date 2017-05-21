@@ -25,7 +25,6 @@
       			<xsd:element name="idVuelo" type="xsd:int"/>
 
 
-      			<xsd:element name="plazas" type="xsd:int"/>
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
@@ -34,7 +33,9 @@
       		<xsd:sequence>
 
       			<xsd:element name="salida" type="xsd:boolean"/>
-      		</xsd:sequence>
+
+                        <xsd:element name="numPlazas" type="xsd:int"/>
+                    </xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
       <xsd:element name="reservarVuelo">

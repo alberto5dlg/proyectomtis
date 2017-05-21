@@ -10,13 +10,11 @@
      *  Aerolinea1Skeleton java skeleton for the axisService
      */
     public class Aerolinea1Skeleton{
-        
-         
+    	 
         /**
          * Auto generated method signature
-         * 
-                                     * @param reservarVuelo 
-             * @return reservarVueloResponse 
+         * @param reservarVuelo 
+         * @return reservarVueloResponse 
          */
         
     	public ReservarVueloResponse reservarVuelo(ReservarVuelo ent) {
@@ -58,7 +56,8 @@
          public HayPlazasResponse hayPlazas(HayPlazas ent){
         	 HayPlazasResponse res = new HayPlazasResponse();
            	 try {
-    				res.setSalida(Aerolinea.hayPlazas(1, ent.getIdVuelo(), ent.getPlazas()));
+    				res.setSalida(Aerolinea.hayPlazas(1, ent.getIdVuelo()));
+    				res.setNumPlazas(Aerolinea.plazasLibres);
     			} catch (Exception e) {
     				e.printStackTrace();
     			}
@@ -81,6 +80,5 @@
                 //TODO : fill this with the necessary business logic
                 throw new  java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#cancelarVuelo");
         }
-     
     }
     

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="listaEspera" targetNamespace="http://www.example.org/listaEspera/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/listaEspera/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/listaEspera/">
+      <xsd:element name="anyadirAListaDeEspera">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="idVuelo" type="xsd:int"/>
+          	<xsd:element name="idAerolinea" type="xsd:int"/>
+          	<xsd:element name="correo" type="xsd:string"/>
+          	<xsd:element name="plazas" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="anyadirAListaDeEsperaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="salida" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hayClientesEnEspera">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="in" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hayClientesEnEsperaResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="salida" type="xsd:boolean"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="obtenerListaVuelos">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="in" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="obtenerListaVuelosResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="idVuelo" type="xsd:int"/>
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="idAerolinea" type="xsd:int"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="obtenerClientes">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idAerolinea" type="xsd:int"/>
+      			<xsd:element name="idVuelo" type="xsd:int"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="obtenerClientesResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="correo" type="xsd:string">
+      			</xsd:element>
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="plazas" type="xsd:int"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="anyadirAListaDeEsperaRequest">
+    <wsdl:part name="parameters" element="tns:anyadirAListaDeEspera">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerClientesResponse">
+    <wsdl:part name="parameters" element="tns:obtenerClientesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerListaVuelosRequest">
+    <wsdl:part name="parameters" element="tns:obtenerListaVuelos">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="anyadirAListaDeEsperaResponse">
+    <wsdl:part name="parameters" element="tns:anyadirAListaDeEsperaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hayClientesEnEsperaRequest">
+    <wsdl:part name="parameters" element="tns:hayClientesEnEspera">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerClientesRequest">
+    <wsdl:part name="parameters" element="tns:obtenerClientes">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hayClientesEnEsperaResponse">
+    <wsdl:part name="parameters" element="tns:hayClientesEnEsperaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerListaVuelosResponse">
+    <wsdl:part name="parameters" element="tns:obtenerListaVuelosResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="listaEspera">
+    <wsdl:operation name="anyadirAListaDeEspera">
+      <wsdl:input message="tns:anyadirAListaDeEsperaRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:anyadirAListaDeEsperaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hayClientesEnEspera">
+      <wsdl:input message="tns:hayClientesEnEsperaRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:hayClientesEnEsperaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerListaVuelos">
+      <wsdl:input message="tns:obtenerListaVuelosRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:obtenerListaVuelosResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerClientes">
+      <wsdl:input message="tns:obtenerClientesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:obtenerClientesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="listaEsperaSOAP" type="tns:listaEspera">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="anyadirAListaDeEspera">
+      <soap:operation soapAction="http://www.example.org/listaEspera/anyadirAListaDeEspera"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hayClientesEnEspera">
+      <soap:operation soapAction="http://www.example.org/listaEspera/hayClientesEnEspera"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerListaVuelos">
+      <soap:operation soapAction="http://www.example.org/listaEspera/obtenerListaVuelos"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerClientes">
+      <soap:operation soapAction="http://www.example.org/listaEspera/obtenerClientes"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="listaEspera">
+    <wsdl:port name="listaEsperaSOAP" binding="tns:listaEsperaSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

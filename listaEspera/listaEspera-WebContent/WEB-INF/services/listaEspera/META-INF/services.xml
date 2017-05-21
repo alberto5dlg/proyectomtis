@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
+    <service name="listaEspera">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.listaespera.ListaEsperaMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.example.www.listaespera.ListaEsperaSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="anyadirAListaDeEspera" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/listaEspera/">
+            <actionMapping>http://www.example.org/listaEspera/anyadirAListaDeEspera</actionMapping>
+            <outputActionMapping>http://www.example.org/listaEspera/listaEspera/anyadirAListaDeEsperaResponse</outputActionMapping>
+        </operation>
+        <operation name="obtenerListaVuelos" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/listaEspera/">
+            <actionMapping>http://www.example.org/listaEspera/obtenerListaVuelos</actionMapping>
+            <outputActionMapping>http://www.example.org/listaEspera/listaEspera/obtenerListaVuelosResponse</outputActionMapping>
+        </operation>
+        <operation name="hayClientesEnEspera" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/listaEspera/">
+            <actionMapping>http://www.example.org/listaEspera/hayClientesEnEspera</actionMapping>
+            <outputActionMapping>http://www.example.org/listaEspera/listaEspera/hayClientesEnEsperaResponse</outputActionMapping>
+        </operation>
+        <operation name="obtenerClientes" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/listaEspera/">
+            <actionMapping>http://www.example.org/listaEspera/obtenerClientes</actionMapping>
+            <outputActionMapping>http://www.example.org/listaEspera/listaEspera/obtenerClientesResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>
