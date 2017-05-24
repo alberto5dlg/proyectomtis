@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:Aerolinea-1="http://www.example.org/Aerolinea-1/" xmlns:Aerolinea-2="http://www.example.org/Aerolinea-2/" xmlns:Transformaciones="http://www.example.org/Transformaciones/" xmlns:proyectoMtis="http://proyectoMtis">
+  <process name="proyectoMtis:BPEL_Disponibilidad">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="proyectoMtis:BPEL_DisponibilidadService" port="BPEL_DisponibilidadPort"/>
+    </provide>
+    <invoke partnerLink="Aerolinea1PL">
+      <service name="Aerolinea-1:Aerolinea-1" port="Aerolinea-1SOAP"/>
+    </invoke>
+    <invoke partnerLink="Aerolinea2PL">
+      <service name="Aerolinea-2:Aerolinea-2" port="Aerolinea-2SOAP"/>
+    </invoke>
+    <invoke partnerLink="TransformacionesPL">
+      <service name="Transformaciones:Transformaciones" port="TransformacionesSOAP"/>
+    </invoke>
+  </process>
+</deploy>

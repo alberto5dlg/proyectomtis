@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/Aerolinea-1/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Aerolinea-1" targetNamespace="http://www.example.org/Aerolinea-1/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/Aerolinea-1/">
+      <xsd:element name="disponibilidadVuelos">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="fecha" type="xsd:date" />
+          	<xsd:element name="origen" type="xsd:string"></xsd:element>
+          	<xsd:element name="destino" type="xsd:string"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="disponibilidadVuelosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ficheroResultados" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hayPlazas">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idVuelo" type="xsd:int"></xsd:element>
+
+
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hayPlazasResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="salida" type="xsd:boolean"></xsd:element>
+                        <xsd:element name="numPlazas" type="xsd:int"></xsd:element>
+                    </xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="reservarVuelo">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idVuelo" type="xsd:int"></xsd:element>
+      			<xsd:element name="idCliente" type="xsd:string"></xsd:element>
+
+      			<xsd:element name="plazas" type="xsd:int"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="reservarVueloResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="salida" type="xsd:boolean"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelarVuelo">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="fecha" type="xsd:dateTime"></xsd:element>
+      			<xsd:element name="destino" type="xsd:string"></xsd:element>
+      			<xsd:element name="usuario" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelarVueloResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="salida" type="xsd:boolean"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="disponibilidadVuelosRequest">
+    <wsdl:part element="tns:disponibilidadVuelos" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="disponibilidadVuelosResponse">
+    <wsdl:part element="tns:disponibilidadVuelosResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="hayPlazasRequest">
+  	<wsdl:part name="parameters" element="tns:hayPlazas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hayPlazasResponse">
+  	<wsdl:part name="parameters" element="tns:hayPlazasResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="reservarVueloRequest">
+  	<wsdl:part name="parameters" element="tns:reservarVuelo"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="reservarVueloResponse">
+  	<wsdl:part name="parameters" element="tns:reservarVueloResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelarVueloRequest">
+  	<wsdl:part name="parameters" element="tns:cancelarVuelo"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelarVueloResponse">
+  	<wsdl:part name="parameters" element="tns:cancelarVueloResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Aerolinea-1">
+    <wsdl:operation name="disponibilidadVuelos">
+      <wsdl:input message="tns:disponibilidadVuelosRequest"/>
+      <wsdl:output message="tns:disponibilidadVuelosResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="hayPlazas">
+    	<wsdl:input message="tns:hayPlazasRequest"></wsdl:input>
+    	<wsdl:output message="tns:hayPlazasResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reservarVuelo">
+    	<wsdl:input message="tns:reservarVueloRequest"></wsdl:input>
+    	<wsdl:output message="tns:reservarVueloResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelarVuelo">
+    	<wsdl:input message="tns:cancelarVueloRequest"></wsdl:input>
+    	<wsdl:output message="tns:cancelarVueloResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Aerolinea-1SOAP" type="tns:Aerolinea-1">
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="disponibilidadVuelos">
+  		<soap:operation
+  			soapAction="http://www.example.org/Aerolinea-1/disponibilidadVuelos" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="hayPlazas">
+  		<soap:operation
+  			soapAction="http://www.example.org/Aerolinea-1/hayPlazas" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="reservarVuelo">
+  		<soap:operation
+  			soapAction="http://www.example.org/Aerolinea-1/reservarVuelo" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="cancelarVuelo">
+  		<soap:operation
+  			soapAction="http://www.example.org/Aerolinea-1/cancelarVuelo" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Aerolinea-1">
+    <wsdl:port binding="tns:Aerolinea-1SOAP" name="Aerolinea-1SOAP">
+      <soap:address location="http://localhost:9080/aerolinea1/services/Aerolinea-1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
