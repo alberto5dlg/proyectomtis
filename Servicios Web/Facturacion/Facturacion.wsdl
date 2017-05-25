@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/Facturacion/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Facturacion" targetNamespace="http://www.example.org/Facturacion/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/Facturacion/">
+      <xsd:element name="CrearFactura">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="usuario" type="xsd:string" />
+          	<xsd:element name="precio" type="xsd:float"></xsd:element>
+          	<xsd:element name="detalles" type="xsd:string"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CrearFacturaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="idFactura" type="xsd:string" />
+          	<xsd:element name="creada" type="xsd:boolean"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ComprobarFactura">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="id" type="xsd:int"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ComprobarFacturaResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="id" type="xsd:int"></xsd:element>
+      			<xsd:element name="usuario" type="xsd:string"></xsd:element>
+      			<xsd:element name="estado" type="xsd:string"></xsd:element>
+      			<xsd:element name="precio" type="xsd:float"></xsd:element>
+      			<xsd:element name="detalles" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CrearFacturaRequest">
+    <wsdl:part element="tns:CrearFactura" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CrearFacturaResponse">
+    <wsdl:part element="tns:CrearFacturaResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ComprobarFacturaRequest">
+  	<wsdl:part name="parameters" element="tns:ComprobarFactura"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ComprobarFacturaResponse">
+  	<wsdl:part name="parameters" element="tns:ComprobarFacturaResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Facturacion">
+    <wsdl:operation name="CrearFactura">
+      <wsdl:input message="tns:CrearFacturaRequest"/>
+      <wsdl:output message="tns:CrearFacturaResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="ComprobarFactura">
+    	<wsdl:input message="tns:ComprobarFacturaRequest"></wsdl:input>
+    	<wsdl:output message="tns:ComprobarFacturaResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FacturacionSOAP" type="tns:Facturacion">
+
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="CrearFactura">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/Facturacion/CrearFactura" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="ComprobarFactura">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/Facturacion/ComprobarFactura" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Facturacion">
+    <wsdl:port binding="tns:FacturacionSOAP" name="FacturacionSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

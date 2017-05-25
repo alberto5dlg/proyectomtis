@@ -13,7 +13,7 @@ public class PagosSkeleton{
             
             if(db.registro.next()) {
             	db.comando = db.conexion.createStatement();
-            	query = "UPDATE facturas SET pagada ='true' WHERE id="+realizarPago.getIdFactura()+" and usuario='"+realizarPago.getIdUsuario()+"';";
+            	query = "UPDATE facturas SET pagada ='Pagada' WHERE id="+realizarPago.getIdFactura()+" and usuario='"+realizarPago.getIdUsuario()+"';";
             	int i = db.comando.executeUpdate(query);
 	            response.setPagada(true);
 	            response.setDetalles("Factura: "+ realizarPago.getIdFactura()+" con importe: "+ db.registro.getFloat(3) +", pagada correctamente por: "+realizarPago.getIdUsuario());
@@ -43,7 +43,7 @@ public class PagosSkeleton{
             db.registro = db.comando.executeQuery(query);
             
             if(db.registro.next()) {
-            	if(db.registro.getString(4).equals("true")){
+            	if(db.registro.getString(4).equals("Pagada")){
             		response.setPagada(true);
             		response.setDetalles("Factura: "+ comprobarPago.getIdFactura()+" con importe: "+ db.registro.getFloat(3) +", pagada correctamente por: "+comprobarPago.getIdUsuario());
             	} else {
