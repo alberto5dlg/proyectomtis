@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="traslados" targetNamespace="http://www.example.org/traslados/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/traslados/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/traslados/">
+      <xsd:element name="buscarTraslados">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="localidad" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="buscarTrasladosResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="contratarTraslado">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="nombre" type="xsd:string"/>
+      			<xsd:element name="fecha" type="xsd:date"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="contratarTrasladoResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:boolean"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="buscarTrasladosResponse">
+    <wsdl:part name="parameters" element="tns:buscarTrasladosResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="contratarTrasladoResponse">
+    <wsdl:part name="parameters" element="tns:contratarTrasladoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="contratarTrasladoRequest">
+    <wsdl:part name="parameters" element="tns:contratarTraslado">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarTrasladosRequest">
+    <wsdl:part name="parameters" element="tns:buscarTraslados">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="traslados">
+    <wsdl:operation name="buscarTraslados">
+      <wsdl:input message="tns:buscarTrasladosRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:buscarTrasladosResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="contratarTraslado">
+      <wsdl:input message="tns:contratarTrasladoRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:contratarTrasladoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="trasladosSOAP" type="tns:traslados">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="buscarTraslados">
+      <soap:operation soapAction="http://www.example.org/traslados/buscarTraslados"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="contratarTraslado">
+      <soap:operation soapAction="http://www.example.org/traslados/contratarTraslado"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="traslados">
+    <wsdl:port name="trasladosSOAP" binding="tns:trasladosSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
