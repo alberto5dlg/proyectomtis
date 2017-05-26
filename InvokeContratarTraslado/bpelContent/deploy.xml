@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:contratarTraslado="http://contratarTraslado" xmlns:traslados="http://www.example.org/traslados/">
+  <process name="contratarTraslado:contratarTraslado">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="contratarTraslado:contratarTrasladoService" port="contratarTrasladoPort"/>
+    </provide>
+    <invoke partnerLink="contratarPL">
+      <service name="traslados:traslados" port="trasladosSOAP"/>
+    </invoke>
+  </process>
+</deploy>
