@@ -9,21 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< 61c3c6369c145b1e0513d5489f33cb29dc7cf32f:APIRest/package.json
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-<<<<<<< f15ed383aa9d3f00d813a25e3d4d8b60e51294bb
-<<<<<<< 533092e3146b7ff5d267415e4a454a0063ee5322
-=======
-    "body-parser": "^1.17.2",
-    "express": "^4.15.3",
->>>>>>> Nueva api funcionando perfectamente:API/package.json
     "mysql": "^2.13.0",
-=======
->>>>>>> Skeleton API REST
-=======
-    "mysql": "^2.13.0",
->>>>>>> api rest en proceso
     "nodemon": "^1.11.0"
   }
 }
