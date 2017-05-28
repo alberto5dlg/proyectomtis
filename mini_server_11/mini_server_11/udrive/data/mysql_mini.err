@@ -6,3 +6,13 @@ Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition 
 170519 11:42:17 [Note] \bin\mysqld-opt.exe: ready for connections.
 >>>>>>> serviciosWeb
 Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+170525 18:29:42 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+170525 18:30:08 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+170525 18:30:08 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+170525 18:30:10 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+170528 15:49:15 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
