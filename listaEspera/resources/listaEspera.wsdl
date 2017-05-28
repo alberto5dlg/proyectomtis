@@ -5,6 +5,8 @@
       <xsd:element name="anyadirAListaDeEspera">
         <xsd:complexType>
           <xsd:sequence>
+          	<xsd:element name="origen" type="xsd:string"/>
+          	<xsd:element name="destino" type="xsd:string"/>
           	<xsd:element name="idVuelo" type="xsd:int"/>
           	<xsd:element name="idAerolinea" type="xsd:int"/>
           	<xsd:element name="correo" type="xsd:string"/>
@@ -47,8 +49,8 @@
       	<xsd:complexType>
       		<xsd:sequence>
 
-      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="idVuelo" type="xsd:int"/>
-      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="idAerolinea" type="xsd:int"/>
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="idVuelo1" type="xsd:int"/>
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="idVuelos2" type="xsd:int"/>
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
@@ -71,10 +73,35 @@
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
+      <xsd:element name="obtenerClientesANotificar">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idAerolinea" type="xsd:int"/>
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="vuelos" type="xsd:int">
+      			</xsd:element>
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="plazas" type="xsd:int">
+      			</xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="obtenerClientesANotificarResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="correos" type="xsd:string"/>
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="mensajes" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="anyadirAListaDeEsperaRequest">
     <wsdl:part name="parameters" element="tns:anyadirAListaDeEspera">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerClientesANotificarResponse">
+    <wsdl:part name="parameters" element="tns:obtenerClientesANotificarResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="obtenerClientesResponse">
@@ -99,6 +126,10 @@
   </wsdl:message>
   <wsdl:message name="hayClientesEnEsperaResponse">
     <wsdl:part name="parameters" element="tns:hayClientesEnEsperaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerClientesANotificarRequest">
+    <wsdl:part name="parameters" element="tns:obtenerClientesANotificar">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="obtenerListaVuelosResponse">
@@ -128,6 +159,12 @@
       <wsdl:input message="tns:obtenerClientesRequest">
     </wsdl:input>
       <wsdl:output message="tns:obtenerClientesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerClientesANotificar">
+      <wsdl:input message="tns:obtenerClientesANotificarRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:obtenerClientesANotificarResponse">
     </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
@@ -169,10 +206,19 @@
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="obtenerClientesANotificar">
+      <soap:operation soapAction="http://www.example.org/listaEspera/obtenerClientesANotificar"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="listaEspera">
     <wsdl:port name="listaEsperaSOAP" binding="tns:listaEsperaSOAP">
-      <soap:address location="http://www.example.org/"/>
+      <soap:address location="http://localhost:9080/listaEspera/services/listaEspera"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

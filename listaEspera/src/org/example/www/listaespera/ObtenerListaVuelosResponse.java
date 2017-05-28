@@ -21,26 +21,26 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.example.org/listaEspera/",
                 "obtenerListaVuelosResponse",
-                "ns1");
+                "ns2");
 
             
 
                         /**
-                        * field for IdVuelo
+                        * field for IdVuelo1
                         * This was an Array!
                         */
 
                         
-                                    protected int[] localIdVuelo ;
+                                    protected int[] localIdVuelo1 ;
                                 
                            /*  This tracker boolean wil be used to detect whether the user called the set method
                           *   for this attribute. It will be used to determine whether to include this field
                            *   in the serialized XML
                            */
-                           protected boolean localIdVueloTracker = false ;
+                           protected boolean localIdVuelo1Tracker = false ;
 
-                           public boolean isIdVueloSpecified(){
-                               return localIdVueloTracker;
+                           public boolean isIdVuelo1Specified(){
+                               return localIdVuelo1Tracker;
                            }
 
                            
@@ -49,8 +49,8 @@
                            * Auto generated getter method
                            * @return int[]
                            */
-                           public  int[] getIdVuelo(){
-                               return localIdVuelo;
+                           public  int[] getIdVuelo1(){
+                               return localIdVuelo1;
                            }
 
                            
@@ -59,45 +59,45 @@
 
                                
                               /**
-                               * validate the array for IdVuelo
+                               * validate the array for IdVuelo1
                                */
-                              protected void validateIdVuelo(int[] param){
+                              protected void validateIdVuelo1(int[] param){
                              
                               }
 
 
                              /**
                               * Auto generated setter method
-                              * @param param IdVuelo
+                              * @param param IdVuelo1
                               */
-                              public void setIdVuelo(int[] param){
+                              public void setIdVuelo1(int[] param){
                               
-                                   validateIdVuelo(param);
+                                   validateIdVuelo1(param);
 
-                               localIdVueloTracker = param != null;
+                               localIdVuelo1Tracker = param != null;
                                       
-                                      this.localIdVuelo=param;
+                                      this.localIdVuelo1=param;
                               }
 
                                
                              
 
                         /**
-                        * field for IdAerolinea
+                        * field for IdVuelos2
                         * This was an Array!
                         */
 
                         
-                                    protected int[] localIdAerolinea ;
+                                    protected int[] localIdVuelos2 ;
                                 
                            /*  This tracker boolean wil be used to detect whether the user called the set method
                           *   for this attribute. It will be used to determine whether to include this field
                            *   in the serialized XML
                            */
-                           protected boolean localIdAerolineaTracker = false ;
+                           protected boolean localIdVuelos2Tracker = false ;
 
-                           public boolean isIdAerolineaSpecified(){
-                               return localIdAerolineaTracker;
+                           public boolean isIdVuelos2Specified(){
+                               return localIdVuelos2Tracker;
                            }
 
                            
@@ -106,8 +106,8 @@
                            * Auto generated getter method
                            * @return int[]
                            */
-                           public  int[] getIdAerolinea(){
-                               return localIdAerolinea;
+                           public  int[] getIdVuelos2(){
+                               return localIdVuelos2;
                            }
 
                            
@@ -116,24 +116,24 @@
 
                                
                               /**
-                               * validate the array for IdAerolinea
+                               * validate the array for IdVuelos2
                                */
-                              protected void validateIdAerolinea(int[] param){
+                              protected void validateIdVuelos2(int[] param){
                              
                               }
 
 
                              /**
                               * Auto generated setter method
-                              * @param param IdAerolinea
+                              * @param param IdVuelos2
                               */
-                              public void setIdAerolinea(int[] param){
+                              public void setIdVuelos2(int[] param){
                               
-                                   validateIdAerolinea(param);
+                                   validateIdVuelos2(param);
 
-                               localIdAerolineaTracker = param != null;
+                               localIdVuelos2Tracker = param != null;
                                       
-                                      this.localIdAerolinea=param;
+                                      this.localIdVuelos2=param;
                               }
 
                                
@@ -197,17 +197,17 @@
 
                
                    }
-                if (localIdVueloTracker){
-                             if (localIdVuelo!=null) {
+                if (localIdVuelo1Tracker){
+                             if (localIdVuelo1!=null) {
                                    namespace = "";
-                                   for (int i = 0;i < localIdVuelo.length;i++){
+                                   for (int i = 0;i < localIdVuelo1.length;i++){
                                         
-                                                   if (localIdVuelo[i]!=java.lang.Integer.MIN_VALUE) {
+                                                   if (localIdVuelo1[i]!=java.lang.Integer.MIN_VALUE) {
                                                
-                                                writeStartElement(null, namespace, "idVuelo", xmlWriter);
+                                                writeStartElement(null, namespace, "idVuelo1", xmlWriter);
 
                                             
-                                                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdVuelo[i]));
+                                                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdVuelo1[i]));
                                                 xmlWriter.writeEndElement();
                                             
                                                 } else {
@@ -219,21 +219,21 @@
                                    }
                              } else {
                                  
-                                         throw new org.apache.axis2.databinding.ADBException("idVuelo cannot be null!!");
+                                         throw new org.apache.axis2.databinding.ADBException("idVuelo1 cannot be null!!");
                                     
                              }
 
-                        } if (localIdAerolineaTracker){
-                             if (localIdAerolinea!=null) {
+                        } if (localIdVuelos2Tracker){
+                             if (localIdVuelos2!=null) {
                                    namespace = "";
-                                   for (int i = 0;i < localIdAerolinea.length;i++){
+                                   for (int i = 0;i < localIdVuelos2.length;i++){
                                         
-                                                   if (localIdAerolinea[i]!=java.lang.Integer.MIN_VALUE) {
+                                                   if (localIdVuelos2[i]!=java.lang.Integer.MIN_VALUE) {
                                                
-                                                writeStartElement(null, namespace, "idAerolinea", xmlWriter);
+                                                writeStartElement(null, namespace, "idVuelos2", xmlWriter);
 
                                             
-                                                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdAerolinea[i]));
+                                                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdVuelos2[i]));
                                                 xmlWriter.writeEndElement();
                                             
                                                 } else {
@@ -245,7 +245,7 @@
                                    }
                              } else {
                                  
-                                         throw new org.apache.axis2.databinding.ADBException("idAerolinea cannot be null!!");
+                                         throw new org.apache.axis2.databinding.ADBException("idVuelos2 cannot be null!!");
                                     
                              }
 
@@ -257,7 +257,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.example.org/listaEspera/")){
-                return "ns1";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -434,39 +434,39 @@
                  java.util.ArrayList elementList = new java.util.ArrayList();
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
-                 if (localIdVueloTracker){
-                            if (localIdVuelo!=null){
-                                  for (int i = 0;i < localIdVuelo.length;i++){
+                 if (localIdVuelo1Tracker){
+                            if (localIdVuelo1!=null){
+                                  for (int i = 0;i < localIdVuelo1.length;i++){
                                       
                                           elementList.add(new javax.xml.namespace.QName("",
-                                                                                                                       "idVuelo"));
+                                                                                                                       "idVuelo1"));
                                           elementList.add(
-                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdVuelo[i]));
+                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdVuelo1[i]));
 
                                       
 
                                   }
                             } else {
                               
-                                    throw new org.apache.axis2.databinding.ADBException("idVuelo cannot be null!!");
+                                    throw new org.apache.axis2.databinding.ADBException("idVuelo1 cannot be null!!");
                                 
                             }
 
-                        } if (localIdAerolineaTracker){
-                            if (localIdAerolinea!=null){
-                                  for (int i = 0;i < localIdAerolinea.length;i++){
+                        } if (localIdVuelos2Tracker){
+                            if (localIdVuelos2!=null){
+                                  for (int i = 0;i < localIdVuelos2.length;i++){
                                       
                                           elementList.add(new javax.xml.namespace.QName("",
-                                                                                                                       "idAerolinea"));
+                                                                                                                       "idVuelos2"));
                                           elementList.add(
-                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdAerolinea[i]));
+                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdVuelos2[i]));
 
                                       
 
                                   }
                             } else {
                               
-                                    throw new org.apache.axis2.databinding.ADBException("idAerolinea cannot be null!!");
+                                    throw new org.apache.axis2.databinding.ADBException("idVuelos2 cannot be null!!");
                                 
                             }
 
@@ -553,7 +553,7 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","idVuelo").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","idVuelo1").equals(reader.getName())){
                                 
                                     
                                     
@@ -576,7 +576,7 @@
                                                     //two continuous end elements means we are exiting the xml structure
                                                     loopDone1 = true;
                                                 } else {
-                                                    if (new javax.xml.namespace.QName("","idVuelo").equals(reader.getName())){
+                                                    if (new javax.xml.namespace.QName("","idVuelo1").equals(reader.getName())){
                                                          list1.add(reader.getElementText());
                                                         
                                                     }else{
@@ -586,7 +586,7 @@
                                             }
                                             // call the converter utility  to convert and set the array
                                             
-                                            object.setIdVuelo((int[])
+                                            object.setIdVuelo1((int[])
                                                 org.apache.axis2.databinding.utils.ConverterUtil.convertToArray(
                                                             int.class,list1));
                                                 
@@ -599,7 +599,7 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","idAerolinea").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","idVuelos2").equals(reader.getName())){
                                 
                                     
                                     
@@ -622,7 +622,7 @@
                                                     //two continuous end elements means we are exiting the xml structure
                                                     loopDone2 = true;
                                                 } else {
-                                                    if (new javax.xml.namespace.QName("","idAerolinea").equals(reader.getName())){
+                                                    if (new javax.xml.namespace.QName("","idVuelos2").equals(reader.getName())){
                                                          list2.add(reader.getElementText());
                                                         
                                                     }else{
@@ -632,7 +632,7 @@
                                             }
                                             // call the converter utility  to convert and set the array
                                             
-                                            object.setIdAerolinea((int[])
+                                            object.setIdVuelos2((int[])
                                                 org.apache.axis2.databinding.utils.ConverterUtil.convertToArray(
                                                             int.class,list2));
                                                 

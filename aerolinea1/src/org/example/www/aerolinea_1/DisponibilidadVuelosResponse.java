@@ -21,35 +21,35 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.example.org/Aerolinea-1/",
                 "disponibilidadVuelosResponse",
-                "ns2");
+                "ns1");
 
             
 
                         /**
-                        * field for FicheroResultados
+                        * field for Resultados
                         */
 
                         
-                                    protected java.lang.String localFicheroResultados ;
+                                    protected java.lang.String localResultados ;
                                 
 
                            /**
                            * Auto generated getter method
                            * @return java.lang.String
                            */
-                           public  java.lang.String getFicheroResultados(){
-                               return localFicheroResultados;
+                           public  java.lang.String getResultados(){
+                               return localResultados;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param FicheroResultados
+                               * @param param Resultados
                                */
-                               public void setFicheroResultados(java.lang.String param){
+                               public void setResultados(java.lang.String param){
                             
-                                            this.localFicheroResultados=param;
+                                            this.localResultados=param;
                                        
 
                                }
@@ -115,18 +115,18 @@
                    }
                
                                     namespace = "";
-                                    writeStartElement(null, namespace, "ficheroResultados", xmlWriter);
+                                    writeStartElement(null, namespace, "resultados", xmlWriter);
                              
 
-                                          if (localFicheroResultados==null){
+                                          if (localResultados==null){
                                               // write the nil attribute
                                               
-                                                     throw new org.apache.axis2.databinding.ADBException("ficheroResultados cannot be null!!");
+                                                     throw new org.apache.axis2.databinding.ADBException("resultados cannot be null!!");
                                                   
                                           }else{
 
                                         
-                                                   xmlWriter.writeCharacters(localFicheroResultados);
+                                                   xmlWriter.writeCharacters(localResultados);
                                             
                                           }
                                     
@@ -139,7 +139,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.example.org/Aerolinea-1/")){
-                return "ns2";
+                return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -318,12 +318,12 @@
 
                 
                                       elementList.add(new javax.xml.namespace.QName("",
-                                                                      "ficheroResultados"));
+                                                                      "resultados"));
                                  
-                                        if (localFicheroResultados != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localFicheroResultados));
+                                        if (localResultados != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localResultados));
                                         } else {
-                                           throw new org.apache.axis2.databinding.ADBException("ficheroResultados cannot be null!!");
+                                           throw new org.apache.axis2.databinding.ADBException("resultados cannot be null!!");
                                         }
                                     
 
@@ -404,17 +404,17 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","ficheroResultados").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","resultados").equals(reader.getName())){
                                 
                                     nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                     if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"ficheroResultados" +"  cannot be null");
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"resultados" +"  cannot be null");
                                     }
                                     
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setFicheroResultados(
+                                              object.setResultados(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                               
                                         reader.next();

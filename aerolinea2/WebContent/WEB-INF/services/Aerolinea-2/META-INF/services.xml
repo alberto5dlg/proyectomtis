@@ -1,26 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
     <service name="Aerolinea-2">
         <messageReceivers>
-            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.aerolinea_1.Aerolinea2MessageReceiverInOut"/>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.aerolinea_2.Aerolinea2MessageReceiverInOut"/>
         </messageReceivers>
-        <parameter name="ServiceClass">org.example.www.aerolinea_1.Aerolinea2Skeleton</parameter>
+        <parameter name="ServiceClass">org.example.www.aerolinea_2.Aerolinea2Skeleton</parameter>
         <parameter name="useOriginalwsdl">true</parameter>
         <parameter name="modifyUserWSDLPortAddress">true</parameter>
-        <operation name="reservarVuelo" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-1/">
+        <operation name="disponibilidadVuelosConSoloFecha" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-2/">
+            <actionMapping>http://www.example.org/Aerolinea-2/disponibilidadVuelosConSoloFecha</actionMapping>
+            <outputActionMapping>http://www.example.org/Aerolinea-2/Aerolinea-2/disponibilidadVuelosConSoloFechaResponse</outputActionMapping>
+        </operation>
+        <operation name="reservarVuelo" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-2/">
             <actionMapping>http://www.example.org/Aerolinea-1/reservarVuelo</actionMapping>
-            <outputActionMapping>http://www.example.org/Aerolinea-1/Aerolinea-2/reservarVueloResponse</outputActionMapping>
+            <outputActionMapping>http://www.example.org/Aerolinea-2/Aerolinea-2/reservarVueloResponse</outputActionMapping>
         </operation>
-        <operation name="disponibilidadVuelos" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-1/">
+        <operation name="hayPlazasListado" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-2/">
+            <actionMapping>http://www.example.org/Aerolinea-2/hayPlazasListado</actionMapping>
+            <outputActionMapping>http://www.example.org/Aerolinea-2/Aerolinea-2/hayPlazasListadoResponse</outputActionMapping>
+        </operation>
+        <operation name="disponibilidadVuelos" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-2/">
             <actionMapping>http://www.example.org/Aerolinea-1/disponibilidadVuelos</actionMapping>
-            <outputActionMapping>http://www.example.org/Aerolinea-1/Aerolinea-2/disponibilidadVuelosResponse</outputActionMapping>
+            <outputActionMapping>http://www.example.org/Aerolinea-2/Aerolinea-2/disponibilidadVuelosResponse</outputActionMapping>
         </operation>
-        <operation name="hayPlazas" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-1/">
-            <actionMapping>http://www.example.org/Aerolinea-1/hayPlazas</actionMapping>
-            <outputActionMapping>http://www.example.org/Aerolinea-1/Aerolinea-2/hayPlazasResponse</outputActionMapping>
-        </operation>
-        <operation name="cancelarVuelo" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-1/">
+        <operation name="cancelarVuelo" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-2/">
             <actionMapping>http://www.example.org/Aerolinea-1/cancelarVuelo</actionMapping>
-            <outputActionMapping>http://www.example.org/Aerolinea-1/Aerolinea-2/cancelarVueloResponse</outputActionMapping>
+            <outputActionMapping>http://www.example.org/Aerolinea-2/Aerolinea-2/cancelarVueloResponse</outputActionMapping>
+        </operation>
+        <operation name="hayPlazas" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-2/">
+            <actionMapping>http://www.example.org/Aerolinea-1/hayPlazas</actionMapping>
+            <outputActionMapping>http://www.example.org/Aerolinea-2/Aerolinea-2/hayPlazasResponse</outputActionMapping>
         </operation>
     </service>
 </serviceGroup>

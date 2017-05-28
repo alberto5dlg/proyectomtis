@@ -18,7 +18,7 @@ public class Aerolinea {
 
 	private static java.sql.Date fechaAntes;
 	private static java.sql.Date fechaDespues;
-	private static boolean salidaJson = true;
+	public static boolean salidaJson = true;
 	private static Connection conexion;
 	private static int balance = 3;
 	public static int plazasLibres = 0;
@@ -34,36 +34,87 @@ public class Aerolinea {
 		String salida = "";
         ResultSet resultado;
         setFecha(fecha);
-        String sql = "select id, coste from aerolinea" + idAerolinea +" where origen = '"+ origen + "' and destino = '" + destino + "' and fecha BETWEEN '" + fechaAntes + "' and '" + fechaDespues+ "';";
+        String sql = "select id, coste, plazas from aerolinea" + idAerolinea +" where origen = '"+ origen + "' and destino = '" + destino + "' and fecha BETWEEN '" + fechaAntes + "' and '" + fechaDespues+ "';";
         System.out.println(sql);
         Statement s = prepararConexion();
         resultado = s.executeQuery (sql); 
+        
         if(salidaJson){
         	salida = convertResultSetToJson(resultado);
         }else {
             salida = convertToXML(resultado);
         }
+        System.out.println(salida);
         resultado.last(); 
-        //JSONObject json = new JSONObject("hola");
-        //String xml = XML.toString(json);
+        
         if(resultado.getRow() <= 0){ 
             System.out.println("No se ha encontrado info");
 		}         	
-        conexion.close();     
+        conexion.close();   
         return salida;
     }
 	
-	/*
-	public static boolean reservarVuelo(int idAerolinea, int idVuelo,String idCliente,int plazas)  throws Exception {
-		String sqlInsert = "INSERT INTO reserva" + idAerolinea + " (idVuelo, idCliente, plazas) VALUES ('" + idVuelo + "', '" + idCliente + "', " + plazas +");";
-		System.out.println(sqlInsert);
-		Statement s = prepararConexion();
-		int aux = s.executeUpdate(sqlInsert);
-		System.out.println(aux);
-		conexion.close(); 
-		return true;
+	public static String  consultarDisponibilidadSoloFecha(int idAerolinea,java.util.Date fecha)  throws Exception {
+		String salida = "";
+        ResultSet resultado;
+        setFecha(fecha);
+        String sql = "select id, coste, plazas from aerolinea" + idAerolinea +" where fecha BETWEEN '" + fechaAntes + "' and '" + fechaDespues+ "';";
+        System.out.println(sql);
+        Statement s = prepararConexion();
+        resultado = s.executeQuery (sql); 
+        
+        if(salidaJson){
+        	salida = convertResultSetToJson(resultado);
+        }else {
+            salida = convertToXML(resultado);
+        }
+        System.out.println(salida);
+        resultado.last(); 
+        
+        if(resultado.getRow() <= 0){ 
+            System.out.println("No se ha encontrado info");
+		}         	
+        conexion.close();   
+        return salida;
+    }
+	
+	public static int[]  hayPlazasListado(int idAerolinea,int[] idVuelos)  throws Exception {
+        ResultSet resultado;
+        String sql = "select plazas from aerolinea" + idAerolinea +" where id in (";
+        int numVuelos = idVuelos.length;
+        for(int i=0; i<idVuelos.length; i++){
+        	sql = sql + idVuelos[i] + ",";
+        }
+        sql = sql.substring(0,sql.length()-1) + ");";
+        System.out.println(sql);
+        Statement s = prepararConexion();
+        resultado = s.executeQuery (sql); 
+        int[] plazas = new int[numVuelos];
+        int k = 0;
+        while(resultado.next()){
+        	plazas[k] = resultado.getInt(1);
+        	k++;
+		}      
+        resultado.last(); 
+        if(resultado.getRow() <= 0){ 
+            System.out.println("No se ha encontrado info sobre los vuelos");
+		}         	
+        conexion.close();   
+        return plazas;
+    }
+	
+	private static String jsonToXml(String entrada){
+		JSONArray json = new JSONArray(entrada);
+        String xml = XML.toString(json);
+        return xml;
 	}
-	*/
+	
+	private static String xmlToJson(String entrada){
+		JSONObject jo = XML.toJSONObject(entrada);
+		JSONObject books = jo.getJSONObject("results");
+	    return books.toString();
+	}
+	
 	public static boolean  reservarVuelo(int idAerolinea, int idVuelo,String idCliente,int plazas) throws Exception {
         int plazasDespues = numPlazas(idAerolinea,idVuelo);
         boolean estado = true;

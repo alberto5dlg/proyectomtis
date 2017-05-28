@@ -39,77 +39,115 @@
 
             if("reservarVuelo".equals(methodName)){
                 
-                org.example.www.aerolinea_1.ReservarVueloResponse reservarVueloResponse17 = null;
+                org.example.www.aerolinea_1.ReservarVueloResponse reservarVueloResponse25 = null;
 	                        org.example.www.aerolinea_1.ReservarVuelo wrappedParam =
                                                              (org.example.www.aerolinea_1.ReservarVuelo)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.aerolinea_1.ReservarVuelo.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               reservarVueloResponse17 =
+                                               reservarVueloResponse25 =
                                                    
                                                    
                                                          skel.reservarVuelo(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), reservarVueloResponse17, false, new javax.xml.namespace.QName("http://www.example.org/Aerolinea-1/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), reservarVueloResponse25, false, new javax.xml.namespace.QName("http://www.example.org/Aerolinea-1/",
                                                     "reservarVuelo"));
+                                    } else 
+
+            if("disponibilidadVuelosConSoloFecha".equals(methodName)){
+                
+                org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFechaResponse disponibilidadVuelosConSoloFechaResponse27 = null;
+	                        org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFecha wrappedParam =
+                                                             (org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFecha)fromOM(
+                                    msgContext.getEnvelope().getBody().getFirstElement(),
+                                    org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFecha.class,
+                                    getEnvelopeNamespaces(msgContext.getEnvelope()));
+                                                
+                                               disponibilidadVuelosConSoloFechaResponse27 =
+                                                   
+                                                   
+                                                         skel.disponibilidadVuelosConSoloFecha(wrappedParam)
+                                                    ;
+                                            
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), disponibilidadVuelosConSoloFechaResponse27, false, new javax.xml.namespace.QName("http://www.example.org/Aerolinea-1/",
+                                                    "disponibilidadVuelosConSoloFecha"));
+                                    } else 
+
+            if("hayPlazasListado".equals(methodName)){
+                
+                org.example.www.aerolinea_1.HayPlazasListadoResponse hayPlazasListadoResponse29 = null;
+	                        org.example.www.aerolinea_1.HayPlazasListado wrappedParam =
+                                                             (org.example.www.aerolinea_1.HayPlazasListado)fromOM(
+                                    msgContext.getEnvelope().getBody().getFirstElement(),
+                                    org.example.www.aerolinea_1.HayPlazasListado.class,
+                                    getEnvelopeNamespaces(msgContext.getEnvelope()));
+                                                
+                                               hayPlazasListadoResponse29 =
+                                                   
+                                                   
+                                                         skel.hayPlazasListado(wrappedParam)
+                                                    ;
+                                            
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), hayPlazasListadoResponse29, false, new javax.xml.namespace.QName("http://www.example.org/Aerolinea-1/",
+                                                    "hayPlazasListado"));
                                     } else 
 
             if("disponibilidadVuelos".equals(methodName)){
                 
-                org.example.www.aerolinea_1.DisponibilidadVuelosResponse disponibilidadVuelosResponse19 = null;
+                org.example.www.aerolinea_1.DisponibilidadVuelosResponse disponibilidadVuelosResponse31 = null;
 	                        org.example.www.aerolinea_1.DisponibilidadVuelos wrappedParam =
                                                              (org.example.www.aerolinea_1.DisponibilidadVuelos)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.aerolinea_1.DisponibilidadVuelos.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               disponibilidadVuelosResponse19 =
+                                               disponibilidadVuelosResponse31 =
                                                    
                                                    
                                                          skel.disponibilidadVuelos(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), disponibilidadVuelosResponse19, false, new javax.xml.namespace.QName("http://www.example.org/Aerolinea-1/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), disponibilidadVuelosResponse31, false, new javax.xml.namespace.QName("http://www.example.org/Aerolinea-1/",
                                                     "disponibilidadVuelos"));
                                     } else 
 
             if("hayPlazas".equals(methodName)){
                 
-                org.example.www.aerolinea_1.HayPlazasResponse hayPlazasResponse21 = null;
+                org.example.www.aerolinea_1.HayPlazasResponse hayPlazasResponse33 = null;
 	                        org.example.www.aerolinea_1.HayPlazas wrappedParam =
                                                              (org.example.www.aerolinea_1.HayPlazas)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.aerolinea_1.HayPlazas.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               hayPlazasResponse21 =
+                                               hayPlazasResponse33 =
                                                    
                                                    
                                                          skel.hayPlazas(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), hayPlazasResponse21, false, new javax.xml.namespace.QName("http://www.example.org/Aerolinea-1/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), hayPlazasResponse33, false, new javax.xml.namespace.QName("http://www.example.org/Aerolinea-1/",
                                                     "hayPlazas"));
                                     } else 
 
             if("cancelarVuelo".equals(methodName)){
                 
-                org.example.www.aerolinea_1.CancelarVueloResponse cancelarVueloResponse23 = null;
+                org.example.www.aerolinea_1.CancelarVueloResponse cancelarVueloResponse35 = null;
 	                        org.example.www.aerolinea_1.CancelarVuelo wrappedParam =
                                                              (org.example.www.aerolinea_1.CancelarVuelo)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.aerolinea_1.CancelarVuelo.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               cancelarVueloResponse23 =
+                                               cancelarVueloResponse35 =
                                                    
                                                    
                                                          skel.cancelarVuelo(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), cancelarVueloResponse23, false, new javax.xml.namespace.QName("http://www.example.org/Aerolinea-1/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), cancelarVueloResponse35, false, new javax.xml.namespace.QName("http://www.example.org/Aerolinea-1/",
                                                     "cancelarVuelo"));
                                     
             } else {
@@ -146,6 +184,62 @@
             
                         try{
                              return param.getOMElement(org.example.www.aerolinea_1.ReservarVueloResponse.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFecha param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFecha.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFechaResponse param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFechaResponse.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.aerolinea_1.HayPlazasListado param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.aerolinea_1.HayPlazasListado.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.aerolinea_1.HayPlazasListadoResponse param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.aerolinea_1.HayPlazasListadoResponse.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -257,6 +351,44 @@
                                 return wrappedElement;
                          }
                     
+                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFechaResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                        throws org.apache.axis2.AxisFault{
+                      try{
+                          org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+                           
+                                    emptyEnvelope.getBody().addChild(param.getOMElement(org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFechaResponse.MY_QNAME,factory));
+                                
+
+                         return emptyEnvelope;
+                    } catch(org.apache.axis2.databinding.ADBException e){
+                        throw org.apache.axis2.AxisFault.makeFault(e);
+                    }
+                    }
+                    
+                         private org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFechaResponse wrapdisponibilidadVuelosConSoloFecha(){
+                                org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFechaResponse wrappedElement = new org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFechaResponse();
+                                return wrappedElement;
+                         }
+                    
+                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, org.example.www.aerolinea_1.HayPlazasListadoResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                        throws org.apache.axis2.AxisFault{
+                      try{
+                          org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+                           
+                                    emptyEnvelope.getBody().addChild(param.getOMElement(org.example.www.aerolinea_1.HayPlazasListadoResponse.MY_QNAME,factory));
+                                
+
+                         return emptyEnvelope;
+                    } catch(org.apache.axis2.databinding.ADBException e){
+                        throw org.apache.axis2.AxisFault.makeFault(e);
+                    }
+                    }
+                    
+                         private org.example.www.aerolinea_1.HayPlazasListadoResponse wraphayPlazasListado(){
+                                org.example.www.aerolinea_1.HayPlazasListadoResponse wrappedElement = new org.example.www.aerolinea_1.HayPlazasListadoResponse();
+                                return wrappedElement;
+                         }
+                    
                     private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, org.example.www.aerolinea_1.DisponibilidadVuelosResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                         throws org.apache.axis2.AxisFault{
                       try{
@@ -352,6 +484,20 @@
 
                 }
             
+                if (org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFecha.class.equals(type)){
+                
+                        return org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFecha.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
+                if (org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFechaResponse.class.equals(type)){
+                
+                        return org.example.www.aerolinea_1.DisponibilidadVuelosConSoloFechaResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
                 if (org.example.www.aerolinea_1.DisponibilidadVuelosResponse.class.equals(type)){
                 
                         return org.example.www.aerolinea_1.DisponibilidadVuelosResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
@@ -362,6 +508,20 @@
                 if (org.example.www.aerolinea_1.HayPlazas.class.equals(type)){
                 
                         return org.example.www.aerolinea_1.HayPlazas.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
+                if (org.example.www.aerolinea_1.HayPlazasListado.class.equals(type)){
+                
+                        return org.example.www.aerolinea_1.HayPlazasListado.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
+                if (org.example.www.aerolinea_1.HayPlazasListadoResponse.class.equals(type)){
+                
+                        return org.example.www.aerolinea_1.HayPlazasListadoResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

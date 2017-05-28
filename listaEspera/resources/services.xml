@@ -6,6 +6,10 @@
         <parameter name="ServiceClass">org.example.www.listaespera.ListaEsperaSkeleton</parameter>
         <parameter name="useOriginalwsdl">true</parameter>
         <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="obtenerClientesANotificar" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/listaEspera/">
+            <actionMapping>http://www.example.org/listaEspera/obtenerClientesANotificar</actionMapping>
+            <outputActionMapping>http://www.example.org/listaEspera/listaEspera/obtenerClientesANotificarResponse</outputActionMapping>
+        </operation>
         <operation name="anyadirAListaDeEspera" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/listaEspera/">
             <actionMapping>http://www.example.org/listaEspera/anyadirAListaDeEspera</actionMapping>
             <outputActionMapping>http://www.example.org/listaEspera/listaEspera/anyadirAListaDeEsperaResponse</outputActionMapping>

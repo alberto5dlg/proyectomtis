@@ -5,6 +5,8 @@
       <xsd:element name="anyadirAListaDeEspera">
         <xsd:complexType>
           <xsd:sequence>
+          	<xsd:element name="origen" type="xsd:string"></xsd:element>
+          	<xsd:element name="destino" type="xsd:string"></xsd:element>
           	<xsd:element name="idVuelo" type="xsd:int" />
           	<xsd:element name="idAerolinea" type="xsd:int"></xsd:element>
           	<xsd:element name="correo" type="xsd:string"></xsd:element>
@@ -47,8 +49,8 @@
       	<xsd:complexType>
       		<xsd:sequence>
 
-      			<xsd:element name="idVuelo" type="xsd:int" maxOccurs="unbounded" minOccurs="0"></xsd:element>
-      			<xsd:element name="idAerolinea" type="xsd:int" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+      			<xsd:element name="idVuelo1" type="xsd:int" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+      			<xsd:element name="idVuelos2" type="xsd:int" maxOccurs="unbounded" minOccurs="0"></xsd:element>
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
@@ -69,6 +71,29 @@
       				maxOccurs="unbounded" minOccurs="0">
       			</xsd:element>
       			<xsd:element name="plazas" type="xsd:int" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="obtenerClientesANotificar">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idAerolinea" type="xsd:int"></xsd:element>
+      			<xsd:element name="vuelos" type="xsd:int"
+      				maxOccurs="unbounded" minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="plazas" type="xsd:int"
+      				maxOccurs="unbounded" minOccurs="0">
+      			</xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="obtenerClientesANotificarResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="correos" type="xsd:string" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+      			<xsd:element name="mensajes" type="xsd:string" maxOccurs="unbounded" minOccurs="0"></xsd:element>
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
@@ -98,6 +123,12 @@
   <wsdl:message name="obtenerClientesResponse">
   	<wsdl:part name="parameters" element="tns:obtenerClientesResponse"></wsdl:part>
   </wsdl:message>
+  <wsdl:message name="obtenerClientesANotificarRequest">
+  	<wsdl:part name="parameters" element="tns:obtenerClientesANotificar"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obtenerClientesANotificarResponse">
+  	<wsdl:part name="parameters" element="tns:obtenerClientesANotificarResponse"></wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="listaEspera">
     <wsdl:operation name="anyadirAListaDeEspera">
       <wsdl:input message="tns:anyadirAListaDeEsperaRequest"/>
@@ -114,6 +145,10 @@
     <wsdl:operation name="obtenerClientes">
     	<wsdl:input message="tns:obtenerClientesRequest"></wsdl:input>
     	<wsdl:output message="tns:obtenerClientesResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerClientesANotificar">
+    	<wsdl:input message="tns:obtenerClientesANotificarRequest"></wsdl:input>
+    	<wsdl:output message="tns:obtenerClientesANotificarResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="listaEsperaSOAP" type="tns:listaEspera">
@@ -159,10 +194,20 @@
   			<soap:body use="literal" />
   		</wsdl:output>
   	</wsdl:operation>
+  	<wsdl:operation name="obtenerClientesANotificar">
+  		<soap:operation
+  			soapAction="http://www.example.org/listaEspera/obtenerClientesANotificar" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="listaEspera">
     <wsdl:port binding="tns:listaEsperaSOAP" name="listaEsperaSOAP">
-      <soap:address location="http://www.example.org/"/>
+      <soap:address location="http://localhost:9080/listaEspera/services/listaEspera"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

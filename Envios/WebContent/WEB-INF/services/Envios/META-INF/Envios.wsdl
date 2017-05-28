@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Envios" targetNamespace="http://www.example.org/Envios/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/Envios/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/Envios/">
+      <xsd:element name="EnviarCorreo">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="destinatario" type="xsd:string"/>
+          	<xsd:element name="asunto" type="xsd:string"/>
+          	<xsd:element name="mensaje" type="xsd:string"/>
+          	<xsd:element name="fichero" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EnviarCorreoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="enviado" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EnviarListado">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="destinatario" type="xsd:string"/>
+      			<xsd:element name="asunto" type="xsd:string"/>
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="mensaje" type="xsd:string"/>
+      			<xsd:element name="fichero" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EnviarListadoResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="enviado" type="xsd:boolean"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="EnviarCorreoRequest">
+    <wsdl:part name="parameters" element="tns:EnviarCorreo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="EnviarListadoResponse">
+    <wsdl:part name="parameters" element="tns:EnviarListadoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="EnviarListadoRequest">
+    <wsdl:part name="parameters" element="tns:EnviarListado">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="EnviarCorreoResponse">
+    <wsdl:part name="parameters" element="tns:EnviarCorreoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Envios">
+    <wsdl:operation name="EnviarCorreo">
+      <wsdl:input message="tns:EnviarCorreoRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:EnviarCorreoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarListado">
+      <wsdl:input message="tns:EnviarListadoRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:EnviarListadoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EnviosSOAP" type="tns:Envios">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="EnviarCorreo">
+      <soap:operation soapAction="http://www.example.org/Envios/EnviarCorreo"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarListado">
+      <soap:operation soapAction="http://www.example.org/Envios/EnviarListado"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Envios">
+    <wsdl:port name="EnviosSOAP" binding="tns:EnviosSOAP">
+      <soap:address location="http://localhost:9080/Envios/services/Envios"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

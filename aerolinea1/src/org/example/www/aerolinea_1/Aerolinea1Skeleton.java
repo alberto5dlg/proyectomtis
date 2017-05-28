@@ -10,12 +10,6 @@
      *  Aerolinea1Skeleton java skeleton for the axisService
      */
     public class Aerolinea1Skeleton{
-    	 
-        /**
-         * Auto generated method signature
-         * @param reservarVuelo 
-         * @return reservarVueloResponse 
-         */
         
     	public ReservarVueloResponse reservarVuelo(ReservarVuelo ent) {
 			ReservarVueloResponse res = new ReservarVueloResponse();
@@ -26,33 +20,29 @@
 				}
 	       	 return res;
 		}
+         
+        public DisponibilidadVuelosConSoloFechaResponse disponibilidadVuelosConSoloFecha(DisponibilidadVuelosConSoloFecha ent){
+        	DisponibilidadVuelosConSoloFechaResponse res = new DisponibilidadVuelosConSoloFechaResponse();
+        	try {
+				res.setResultados(Aerolinea.consultarDisponibilidadSoloFecha(1, ent.getFecha()));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+        	return res;
+        }
      
          
-        /**
-         * Auto generated method signature
-         * 
-                                     * @param disponibilidadVuelos 
-             * @return disponibilidadVuelosResponse 
-         */
-        
          public DisponibilidadVuelosResponse disponibilidadVuelos(DisponibilidadVuelos ent){
-           	 DisponibilidadVuelosResponse res = new DisponibilidadVuelosResponse();
-           	 try {
-    				res.setFicheroResultados(Aerolinea.consultarDisponibilidad(1,ent.getOrigen(),ent.getDestino(),ent.getFecha()));
-    			} catch (Exception e) {
-    				e.printStackTrace();
-    			}
-           	 return res; 
-           }
+          	 DisponibilidadVuelosResponse res = new DisponibilidadVuelosResponse();
+          	 try {
+   				res.setResultados(Aerolinea.consultarDisponibilidad(1,ent.getOrigen(),ent.getDestino(),ent.getFecha()));
+   			} catch (Exception e) {
+   				e.printStackTrace();
+   			}
+          	 return res; 
+          }
      
          
-        /**
-         * Auto generated method signature
-         * 
-                                     * @param hayPlazas 
-             * @return hayPlazasResponse 
-         */
-        
          public HayPlazasResponse hayPlazas(HayPlazas ent){
         	 HayPlazasResponse res = new HayPlazasResponse();
            	 try {
@@ -63,7 +53,18 @@
     			}
            	 return res; 
          }
-     
+               
+       
+         public HayPlazasListadoResponse hayPlazasListado(HayPlazasListado ent){
+        	 HayPlazasListadoResponse res = new HayPlazasListadoResponse();
+        	 try {
+				res.setPlazas(Aerolinea.hayPlazasListado(1, ent.getIdVuelos()));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+        	 return res;
+         }
+    
          
         /**
          * Auto generated method signature
@@ -80,5 +81,6 @@
                 //TODO : fill this with the necessary business logic
                 throw new  java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#cancelarVuelo");
         }
+     
     }
     

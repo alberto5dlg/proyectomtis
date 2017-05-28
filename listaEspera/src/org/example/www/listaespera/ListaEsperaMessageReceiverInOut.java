@@ -37,79 +37,98 @@
 
         
 
+            if("obtenerClientesANotificar".equals(methodName)){
+                
+                org.example.www.listaespera.ObtenerClientesANotificarResponse obtenerClientesANotificarResponse21 = null;
+	                        org.example.www.listaespera.ObtenerClientesANotificar wrappedParam =
+                                                             (org.example.www.listaespera.ObtenerClientesANotificar)fromOM(
+                                    msgContext.getEnvelope().getBody().getFirstElement(),
+                                    org.example.www.listaespera.ObtenerClientesANotificar.class,
+                                    getEnvelopeNamespaces(msgContext.getEnvelope()));
+                                                
+                                               obtenerClientesANotificarResponse21 =
+                                                   
+                                                   
+                                                         skel.obtenerClientesANotificar(wrappedParam)
+                                                    ;
+                                            
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), obtenerClientesANotificarResponse21, false, new javax.xml.namespace.QName("http://www.example.org/listaEspera/",
+                                                    "obtenerClientesANotificar"));
+                                    } else 
+
             if("anyadirAListaDeEspera".equals(methodName)){
                 
-                org.example.www.listaespera.AnyadirAListaDeEsperaResponse anyadirAListaDeEsperaResponse17 = null;
+                org.example.www.listaespera.AnyadirAListaDeEsperaResponse anyadirAListaDeEsperaResponse23 = null;
 	                        org.example.www.listaespera.AnyadirAListaDeEspera wrappedParam =
                                                              (org.example.www.listaespera.AnyadirAListaDeEspera)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.listaespera.AnyadirAListaDeEspera.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               anyadirAListaDeEsperaResponse17 =
+                                               anyadirAListaDeEsperaResponse23 =
                                                    
                                                    
                                                          skel.anyadirAListaDeEspera(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), anyadirAListaDeEsperaResponse17, false, new javax.xml.namespace.QName("http://www.example.org/listaEspera/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), anyadirAListaDeEsperaResponse23, false, new javax.xml.namespace.QName("http://www.example.org/listaEspera/",
                                                     "anyadirAListaDeEspera"));
                                     } else 
 
             if("obtenerListaVuelos".equals(methodName)){
                 
-                org.example.www.listaespera.ObtenerListaVuelosResponse obtenerListaVuelosResponse19 = null;
+                org.example.www.listaespera.ObtenerListaVuelosResponse obtenerListaVuelosResponse25 = null;
 	                        org.example.www.listaespera.ObtenerListaVuelos wrappedParam =
                                                              (org.example.www.listaespera.ObtenerListaVuelos)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.listaespera.ObtenerListaVuelos.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               obtenerListaVuelosResponse19 =
+                                               obtenerListaVuelosResponse25 =
                                                    
                                                    
                                                          skel.obtenerListaVuelos(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), obtenerListaVuelosResponse19, false, new javax.xml.namespace.QName("http://www.example.org/listaEspera/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), obtenerListaVuelosResponse25, false, new javax.xml.namespace.QName("http://www.example.org/listaEspera/",
                                                     "obtenerListaVuelos"));
                                     } else 
 
             if("hayClientesEnEspera".equals(methodName)){
                 
-                org.example.www.listaespera.HayClientesEnEsperaResponse hayClientesEnEsperaResponse21 = null;
+                org.example.www.listaespera.HayClientesEnEsperaResponse hayClientesEnEsperaResponse27 = null;
 	                        org.example.www.listaespera.HayClientesEnEspera wrappedParam =
                                                              (org.example.www.listaespera.HayClientesEnEspera)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.listaespera.HayClientesEnEspera.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               hayClientesEnEsperaResponse21 =
+                                               hayClientesEnEsperaResponse27 =
                                                    
                                                    
                                                          skel.hayClientesEnEspera(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), hayClientesEnEsperaResponse21, false, new javax.xml.namespace.QName("http://www.example.org/listaEspera/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), hayClientesEnEsperaResponse27, false, new javax.xml.namespace.QName("http://www.example.org/listaEspera/",
                                                     "hayClientesEnEspera"));
                                     } else 
 
             if("obtenerClientes".equals(methodName)){
                 
-                org.example.www.listaespera.ObtenerClientesResponse obtenerClientesResponse23 = null;
+                org.example.www.listaespera.ObtenerClientesResponse obtenerClientesResponse29 = null;
 	                        org.example.www.listaespera.ObtenerClientes wrappedParam =
                                                              (org.example.www.listaespera.ObtenerClientes)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     org.example.www.listaespera.ObtenerClientes.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               obtenerClientesResponse23 =
+                                               obtenerClientesResponse29 =
                                                    
                                                    
                                                          skel.obtenerClientes(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), obtenerClientesResponse23, false, new javax.xml.namespace.QName("http://www.example.org/listaEspera/",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), obtenerClientesResponse29, false, new javax.xml.namespace.QName("http://www.example.org/listaEspera/",
                                                     "obtenerClientes"));
                                     
             } else {
@@ -126,6 +145,34 @@
         }
         
         //
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.listaespera.ObtenerClientesANotificar param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.listaespera.ObtenerClientesANotificar.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(org.example.www.listaespera.ObtenerClientesANotificarResponse param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(org.example.www.listaespera.ObtenerClientesANotificarResponse.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
             private  org.apache.axiom.om.OMElement  toOM(org.example.www.listaespera.AnyadirAListaDeEspera param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
@@ -238,6 +285,25 @@
 
             }
         
+                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, org.example.www.listaespera.ObtenerClientesANotificarResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                        throws org.apache.axis2.AxisFault{
+                      try{
+                          org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+                           
+                                    emptyEnvelope.getBody().addChild(param.getOMElement(org.example.www.listaespera.ObtenerClientesANotificarResponse.MY_QNAME,factory));
+                                
+
+                         return emptyEnvelope;
+                    } catch(org.apache.axis2.databinding.ADBException e){
+                        throw org.apache.axis2.AxisFault.makeFault(e);
+                    }
+                    }
+                    
+                         private org.example.www.listaespera.ObtenerClientesANotificarResponse wrapobtenerClientesANotificar(){
+                                org.example.www.listaespera.ObtenerClientesANotificarResponse wrappedElement = new org.example.www.listaespera.ObtenerClientesANotificarResponse();
+                                return wrappedElement;
+                         }
+                    
                     private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, org.example.www.listaespera.AnyadirAListaDeEsperaResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                         throws org.apache.axis2.AxisFault{
                       try{
@@ -362,6 +428,20 @@
                 if (org.example.www.listaespera.ObtenerClientes.class.equals(type)){
                 
                         return org.example.www.listaespera.ObtenerClientes.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
+                if (org.example.www.listaespera.ObtenerClientesANotificar.class.equals(type)){
+                
+                        return org.example.www.listaespera.ObtenerClientesANotificar.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+            
+                if (org.example.www.listaespera.ObtenerClientesANotificarResponse.class.equals(type)){
+                
+                        return org.example.www.listaespera.ObtenerClientesANotificarResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

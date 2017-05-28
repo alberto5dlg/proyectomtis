@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://proyecto.mtis" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://www.example.org/Aerolinea-1/" xmlns:wsdl1="http://www.example.org/Aerolinea-2/" name="BPEL_ReservarVuelo" targetNamespace="http://proyecto.mtis">
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     TYPE DEFINITION - List of types participating in this BPEL process 
+     The BPEL Designer will generate default request and response types
+     but you can define or import any XML Schema type and use them as part 
+     of the message types.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="Aerolinea1PLN">
+    <plnk:role name="Aerolinea1Role" portType="wsdl:Aerolinea-1"/>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="Aerolinea2PLN">
+    <plnk:role name="Aerolinea2Role" portType="wsdl1:Aerolinea-2"/>
+  </plnk:partnerLinkType>
+    <import location="Aerolinea-1.wsdl" namespace="http://www.example.org/Aerolinea-1/"/>
+    <import location="Aerolinea-2.wsdl" namespace="http://www.example.org/Aerolinea-2/"/>
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://proyecto.mtis">
+
+            <element name="BPEL_ReservarVueloRequest">
+                <complexType>
+                    <sequence>
+                    	<element name="idAerolinea" type="int"/>
+                    	<element name="idVuelo" type="string"/>
+                    	<element name="idCliente" type="int"/>
+                    	<element name="plazas" type="int"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="BPEL_ReservarVueloResponse">
+                <complexType>
+                    <sequence>
+                        <element name="salida" type="boolean"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+    </types>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     MESSAGE TYPE DEFINITION - Definition of the message types used as 
+     part of the port type defintions
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <message name="BPEL_ReservarVueloRequestMessage">
+        <part element="tns:BPEL_ReservarVueloRequest" name="payload"/>
+    </message>
+    <message name="BPEL_ReservarVueloResponseMessage">
+        <part element="tns:BPEL_ReservarVueloResponse" name="payload"/>
+    </message>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PORT TYPE DEFINITION - A port type groups a set of operations into
+     a logical service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+
+    <!-- portType implemented by the BPEL_ReservarVuelo BPEL process -->
+    <portType name="BPEL_ReservarVuelo">
+        <operation name="process">
+            <input message="tns:BPEL_ReservarVueloRequestMessage"/>
+            <output message="tns:BPEL_ReservarVueloResponseMessage"/>
+        </operation>
+    </portType>   
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PARTNER LINK TYPE DEFINITION
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="BPEL_ReservarVuelo">
+        <plnk:role name="BPEL_ReservarVueloProvider" portType="tns:BPEL_ReservarVuelo"/>
+    </plnk:partnerLinkType>
+    
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     BINDING DEFINITION - Defines the message format and protocol details
+     for a web service.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <binding name="BPEL_ReservarVueloBinding"
+    	type="tns:BPEL_ReservarVuelo">
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<operation name="process">
+    		<soap:operation soapAction="http://proyecto.mtis/process" />
+    		<input>
+    			<soap:body use="literal" />
+    		</input>
+    		<output>
+    			<soap:body use="literal" />
+    		</output>
+    	</operation>
+    </binding>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     SERVICE DEFINITION - A service groups a set of ports into
+     a service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <service name="BPEL_ReservarVueloService">
+    	<port binding="tns:BPEL_ReservarVueloBinding" name="BPEL_ReservarVueloPort">
+    		<soap:address location="http://localhost:8080/ode/processes/BPEL_ReservarVuelo"/>
+    	</port>
+    </service>
+</definitions>

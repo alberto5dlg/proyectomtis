@@ -7,9 +7,11 @@ import java.sql.Statement;
 public class ListaEspera {
 	private static Connection conexion;
 	public static int[] idAerolineas;
-	public static int[] idVuelos;
+	public static int[] idVuelos1;
+	public static int[] idVuelos2;
 	public static int[] plazas;
 	public static String[] correos;
+	public static String[] mensajes;
 	
 	
 	private static Statement prepararConexion() throws Exception{
@@ -19,11 +21,11 @@ public class ListaEspera {
         return conexion.createStatement();
 	}
 		
-	public static boolean  AnyadirAListaDeEspera(int idAerolinea, int idVuelo,String correoCliente,int plazas) throws Exception {
+	public static boolean  AnyadirAListaDeEspera(int idAerolinea, int idVuelo,String correoCliente,int plazas,String origen, String destino) throws Exception {
 		boolean estado = true;
 		try {
         	Statement s = prepararConexion();
-        	String sqlInsert = "INSERT INTO listaEspera(idVuelo, idAerolinea, correoCliente,plazas) VALUES (" + idVuelo + ", " + idAerolinea + ", '" + correoCliente + "', " + plazas + ");";
+        	String sqlInsert = "INSERT INTO listaEspera(idVuelo, idAerolinea, correoCliente,plazas,origen,destino) VALUES (" + idVuelo + ", " + idAerolinea + ", '" + correoCliente + "', " + plazas + ", '" + origen + "', '"+ destino + "');";
     		System.out.println(sqlInsert);
         	if(s.executeUpdate(sqlInsert) <= 0){
         		System.out.println("NO Actualizada Lista de Espera");
@@ -58,26 +60,57 @@ public class ListaEspera {
     }	
 	
 	public static void obtenerListaVuelos() throws Exception {
-        ResultSet resultado;
-    	String sql = "select idAerolinea,idVuelo from listaEspera group by idVuelo,idAerolinea;";
-    	System.out.println(sql);
-        Statement s = prepararConexion();
-        resultado = s.executeQuery (sql);  
-        if (resultado.last()) {
-          int rowcount = resultado.getRow();
-          idAerolineas = new int[rowcount];
-          idVuelos = new int[rowcount];
-          resultado.beforeFirst(); // not rs.first() because the rs.next() below will move on, missing the first element
-        }
-        int i = 0;
-        while(resultado.next()) {
-           	idAerolineas[i] = resultado.getInt(1);
-           	idVuelos[i] = resultado.getInt(2);
-           	i++;
-        }
-        System.out.println("Obtenidos Vuelos");        	
-        conexion.close();     
+		for(int i=1; i<=2; i++){ // para hacerlo para las dos aerolineas
+			ResultSet resultado;
+	    	String sql = "select distinct idVuelo from listaEspera where idAerolinea = " + i + ";";
+	    	System.out.println(sql);
+	        Statement s = prepararConexion();
+	        resultado = s.executeQuery (sql);  
+	        if (resultado.last()) {
+	          int rowcount = resultado.getRow();
+	          idAerolineas = new int[rowcount];
+	          idVuelos1 = new int[rowcount];
+	          idVuelos2 = new int[rowcount];
+	          resultado.beforeFirst(); // not rs.first() because the rs.next() below will move on, missing the first element
+	        }
+	        int j = 0;
+	        while(resultado.next()) {
+	        	if(i == 1)
+	        		idVuelos1[j] = resultado.getInt(1);
+	        	else 
+	        		idVuelos2[j] = resultado.getInt(1);
+	           	j++;
+	        }
+	        System.out.println("Obtenidos Vuelos ");        	
+	        conexion.close(); 
+		}
+           
     }	
+	
+	public static void clientesANotificar(int idAerolinea, int[] vuelos,int[] plazas) throws Exception {
+		int numVuelos = vuelos.length;
+		correos = new String[numVuelos];
+        mensajes = new String[numVuelos];
+		for(int i=0;i<numVuelos; i++){
+			ResultSet resultado;
+	    	String sql = "select plazas,correoCliente,origen,destino from listaEspera where idAerolinea = " + idAerolinea + " and idVuelo = " + vuelos[i] + " ;";
+        	System.out.println(sql);
+        	Statement s = prepararConexion();
+            resultado = s.executeQuery (sql); 
+            int k = 0;
+        	while(resultado.next()) {
+               	int plazasSolicitadas = resultado.getInt(1);
+               	if(plazasSolicitadas <= plazas[i]){
+               		correos[k] = resultado.getString(2);
+               		String origen = resultado.getString(3);
+               		String destino = resultado.getString(4);
+               		mensajes[k] = "Tienes plazas para tu vuelo deseado con la aerolinea" + idAerolinea + " desde " + origen + " hasta " + destino;
+               		k++;
+               	}
+            }
+        	conexion.close();
+        }     
+    }
 	
 	public static void obtenerClientes(int idAerolinea, int idVuelo) throws Exception {
         ResultSet resultado;

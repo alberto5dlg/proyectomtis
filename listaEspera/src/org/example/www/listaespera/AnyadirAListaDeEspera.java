@@ -21,9 +21,69 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.example.org/listaEspera/",
                 "anyadirAListaDeEspera",
-                "ns1");
+                "ns2");
 
             
+
+                        /**
+                        * field for Origen
+                        */
+
+                        
+                                    protected java.lang.String localOrigen ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getOrigen(){
+                               return localOrigen;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Origen
+                               */
+                               public void setOrigen(java.lang.String param){
+                            
+                                            this.localOrigen=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for Destino
+                        */
+
+                        
+                                    protected java.lang.String localDestino ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getDestino(){
+                               return localDestino;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Destino
+                               */
+                               public void setDestino(java.lang.String param){
+                            
+                                            this.localDestino=param;
+                                       
+
+                               }
+                            
 
                         /**
                         * field for IdVuelo
@@ -205,6 +265,42 @@
                    }
                
                                     namespace = "";
+                                    writeStartElement(null, namespace, "origen", xmlWriter);
+                             
+
+                                          if (localOrigen==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("origen cannot be null!!");
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localOrigen);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
+                                    namespace = "";
+                                    writeStartElement(null, namespace, "destino", xmlWriter);
+                             
+
+                                          if (localDestino==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("destino cannot be null!!");
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localDestino);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
+                                    namespace = "";
                                     writeStartElement(null, namespace, "idVuelo", xmlWriter);
                              
                                                if (localIdVuelo==java.lang.Integer.MIN_VALUE) {
@@ -268,7 +364,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.example.org/listaEspera/")){
-                return "ns1";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -447,6 +543,24 @@
 
                 
                                       elementList.add(new javax.xml.namespace.QName("",
+                                                                      "origen"));
+                                 
+                                        if (localOrigen != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localOrigen));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("origen cannot be null!!");
+                                        }
+                                    
+                                      elementList.add(new javax.xml.namespace.QName("",
+                                                                      "destino"));
+                                 
+                                        if (localDestino != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localDestino));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("destino cannot be null!!");
+                                        }
+                                    
+                                      elementList.add(new javax.xml.namespace.QName("",
                                                                       "idVuelo"));
                                  
                                 elementList.add(
@@ -548,6 +662,56 @@
                     
                     reader.next();
                 
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","origen").equals(reader.getName())){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"origen" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setOrigen(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","destino").equals(reader.getName())){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"destino" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setDestino(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 

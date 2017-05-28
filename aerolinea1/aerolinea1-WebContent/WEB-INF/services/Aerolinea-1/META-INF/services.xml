@@ -10,6 +10,14 @@
             <actionMapping>http://www.example.org/Aerolinea-1/reservarVuelo</actionMapping>
             <outputActionMapping>http://www.example.org/Aerolinea-1/Aerolinea-1/reservarVueloResponse</outputActionMapping>
         </operation>
+        <operation name="disponibilidadVuelosConSoloFecha" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-1/">
+            <actionMapping>http://www.example.org/Aerolinea-1/disponibilidadVuelosConSoloFecha</actionMapping>
+            <outputActionMapping>http://www.example.org/Aerolinea-1/Aerolinea-1/disponibilidadVuelosConSoloFechaResponse</outputActionMapping>
+        </operation>
+        <operation name="hayPlazasListado" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-1/">
+            <actionMapping>http://www.example.org/Aerolinea-1/hayPlazasListado</actionMapping>
+            <outputActionMapping>http://www.example.org/Aerolinea-1/Aerolinea-1/hayPlazasListadoResponse</outputActionMapping>
+        </operation>
         <operation name="disponibilidadVuelos" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/Aerolinea-1/">
             <actionMapping>http://www.example.org/Aerolinea-1/disponibilidadVuelos</actionMapping>
             <outputActionMapping>http://www.example.org/Aerolinea-1/Aerolinea-1/disponibilidadVuelosResponse</outputActionMapping>

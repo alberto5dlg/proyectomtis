@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="Aerolinea-1" targetNamespace="http://www.example.org/Aerolinea-1/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/Aerolinea-1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<wsdl:definitions name="Aerolinea-1" targetNamespace="http://www.example.org/Aerolinea-2/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/Aerolinea-2/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
   <wsdl:types>
-    <xsd:schema targetNamespace="http://www.example.org/Aerolinea-1/">
+    <xsd:schema targetNamespace="http://www.example.org/Aerolinea-2/">
       <xsd:element name="disponibilidadVuelos">
         <xsd:complexType>
           <xsd:sequence>
@@ -14,7 +14,7 @@
       <xsd:element name="disponibilidadVuelosResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="ficheroResultados" type="xsd:string"/>
+            <xsd:element name="resultados" type="xsd:string"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -75,38 +75,86 @@
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
+      <xsd:element name="disponibilidadVuelosConSoloFecha">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="fecha" type="xsd:date"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="disponibilidadVuelosConSoloFechaResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="resultados" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hayPlazasListado">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="idVuelos" type="xsd:int"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="hayPlazasListadoResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element maxOccurs="unbounded" minOccurs="0" name="plazas" type="xsd:int"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="reservarVueloResponse">
     <wsdl:part name="parameters" element="tns:reservarVueloResponse">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="disponibilidadVuelosRequest">
-    <wsdl:part name="parameters" element="tns:disponibilidadVuelos">
+  <wsdl:message name="disponibilidadVuelosConSoloFechaRequest">
+    <wsdl:part name="parameters" element="tns:disponibilidadVuelosConSoloFecha">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="cancelarVueloRequest">
-    <wsdl:part name="parameters" element="tns:cancelarVuelo">
+  <wsdl:message name="disponibilidadVuelosRequest">
+    <wsdl:part name="parameters" element="tns:disponibilidadVuelos">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="hayPlazasResponse">
     <wsdl:part name="parameters" element="tns:hayPlazasResponse">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="hayPlazasRequest">
-    <wsdl:part name="parameters" element="tns:hayPlazas">
+  <wsdl:message name="disponibilidadVuelosConSoloFechaResponse">
+    <wsdl:part name="parameters" element="tns:disponibilidadVuelosConSoloFechaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelarVueloRequest">
+    <wsdl:part name="parameters" element="tns:cancelarVuelo">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="cancelarVueloResponse">
     <wsdl:part name="parameters" element="tns:cancelarVueloResponse">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="hayPlazasRequest">
+    <wsdl:part name="parameters" element="tns:hayPlazas">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="reservarVueloRequest">
     <wsdl:part name="parameters" element="tns:reservarVuelo">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="hayPlazasListadoRequest">
+    <wsdl:part name="parameters" element="tns:hayPlazasListado">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="disponibilidadVuelosResponse">
     <wsdl:part name="parameters" element="tns:disponibilidadVuelosResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hayPlazasListadoResponse">
+    <wsdl:part name="parameters" element="tns:hayPlazasListadoResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="Aerolinea-2">
@@ -132,6 +180,18 @@
       <wsdl:input message="tns:cancelarVueloRequest">
     </wsdl:input>
       <wsdl:output message="tns:cancelarVueloResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="disponibilidadVuelosConSoloFecha">
+      <wsdl:input message="tns:disponibilidadVuelosConSoloFechaRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:disponibilidadVuelosConSoloFechaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hayPlazasListado">
+      <wsdl:input message="tns:hayPlazasListadoRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:hayPlazasListadoResponse">
     </wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
@@ -173,10 +233,28 @@
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="disponibilidadVuelosConSoloFecha">
+      <soap:operation soapAction="http://www.example.org/Aerolinea-2/disponibilidadVuelosConSoloFecha"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hayPlazasListado">
+      <soap:operation soapAction="http://www.example.org/Aerolinea-2/hayPlazasListado"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Aerolinea-2">
     <wsdl:port name="Aerolinea-2SOAP" binding="tns:Aerolinea-2SOAP">
-      <soap:address location="http://www.example.org/"/>
+      <soap:address location="http://localhost:9080/aerolinea2/services/Aerolinea-2"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
