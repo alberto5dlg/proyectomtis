@@ -1,0 +1,14 @@
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\AgenciaViajes.exe.config
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\AgenciaViajes.exe
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\AgenciaViajes.pdb
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.csprojResolveAssemblyReference.cache
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.Properties.Resources.resources
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.csproj.GenerateResource.Cache
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.exe
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.pdb
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.BusquedaVuelos.resources
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.Main.resources
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.Ofertas.resources
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.VuelosPorFecha.resources
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.Login.resources
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.Registro.resources
