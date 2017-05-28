@@ -33,7 +33,7 @@ app.use('/api/ofertas', ofertas);
 >>>>>>> api rest en proceso
 //Ruta generica del Server
 app.get('/',function(pet, res) { 
-	res.send("Api REST para ADI: ");
+	res.send("Api REST para MTIS: ");
 });
 
 //Conexion

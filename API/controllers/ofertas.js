@@ -21,5 +21,32 @@ exports.getOfertas = function(pet, res) {
 }
 
 exports.reservarOferta = function(pet,res){
- 	res.send("Oferta Reservada ...");
+	var usuario = pet.body.contratado; 
+	var idViaje = pet.params.id;
+ 	connection.query("UPDATE viajes SET contratado='"+usuario+"' WHERE id="+idViaje, function(error, rows){
+ 		if(error)
+ 			throw error
+ 		else{
+ 			res.status(200);
+ 			generarFactura(idViaje, usuario);
+ 			console.log("Viaje Reservado por: "+usuario);
+ 			res.send();
+ 		}
+ 	});
 }
+
+function generarFactura(idViaje, usuario) {
+	connection.query("SELECT * FROM viajes WHERE id="+idViaje, function(error, row){
+		if (error) 
+			throw error
+		else {
+			var precio = row[0].precio;
+			var detalles = "Oferta de Viaje: "+row[0].detalle;
+			connection.query("INSERT INTO facturas (usuario, Precio, Pagada, detalles) VALUES ('"+usuario+"',"+precio+",'Pagada','"+detalles+"')", function (error, rows){
+				if (error)
+					throw error
+				});
+		}
+	});
+}
+
