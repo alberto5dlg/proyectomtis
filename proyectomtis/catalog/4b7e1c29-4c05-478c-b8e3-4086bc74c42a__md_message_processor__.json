@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {},
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "salidaConsultar"
+        }
+    },
+    "id": "4b7e1c29-4c05-478c-b8e3-4086bc74c42a",
+    "version": "5.2.0.0"
+}

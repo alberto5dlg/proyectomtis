@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:dotnet="http://www.mulesoft.org/schema/mule/dotnet" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:ws="http://www.mulesoft.org/schema/mule/ws" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/dotnet http://www.mulesoft.org/schema/mule/dotnet/current/mule-dotnet.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
+    <ws:consumer-config name="Web_Service_consultarTraslado" service="Traslados" port="TrasladosPort" serviceAddress="http://localhost:8080/ode/processes/Traslados.TrasladosPort/" wsdlLocation="http://localhost:8080/ode/processes/Traslados?wsdl" doc:name="Web Service Consumer"/>
+    <ws:consumer-config name="Web_Service_Consumer" service="contratarTraslado" port="contratarTrasladoPort" serviceAddress="http://localhost:8080/ode/processes/contratarTraslado.contratarTrasladoPort/" wsdlLocation="http://localhost:8080/ode/processes/contratarTraslado?wsdl" doc:name="Web Service Consumer"/>
+    <flow name="proyectomtisFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/*" doc:name="HTTP"/>
+        <choice doc:name="Choice">
+            <when expression="#[message.inboundProperties.'http.request.uri'=='/consultarTraslados']">
+                <flow-ref name="consultarTraslado" doc:name="consultarTraslado"/>
+            </when>
+            <when expression="#[message.inboundProperties.'http.request.uri'=='/reservarTraslado']">
+                <flow-ref name="reservarTraslado" doc:name="reservarTraslado"/>
+            </when>
+        </choice>
+    </flow>
+    <sub-flow name="reservarTraslado">
+        <dw:transform-message metadata:id="7237128a-c457-4665-9c32-7cd9af3d0032" doc:name="Transform Message">
+            <dw:input-payload mimeType="application/json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%namespace ns0 http://contratarTraslado
+---
+{
+	ns0#contratarTrasladoRequest: {
+		ns0#fecha: payload.fecha as :date,
+		ns0#input: payload.nombre
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <ws:consumer config-ref="Web_Service_Consumer" operation="process" doc:name="servicioContratarTraslado"/>
+        <dw:transform-message metadata:id="e360b158-296c-45cd-9146-833d26afd3a2" doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+%namespace ns0 http://contratarTraslado
+---
+payload.ns0#contratarTrasladoResponse.ns0#result]]></dw:set-payload>
+        </dw:transform-message>
+    </sub-flow>
+    <sub-flow name="consultarTraslado">
+        <dw:transform-message metadata:id="e076270e-ba9c-4b8f-afd6-6d0d2189f88f" doc:name="Transform Message">
+            <dw:input-payload mimeType="application/java"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%namespace ns0 http://Traslados
+---
+{
+	ns0#TrasladosRequest: {
+		ns0#input: payload
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <ws:consumer config-ref="Web_Service_consultarTraslado" operation="process" doc:name="servicioTraslados"/>
+        <dw:transform-message metadata:id="4b7e1c29-4c05-478c-b8e3-4086bc74c42a" doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+%namespace ns0 http://Traslados
+---
+payload.ns0#TrasladosResponse.ns0#result]]></dw:set-payload>
+        </dw:transform-message>
+    </sub-flow>
+</mule>

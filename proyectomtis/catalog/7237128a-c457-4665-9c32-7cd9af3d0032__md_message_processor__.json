@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "entradaContratarTraslado"
+        }
+    },
+    "outputMessageMetadata": {},
+    "id": "7237128a-c457-4665-9c32-7cd9af3d0032",
+    "version": "5.2.0.0"
+}
