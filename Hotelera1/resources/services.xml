@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
+    <service name="hotelera">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.hotelera.HoteleraMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.example.www.hotelera.HoteleraSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="getHabitaciones" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/hotelera/">
+            <actionMapping>http://www.example.org/hotelera/getHabitaciones</actionMapping>
+            <outputActionMapping>http://www.example.org/hotelera/hotelera/getHabitacionesResponse</outputActionMapping>
+        </operation>
+        <operation name="reservarHabitaciones" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/hotelera/">
+            <actionMapping>http://www.example.org/hotelera/reservarHabitaciones</actionMapping>
+            <outputActionMapping>http://www.example.org/hotelera/hotelera/reservarHabitacionesResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

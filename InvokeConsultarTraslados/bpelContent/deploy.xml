@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:Traslados="http://Traslados" xmlns:traslados="http://www.example.org/traslados/">
+  <process name="Traslados:Traslados">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="Traslados:TrasladosService" port="TrasladosPort"/>
+    </provide>
+    <invoke partnerLink="consultarPL">
+      <service name="traslados:traslados" port="trasladosSOAP"/>
+    </invoke>
+  </process>
+</deploy>

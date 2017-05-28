@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="hotelera2" targetNamespace="http://www.example.org/hotelera2/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/hotelera2/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/hotelera2/">
+      <xsd:element name="getHabitaciones">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="destino" type="xsd:string"/>
+          	<xsd:element name="huespedes" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getHabitacionesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="reservarHabitaciones">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idHabitacion" type="xsd:string"/>
+      			<xsd:element name="fechaInicio" type="xsd:date"/>
+      			<xsd:element name="fechaFin" type="xsd:date"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="reservarHabitacionesResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:boolean"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getHabitacionesResponse">
+    <wsdl:part name="parameters" element="tns:getHabitacionesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getHabitacionesRequest">
+    <wsdl:part name="parameters" element="tns:getHabitaciones">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="reservarHabitacionesRequest">
+    <wsdl:part name="parameters" element="tns:reservarHabitaciones">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="reservarHabitacionesResponse">
+    <wsdl:part name="parameters" element="tns:reservarHabitacionesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="hotelera2">
+    <wsdl:operation name="getHabitaciones">
+      <wsdl:input message="tns:getHabitacionesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getHabitacionesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reservarHabitaciones">
+      <wsdl:input message="tns:reservarHabitacionesRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:reservarHabitacionesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="hotelera2SOAP" type="tns:hotelera2">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getHabitaciones">
+      <soap:operation soapAction="http://www.example.org/hotelera2/getHabitaciones"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reservarHabitaciones">
+      <soap:operation soapAction="http://www.example.org/hotelera2/reservarHabitaciones"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="hotelera2">
+    <wsdl:port name="hotelera2SOAP" binding="tns:hotelera2SOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
