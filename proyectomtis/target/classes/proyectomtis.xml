@@ -13,6 +13,11 @@ http://www.mulesoft.org/schema/mule/dotnet http://www.mulesoft.org/schema/mule/d
     <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
     <ws:consumer-config name="Web_Service_consultarTraslado" service="Traslados" port="TrasladosPort" serviceAddress="http://localhost:8080/ode/processes/Traslados.TrasladosPort/" wsdlLocation="http://localhost:8080/ode/processes/Traslados?wsdl" doc:name="Web Service Consumer"/>
     <ws:consumer-config name="Web_Service_Consumer" service="contratarTraslado" port="contratarTrasladoPort" serviceAddress="http://localhost:8080/ode/processes/contratarTraslado.contratarTrasladoPort/" wsdlLocation="http://localhost:8080/ode/processes/contratarTraslado?wsdl" doc:name="Web Service Consumer"/>
+    <ws:consumer-config name="disponibilidadVuelosBPEL" service="BPEL_DisponibilidadVuelos" port="BPEL_DisponibilidadVuelosPort" serviceAddress="http://localhost:8080/ode/processes/BPEL_DisponibilidadVuelos.BPEL_DisponibilidadVuelosPort/" wsdlLocation=" http://localhost:8080/ode/processes/BPEL_DisponibilidadVuelos?wsdl" doc:name="Web Service Consumer"/>
+    <ws:consumer-config name="reservarVueloBpel" service="BPEL_ReservarVuelo" port="BPEL_ReservarVueloPort" serviceAddress="http://localhost:8080/ode/processes/BPEL_ReservarVuelo.BPEL_ReservarVueloPort/" wsdlLocation=" http://localhost:8080/ode/processes/BPEL_ReservarVuelo?wsdl" doc:name="Web Service Consumer"/>
+    <ws:consumer-config name="servicioListarHabitacionesBPEL" service="listaHabitaciones" port="listaHabitacionesPort" serviceAddress="http://localhost:8080/ode/processes/listaHabitaciones.listaHabitacionesPort/" wsdlLocation="http://localhost:8080/ode/processes/listaHabitaciones?wsdl" doc:name="Web Service Consumer"/>
+    <ws:consumer-config name="reservarHotelBPEL" service="reservar" port="reservarPort" serviceAddress="http://localhost:8080/ode/processes/reservar.reservarPort/" wsdlLocation="http://localhost:8080/ode/processes/reservar?wsdl" doc:name="Web Service Consumer"/>
+    <ws:consumer-config name="destinosFechaBPEL" service="BPEL_DisponibilidadSoloConFecha" port="BPEL_DisponibilidadSoloConFechaPort" serviceAddress="http://localhost:8080/ode/processes/BPEL_DisponibilidadSoloConFecha.BPEL_DisponibilidadSoloConFechaPort/" wsdlLocation="http://localhost:8080/ode/processes/BPEL_DisponibilidadSoloConFecha?wsdl" doc:name="Web Service Consumer"/>
     <flow name="proyectomtisFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/*" doc:name="HTTP"/>
         <choice doc:name="Choice">
@@ -22,8 +27,142 @@ http://www.mulesoft.org/schema/mule/dotnet http://www.mulesoft.org/schema/mule/d
             <when expression="#[message.inboundProperties.'http.request.uri'=='/reservarTraslado']">
                 <flow-ref name="reservarTraslado" doc:name="reservarTraslado"/>
             </when>
+            <when expression="#[message.inboundProperties.'http.request.uri'=='/disponivilidadVuelos']">
+                <flow-ref name="disponibilidadVuelos" doc:name="disponibilidadVuelos"/>
+            </when>
+            <when expression="#[message.inboundProperties.'http.request.uri'=='/reservarvuelo']">
+                <flow-ref name="reservarVuelo" doc:name="reservarVuelo"/>
+            </when>
+            <when expression="#[message.inboundProperties.'http.request.uri'=='/consultarHabitaciones']">
+                <flow-ref name="consultarHabitaciones" doc:name="consultarHabitaciones"/>
+            </when>
+            <when expression="#[message.inboundProperties.'http.request.uri'=='/reservarHabitaciones']">
+                <flow-ref name="reservarHabitaciones" doc:name="reservarHabitaciones"/>
+            </when>
+            <when expression="#[message.inboundProperties.'http.request.uri'=='/consultarDestinoFecha']">
+                <flow-ref name="consultarDestinosPorFecha" doc:name="consultarDestinosPorFecha"/>
+            </when>
         </choice>
     </flow>
+    <sub-flow name="consultarDestinosPorFecha">
+        <dw:transform-message metadata:id="d9531622-f7e0-4aeb-983f-9435cd70e061" doc:name="Transform Message">
+            <dw:input-payload mimeType="application/java"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%namespace ns0 http://proyecto.mtis
+---
+{
+	ns0#BPEL_DisponibilidadSoloConFechaRequest: {
+		ns0#fecha: payload
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <ws:consumer config-ref="destinosFechaBPEL" operation="process" doc:name="Web Service Consumer"/>
+        <dw:transform-message metadata:id="49a8d1dd-6eae-4b86-b8f4-5f70819aa36c" doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+%namespace ns0 http://proyecto.mtis
+---
+payload.ns0#BPEL_DisponibilidadSoloConFechaResponse.ns0#resultados]]></dw:set-payload>
+        </dw:transform-message>
+    </sub-flow>
+    <sub-flow name="reservarHabitaciones">
+        <dw:transform-message metadata:id="b08b90d2-13ee-4145-af14-00fca78b5c82" doc:name="Transform Message">
+            <dw:input-payload mimeType="application/json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%namespace ns0 http://reservar
+---
+{
+	ns0#reservarRequest: {
+		ns0#input: payload.input,
+		ns0#Inicio: payload.inicio as :date,
+		ns0#Fin: payload.fin as :date,
+		ns0#Hotel: payload.hotel
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <ws:consumer config-ref="reservarHotelBPEL" operation="process" doc:name="Web Service Consumer"/>
+        <dw:transform-message metadata:id="cab878c4-9ff7-4917-b8b7-36631dab48b0" doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+%namespace ns0 http://reservar
+---
+payload.ns0#reservarResponse.ns0#result]]></dw:set-payload>
+        </dw:transform-message>
+    </sub-flow>
+    <sub-flow name="consultarHabitaciones">
+        <dw:transform-message metadata:id="c10562e3-cc4d-47b7-8912-b3cbb26f4226" doc:name="Transform Message">
+            <dw:input-payload mimeType="application/json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%namespace ns0 http://listaHabitaciones
+---
+{
+	ns0#listaHabitacionesRequest: {
+		ns0#input: payload.input,
+		ns0#huespedes: payload.huespedes
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <ws:consumer config-ref="servicioListarHabitacionesBPEL" operation="process" doc:name="Web Service Consumer"/>
+        <dw:transform-message metadata:id="739d205e-4b97-4fac-a0fe-d40802f04a4a" doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+%namespace ns0 http://listaHabitaciones
+---
+payload.ns0#listaHabitacionesResponse.ns0#result]]></dw:set-payload>
+        </dw:transform-message>
+    </sub-flow>
+    <sub-flow name="reservarVuelo">
+        <dw:transform-message metadata:id="f7c388e9-fe41-43f7-97e0-10cbb9dbc338" doc:name="Transform Message">
+            <dw:input-payload mimeType="application/json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%namespace ns0 http://proyecto.mtis
+---
+{
+	ns0#BPEL_ReservarVueloRequest: {
+		ns0#idAerolinea: payload.idAerolinea,
+		ns0#idVuelo: payload.idVuelo,
+		ns0#idCliente: payload.idCliente,
+		ns0#plazas: payload.plazas
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <ws:consumer config-ref="reservarVueloBpel" operation="process" doc:name="Web Service Consumer"/>
+        <dw:transform-message metadata:id="44952107-7f85-4aad-aad7-e35d0e325630" doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+%namespace ns0 http://proyecto.mtis
+---
+payload.ns0#BPEL_ReservarVueloResponse.ns0#salida]]></dw:set-payload>
+        </dw:transform-message>
+    </sub-flow>
+    <sub-flow name="disponibilidadVuelos">
+        <dw:transform-message metadata:id="82c1551b-03b9-4e6c-8ae0-cf1699db45cd" doc:name="Transform Message">
+            <dw:input-payload mimeType="application/json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+%namespace ns0 http://proyecto.mtis
+---
+{
+	ns0#BPEL_DisponibilidadVuelosRequest: {
+		ns0#fecha: payload.fecha as :date,
+		ns0#origen: payload.orgien,
+		ns0#destino: payload.destino
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <ws:consumer config-ref="disponibilidadVuelosBPEL" operation="process" doc:name="Web Service Consumer"/>
+        <dw:transform-message metadata:id="7bb6d94a-fc36-4e81-bfc8-63199c111316" doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+%namespace ns0 http://proyecto.mtis
+---
+payload.ns0#BPEL_DisponibilidadVuelosResponse.ns0#result]]></dw:set-payload>
+        </dw:transform-message>
+    </sub-flow>
     <sub-flow name="reservarTraslado">
         <dw:transform-message metadata:id="7237128a-c457-4665-9c32-7cd9af3d0032" doc:name="Transform Message">
             <dw:input-payload mimeType="application/json"/>

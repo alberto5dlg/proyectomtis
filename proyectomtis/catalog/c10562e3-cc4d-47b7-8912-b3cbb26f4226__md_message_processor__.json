@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "listarHabitacionesEntrada"
+        }
+    },
+    "outputMessageMetadata": {},
+    "id": "c10562e3-cc4d-47b7-8912-b3cbb26f4226",
+    "version": "5.2.0.0"
+}

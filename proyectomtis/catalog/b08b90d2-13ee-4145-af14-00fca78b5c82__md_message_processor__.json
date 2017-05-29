@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "reservarHabitacionesEntrada"
+        }
+    },
+    "outputMessageMetadata": {},
+    "id": "b08b90d2-13ee-4145-af14-00fca78b5c82",
+    "version": "5.2.0.0"
+}

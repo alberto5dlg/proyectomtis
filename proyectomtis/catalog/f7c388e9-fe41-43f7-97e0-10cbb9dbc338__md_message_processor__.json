@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "reservarVueloEntrada"
+        }
+    },
+    "outputMessageMetadata": {},
+    "id": "f7c388e9-fe41-43f7-97e0-10cbb9dbc338",
+    "version": "5.2.0.0"
+}
