@@ -1,9 +1,6 @@
 {
     "inputMessageMetadata": {
-        "messagePayload": {
-            "connectorName": "#_custom_mule_metadata_type_#",
-            "typeId": "entradaConsultar"
-        }
+        "messagePayload": {}
     },
     "outputMessageMetadata": {},
     "id": "e076270e-ba9c-4b8f-afd6-6d0d2189f88f",

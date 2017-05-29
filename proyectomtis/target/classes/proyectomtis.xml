@@ -10,7 +10,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
 http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
 http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
 http://www.mulesoft.org/schema/mule/dotnet http://www.mulesoft.org/schema/mule/dotnet/current/mule-dotnet.xsd">
-    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="9090" doc:name="HTTP Listener Configuration"/>
     <ws:consumer-config name="Web_Service_consultarTraslado" service="Traslados" port="TrasladosPort" serviceAddress="http://localhost:8080/ode/processes/Traslados.TrasladosPort/" wsdlLocation="http://localhost:8080/ode/processes/Traslados?wsdl" doc:name="Web Service Consumer"/>
     <ws:consumer-config name="Web_Service_Consumer" service="contratarTraslado" port="contratarTrasladoPort" serviceAddress="http://localhost:8080/ode/processes/contratarTraslado.contratarTrasladoPort/" wsdlLocation="http://localhost:8080/ode/processes/contratarTraslado?wsdl" doc:name="Web Service Consumer"/>
     <ws:consumer-config name="disponibilidadVuelosBPEL" service="BPEL_DisponibilidadVuelos" port="BPEL_DisponibilidadVuelosPort" serviceAddress="http://localhost:8080/ode/processes/BPEL_DisponibilidadVuelos.BPEL_DisponibilidadVuelosPort/" wsdlLocation=" http://localhost:8080/ode/processes/BPEL_DisponibilidadVuelos?wsdl" doc:name="Web Service Consumer"/>
@@ -45,15 +45,15 @@ http://www.mulesoft.org/schema/mule/dotnet http://www.mulesoft.org/schema/mule/d
         </choice>
     </flow>
     <sub-flow name="consultarDestinosPorFecha">
-        <dw:transform-message metadata:id="d9531622-f7e0-4aeb-983f-9435cd70e061" doc:name="Transform Message">
-            <dw:input-payload mimeType="application/java"/>
+        <dw:transform-message metadata:id="0ba80446-bfb2-4b99-85b7-e11861b49a2f" doc:name="Transform Message">
+            <dw:input-payload mimeType="application/json"/>
             <dw:set-payload><![CDATA[%dw 1.0
 %output application/xml
 %namespace ns0 http://proyecto.mtis
 ---
 {
 	ns0#BPEL_DisponibilidadSoloConFechaRequest: {
-		ns0#fecha: payload
+		ns0#fecha: payload.localidad as :date
 	}
 }]]></dw:set-payload>
         </dw:transform-message>
@@ -187,15 +187,15 @@ payload.ns0#contratarTrasladoResponse.ns0#result]]></dw:set-payload>
         </dw:transform-message>
     </sub-flow>
     <sub-flow name="consultarTraslado">
-        <dw:transform-message metadata:id="e076270e-ba9c-4b8f-afd6-6d0d2189f88f" doc:name="Transform Message">
-            <dw:input-payload mimeType="application/java"/>
+        <dw:transform-message metadata:id="be811213-f844-4b2b-8294-3ebf3279377d" doc:name="Transform Message">
+            <dw:input-payload mimeType="application/json"/>
             <dw:set-payload><![CDATA[%dw 1.0
 %output application/xml
 %namespace ns0 http://Traslados
 ---
 {
 	ns0#TrasladosRequest: {
-		ns0#input: payload
+		ns0#input: payload.localidad
 	}
 }]]></dw:set-payload>
         </dw:transform-message>
