@@ -6,11 +6,13 @@
  * by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST)
  */
     package org.example.www.aerolinea_2;
-    /**
+
+
+
+/**
      *  Aerolinea2Skeleton java skeleton for the axisService
      */
     public class Aerolinea2Skeleton{
-        
 
     	public ReservarVueloResponse reservarVuelo(ReservarVuelo ent) {
 			ReservarVueloResponse res = new ReservarVueloResponse();
@@ -25,6 +27,7 @@
         public DisponibilidadVuelosConSoloFechaResponse disponibilidadVuelosConSoloFecha(DisponibilidadVuelosConSoloFecha ent){
         	DisponibilidadVuelosConSoloFechaResponse res = new DisponibilidadVuelosConSoloFechaResponse();
         	try {
+        		Aerolinea.salidaJson = false;
 				res.setResultados(Aerolinea.consultarDisponibilidadSoloFecha(2, ent.getFecha()));
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -34,12 +37,11 @@
      
          
          public DisponibilidadVuelosResponse disponibilidadVuelos(DisponibilidadVuelos ent){
-        	 
           	 DisponibilidadVuelosResponse res = new DisponibilidadVuelosResponse();
           	 try {
           		Aerolinea.salidaJson = false;
    				res.setResultados(Aerolinea.consultarDisponibilidad(2,ent.getOrigen(),ent.getDestino(),ent.getFecha()));
-          	 } catch (Exception e) {
+   			} catch (Exception e) {
    				e.printStackTrace();
    			}
           	 return res; 
@@ -67,10 +69,14 @@
 			}
         	 return res;
          }
-         
-        
-     
     
+         
+        /**
+         * Auto generated method signature
+         * 
+                                     * @param cancelarVuelo 
+             * @return cancelarVueloResponse 
+         */
         
                  public org.example.www.aerolinea_2.CancelarVueloResponse cancelarVuelo
                   (
@@ -81,7 +87,5 @@
                 throw new  java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#cancelarVuelo");
         }
      
-         
-    
     }
     

@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import java.util.Calendar;
 
 import org.json.JSONArray;
@@ -34,7 +35,7 @@ public class Aerolinea {
 		String salida = "";
         ResultSet resultado;
         setFecha(fecha);
-        String sql = "select id, coste, plazas from aerolinea" + idAerolinea +" where origen = '"+ origen + "' and destino = '" + destino + "' and fecha BETWEEN '" + fechaAntes + "' and '" + fechaDespues+ "';";
+        String sql = "select * from aerolinea" + idAerolinea +" where origen = '"+ origen + "' and destino = '" + destino + "' and fecha BETWEEN '" + fechaAntes + "' and '" + fechaDespues+ "';";
         System.out.println(sql);
         Statement s = prepararConexion();
         resultado = s.executeQuery (sql); 
@@ -58,7 +59,7 @@ public class Aerolinea {
 		String salida = "";
         ResultSet resultado;
         setFecha(fecha);
-        String sql = "select id, coste, plazas from aerolinea" + idAerolinea +" where fecha BETWEEN '" + fechaAntes + "' and '" + fechaDespues+ "';";
+        String sql = "select * from aerolinea" + idAerolinea +" where fecha BETWEEN '" + fechaAntes + "' and '" + fechaDespues+ "';";
         System.out.println(sql);
         Statement s = prepararConexion();
         resultado = s.executeQuery (sql); 
@@ -78,8 +79,11 @@ public class Aerolinea {
         return salida;
     }
 	
-	public static int[]  hayPlazasListado(int idAerolinea,int[] idVuelos)  throws Exception {
+	public static String  hayPlazasListado(int idAerolinea,String vuelos)  throws Exception {
         ResultSet resultado;
+        int[] idVuelos = Arrays.stream(vuelos.substring(1, vuelos.length()-1).split(","))
+   	           .map(String::trim).mapToInt(Integer::parseInt).toArray();
+   	    System.out.println("Recibo " + Arrays.toString(idVuelos));
         String sql = "select plazas from aerolinea" + idAerolinea +" where id in (";
         int numVuelos = idVuelos.length;
         for(int i=0; i<idVuelos.length; i++){
@@ -94,12 +98,13 @@ public class Aerolinea {
         while(resultado.next()){
         	plazas[k] = resultado.getInt(1);
         	k++;
-		}        
+		}      
+        resultado.last(); 
         if(resultado.getRow() <= 0){ 
             System.out.println("No se ha encontrado info sobre los vuelos");
 		}         	
         conexion.close();   
-        return plazas;
+        return Arrays.toString(plazas);
     }
 	
 	private static String jsonToXml(String entrada){

@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Arrays;
 
 public class ListaEspera {
 	private static Connection conexion;
@@ -12,7 +13,8 @@ public class ListaEspera {
 	public static int[] plazas;
 	public static String[] correos;
 	public static String[] mensajes;
-	
+	public static String listadoVuelos1, listadoVuelos2;
+	public static String listaCorreos, listaMensajes;
 	
 	private static Statement prepararConexion() throws Exception{
 		DriverManager.registerDriver(new org.gjt.mm.mysql.Driver());
@@ -81,25 +83,38 @@ public class ListaEspera {
 	        		idVuelos2[j] = resultado.getInt(1);
 	           	j++;
 	        }
-	        System.out.println("Obtenidos Vuelos ");        	
+	        //String a array
+	       // int[] arr = Arrays.stream(res.substring(1, res.length()-1).split(","))
+	         //   .map(String::trim).mapToInt(Integer::parseInt).toArray();
+	        //System.out.println(Arrays.toString(arr));
 	        conexion.close(); 
 		}
+		listadoVuelos1 = Arrays.toString(idVuelos1); // Array a string
+		listadoVuelos2 = Arrays.toString(idVuelos2); // Array a string
+        System.out.println("Obtenidos Vuelos " + listadoVuelos1 + " " + listadoVuelos2);  
            
     }	
 	
-	public static void clientesANotificar(int idAerolinea, int[] vuelos,int[] plazas) throws Exception {
+	public static void clientesANotificar(int idAerolinea, String vuelosLista,String plazasLista) throws Exception {
+		int[] vuelos = Arrays.stream(vuelosLista.substring(1, vuelosLista.length()-1).split(","))
+	   	           .map(String::trim).mapToInt(Integer::parseInt).toArray();
+	   	System.out.println("Recibo Vuelos " + Arrays.toString(vuelos));
+	   	int[] plazas = Arrays.stream(plazasLista.substring(1, plazasLista.length()-1).split(","))
+	   	           .map(String::trim).mapToInt(Integer::parseInt).toArray();
+	   	System.out.println("Recibo Plazas " + Arrays.toString(plazas));
 		int numVuelos = vuelos.length;
 		correos = new String[numVuelos];
         mensajes = new String[numVuelos];
+        int k = 0;
 		for(int i=0;i<numVuelos; i++){
 			ResultSet resultado;
 	    	String sql = "select plazas,correoCliente,origen,destino from listaEspera where idAerolinea = " + idAerolinea + " and idVuelo = " + vuelos[i] + " ;";
         	System.out.println(sql);
         	Statement s = prepararConexion();
             resultado = s.executeQuery (sql); 
-            int k = 0;
         	while(resultado.next()) {
                	int plazasSolicitadas = resultado.getInt(1);
+        		System.out.println("Dentro " + plazasSolicitadas + " con " + plazas[i]);
                	if(plazasSolicitadas <= plazas[i]){
                		correos[k] = resultado.getString(2);
                		String origen = resultado.getString(3);
@@ -109,7 +124,10 @@ public class ListaEspera {
                	}
             }
         	conexion.close();
-        }     
+        }    
+		listaCorreos = String.join(",", correos); // Array a string
+		listaMensajes = String.join(",", mensajes); // Array a string
+		//String strArray[] = listaCorreos.split(",");
     }
 	
 	public static void obtenerClientes(int idAerolinea, int idVuelo) throws Exception {

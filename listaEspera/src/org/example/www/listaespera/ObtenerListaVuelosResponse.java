@@ -21,123 +21,69 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.example.org/listaEspera/",
                 "obtenerListaVuelosResponse",
-                "ns2");
+                "ns1");
 
             
 
                         /**
                         * field for IdVuelo1
-                        * This was an Array!
                         */
 
                         
-                                    protected int[] localIdVuelo1 ;
+                                    protected java.lang.String localIdVuelo1 ;
                                 
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localIdVuelo1Tracker = false ;
-
-                           public boolean isIdVuelo1Specified(){
-                               return localIdVuelo1Tracker;
-                           }
-
-                           
 
                            /**
                            * Auto generated getter method
-                           * @return int[]
+                           * @return java.lang.String
                            */
-                           public  int[] getIdVuelo1(){
+                           public  java.lang.String getIdVuelo1(){
                                return localIdVuelo1;
                            }
 
                            
                         
-
-
-                               
-                              /**
-                               * validate the array for IdVuelo1
+                            /**
+                               * Auto generated setter method
+                               * @param param IdVuelo1
                                */
-                              protected void validateIdVuelo1(int[] param){
-                             
-                              }
+                               public void setIdVuelo1(java.lang.String param){
+                            
+                                            this.localIdVuelo1=param;
+                                       
 
-
-                             /**
-                              * Auto generated setter method
-                              * @param param IdVuelo1
-                              */
-                              public void setIdVuelo1(int[] param){
-                              
-                                   validateIdVuelo1(param);
-
-                               localIdVuelo1Tracker = param != null;
-                                      
-                                      this.localIdVuelo1=param;
-                              }
-
-                               
-                             
+                               }
+                            
 
                         /**
                         * field for IdVuelos2
-                        * This was an Array!
                         */
 
                         
-                                    protected int[] localIdVuelos2 ;
+                                    protected java.lang.String localIdVuelos2 ;
                                 
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localIdVuelos2Tracker = false ;
-
-                           public boolean isIdVuelos2Specified(){
-                               return localIdVuelos2Tracker;
-                           }
-
-                           
 
                            /**
                            * Auto generated getter method
-                           * @return int[]
+                           * @return java.lang.String
                            */
-                           public  int[] getIdVuelos2(){
+                           public  java.lang.String getIdVuelos2(){
                                return localIdVuelos2;
                            }
 
                            
                         
-
-
-                               
-                              /**
-                               * validate the array for IdVuelos2
+                            /**
+                               * Auto generated setter method
+                               * @param param IdVuelos2
                                */
-                              protected void validateIdVuelos2(int[] param){
-                             
-                              }
+                               public void setIdVuelos2(java.lang.String param){
+                            
+                                            this.localIdVuelos2=param;
+                                       
 
-
-                             /**
-                              * Auto generated setter method
-                              * @param param IdVuelos2
-                              */
-                              public void setIdVuelos2(int[] param){
-                              
-                                   validateIdVuelos2(param);
-
-                               localIdVuelos2Tracker = param != null;
-                                      
-                                      this.localIdVuelos2=param;
-                              }
-
-                               
-                             
+                               }
+                            
 
      
      
@@ -197,59 +143,43 @@
 
                
                    }
-                if (localIdVuelo1Tracker){
-                             if (localIdVuelo1!=null) {
-                                   namespace = "";
-                                   for (int i = 0;i < localIdVuelo1.length;i++){
+               
+                                    namespace = "";
+                                    writeStartElement(null, namespace, "idVuelo1", xmlWriter);
+                             
+
+                                          if (localIdVuelo1==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("idVuelo1 cannot be null!!");
+                                                  
+                                          }else{
+
                                         
-                                                   if (localIdVuelo1[i]!=java.lang.Integer.MIN_VALUE) {
-                                               
-                                                writeStartElement(null, namespace, "idVuelo1", xmlWriter);
-
+                                                   xmlWriter.writeCharacters(localIdVuelo1);
                                             
-                                                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdVuelo1[i]));
-                                                xmlWriter.writeEndElement();
-                                            
-                                                } else {
-                                                   
-                                                           // we have to do nothing since minOccurs is zero
-                                                       
-                                                }
-
-                                   }
-                             } else {
-                                 
-                                         throw new org.apache.axis2.databinding.ADBException("idVuelo1 cannot be null!!");
+                                          }
                                     
-                             }
+                                   xmlWriter.writeEndElement();
+                             
+                                    namespace = "";
+                                    writeStartElement(null, namespace, "idVuelos2", xmlWriter);
+                             
 
-                        } if (localIdVuelos2Tracker){
-                             if (localIdVuelos2!=null) {
-                                   namespace = "";
-                                   for (int i = 0;i < localIdVuelos2.length;i++){
+                                          if (localIdVuelos2==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("idVuelos2 cannot be null!!");
+                                                  
+                                          }else{
+
                                         
-                                                   if (localIdVuelos2[i]!=java.lang.Integer.MIN_VALUE) {
-                                               
-                                                writeStartElement(null, namespace, "idVuelos2", xmlWriter);
-
+                                                   xmlWriter.writeCharacters(localIdVuelos2);
                                             
-                                                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdVuelos2[i]));
-                                                xmlWriter.writeEndElement();
-                                            
-                                                } else {
-                                                   
-                                                           // we have to do nothing since minOccurs is zero
-                                                       
-                                                }
-
-                                   }
-                             } else {
-                                 
-                                         throw new org.apache.axis2.databinding.ADBException("idVuelos2 cannot be null!!");
+                                          }
                                     
-                             }
-
-                        }
+                                   xmlWriter.writeEndElement();
+                             
                     xmlWriter.writeEndElement();
                
 
@@ -257,7 +187,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.example.org/listaEspera/")){
-                return "ns2";
+                return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -434,43 +364,25 @@
                  java.util.ArrayList elementList = new java.util.ArrayList();
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
-                 if (localIdVuelo1Tracker){
-                            if (localIdVuelo1!=null){
-                                  for (int i = 0;i < localIdVuelo1.length;i++){
-                                      
-                                          elementList.add(new javax.xml.namespace.QName("",
-                                                                                                                       "idVuelo1"));
-                                          elementList.add(
-                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdVuelo1[i]));
-
-                                      
-
-                                  }
-                            } else {
-                              
-                                    throw new org.apache.axis2.databinding.ADBException("idVuelo1 cannot be null!!");
-                                
-                            }
-
-                        } if (localIdVuelos2Tracker){
-                            if (localIdVuelos2!=null){
-                                  for (int i = 0;i < localIdVuelos2.length;i++){
-                                      
-                                          elementList.add(new javax.xml.namespace.QName("",
-                                                                                                                       "idVuelos2"));
-                                          elementList.add(
-                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdVuelos2[i]));
-
-                                      
-
-                                  }
-                            } else {
-                              
-                                    throw new org.apache.axis2.databinding.ADBException("idVuelos2 cannot be null!!");
-                                
-                            }
-
-                        }
+                
+                                      elementList.add(new javax.xml.namespace.QName("",
+                                                                      "idVuelo1"));
+                                 
+                                        if (localIdVuelo1 != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdVuelo1));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("idVuelo1 cannot be null!!");
+                                        }
+                                    
+                                      elementList.add(new javax.xml.namespace.QName("",
+                                                                      "idVuelos2"));
+                                 
+                                        if (localIdVuelos2 != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdVuelos2));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("idVuelos2 cannot be null!!");
+                                        }
+                                    
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -546,102 +458,56 @@
                     
                     reader.next();
                 
-                        java.util.ArrayList list1 = new java.util.ArrayList();
-                    
-                        java.util.ArrayList list2 = new java.util.ArrayList();
-                    
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
                                     if (reader.isStartElement() && new javax.xml.namespace.QName("","idVuelo1").equals(reader.getName())){
                                 
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"idVuelo1" +"  cannot be null");
+                                    }
                                     
+
+                                    java.lang.String content = reader.getElementText();
                                     
-                                    // Process the array and step past its final element's end.
-                                    list1.add(reader.getElementText());
-                                            
-                                            //loop until we find a start element that is not part of this array
-                                            boolean loopDone1 = false;
-                                            while(!loopDone1){
-                                                // Ensure we are at the EndElement
-                                                while (!reader.isEndElement()){
-                                                    reader.next();
-                                                }
-                                                // Step out of this element
-                                                reader.next();
-                                                // Step to next element event.
-                                                while (!reader.isStartElement() && !reader.isEndElement())
-                                                    reader.next();
-                                                if (reader.isEndElement()){
-                                                    //two continuous end elements means we are exiting the xml structure
-                                                    loopDone1 = true;
-                                                } else {
-                                                    if (new javax.xml.namespace.QName("","idVuelo1").equals(reader.getName())){
-                                                         list1.add(reader.getElementText());
-                                                        
-                                                    }else{
-                                                        loopDone1 = true;
-                                                    }
-                                                }
-                                            }
-                                            // call the converter utility  to convert and set the array
-                                            
-                                            object.setIdVuelo1((int[])
-                                                org.apache.axis2.databinding.utils.ConverterUtil.convertToArray(
-                                                            int.class,list1));
-                                                
+                                              object.setIdVuelo1(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
                               }  // End of if for expected property start element
                                 
-                                    else {
-                                        
-                                    }
-                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
                                     if (reader.isStartElement() && new javax.xml.namespace.QName("","idVuelos2").equals(reader.getName())){
                                 
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"idVuelos2" +"  cannot be null");
+                                    }
                                     
+
+                                    java.lang.String content = reader.getElementText();
                                     
-                                    // Process the array and step past its final element's end.
-                                    list2.add(reader.getElementText());
-                                            
-                                            //loop until we find a start element that is not part of this array
-                                            boolean loopDone2 = false;
-                                            while(!loopDone2){
-                                                // Ensure we are at the EndElement
-                                                while (!reader.isEndElement()){
-                                                    reader.next();
-                                                }
-                                                // Step out of this element
-                                                reader.next();
-                                                // Step to next element event.
-                                                while (!reader.isStartElement() && !reader.isEndElement())
-                                                    reader.next();
-                                                if (reader.isEndElement()){
-                                                    //two continuous end elements means we are exiting the xml structure
-                                                    loopDone2 = true;
-                                                } else {
-                                                    if (new javax.xml.namespace.QName("","idVuelos2").equals(reader.getName())){
-                                                         list2.add(reader.getElementText());
-                                                        
-                                                    }else{
-                                                        loopDone2 = true;
-                                                    }
-                                                }
-                                            }
-                                            // call the converter utility  to convert and set the array
-                                            
-                                            object.setIdVuelos2((int[])
-                                                org.apache.axis2.databinding.utils.ConverterUtil.convertToArray(
-                                                            int.class,list2));
-                                                
+                                              object.setIdVuelos2(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
                               }  // End of if for expected property start element
                                 
-                                    else {
-                                        
-                                    }
-                                  
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                              
                             while (!reader.isStartElement() && !reader.isEndElement())
                                 reader.next();
                             

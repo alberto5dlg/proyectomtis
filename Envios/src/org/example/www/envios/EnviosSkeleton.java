@@ -6,6 +6,7 @@
  * by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST)
  */
     package org.example.www.envios;
+    
     import java.util.Date;
     import java.util.Properties;
 
@@ -18,15 +19,12 @@
         import javax.mail.internet.AddressException;
         import javax.mail.internet.InternetAddress;
         import javax.mail.internet.MimeMessage;
-
-    
-
-/**
+    /**
      *  EnviosSkeleton java skeleton for the axisService
      */
     public class EnviosSkeleton{
         
-         
+    	 
         /**
          * Auto generated method signature
          * 
@@ -40,12 +38,13 @@
                   )
             {
                 	 EnviarListadoResponse res = new EnviarListadoResponse();
-                	 String[] destinos = ent.getDestinatario();
-                	 String[] mensajes = ent.getMensaje();
+                	 String destinos[] = ent.getDestinatario().split(",");
+                	 String mensajes[] = ent.getMensaje().split(",");
                 	 int tam = destinos.length;
                 	 for(int i=0; i<tam; i++){
-                		if(!enviaCorreo(destinos[i],ent.getAsunto(),mensajes[i],ent.getFichero()))
-                			res.setEnviado(false);
+                		 if(!destinos[i].equals("null"))
+                			 if(!enviaCorreo(destinos[i],ent.getAsunto(),mensajes[i],ent.getFichero()))
+                				 res.setEnviado(false);
                 	 }
                 	 res.setEnviado(true);
                 	 return res;

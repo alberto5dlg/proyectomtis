@@ -21,169 +21,69 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.example.org/listaEspera/",
                 "obtenerClientesANotificarResponse",
-                "ns2");
+                "ns1");
 
             
 
                         /**
                         * field for Correos
-                        * This was an Array!
                         */
 
                         
-                                    protected java.lang.String[] localCorreos ;
+                                    protected java.lang.String localCorreos ;
                                 
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localCorreosTracker = false ;
-
-                           public boolean isCorreosSpecified(){
-                               return localCorreosTracker;
-                           }
-
-                           
 
                            /**
                            * Auto generated getter method
-                           * @return java.lang.String[]
+                           * @return java.lang.String
                            */
-                           public  java.lang.String[] getCorreos(){
+                           public  java.lang.String getCorreos(){
                                return localCorreos;
                            }
 
                            
                         
-
-
-                               
-                              /**
-                               * validate the array for Correos
+                            /**
+                               * Auto generated setter method
+                               * @param param Correos
                                */
-                              protected void validateCorreos(java.lang.String[] param){
-                             
-                              }
-
-
-                             /**
-                              * Auto generated setter method
-                              * @param param Correos
-                              */
-                              public void setCorreos(java.lang.String[] param){
-                              
-                                   validateCorreos(param);
-
-                               localCorreosTracker = param != null;
-                                      
-                                      this.localCorreos=param;
-                              }
-
-                               
-                             
-                             /**
-                             * Auto generated add method for the array for convenience
-                             * @param param java.lang.String
-                             */
-                             public void addCorreos(java.lang.String param){
-                                   if (localCorreos == null){
-                                   localCorreos = new java.lang.String[]{};
-                                   }
-
+                               public void setCorreos(java.lang.String param){
                             
-                                 //update the setting tracker
-                                localCorreosTracker = true;
+                                            this.localCorreos=param;
+                                       
+
+                               }
                             
-
-                               java.util.List list =
-                            org.apache.axis2.databinding.utils.ConverterUtil.toList(localCorreos);
-                               list.add(param);
-                               this.localCorreos =
-                             (java.lang.String[])list.toArray(
-                            new java.lang.String[list.size()]);
-
-                             }
-                             
 
                         /**
                         * field for Mensajes
-                        * This was an Array!
                         */
 
                         
-                                    protected java.lang.String[] localMensajes ;
+                                    protected java.lang.String localMensajes ;
                                 
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localMensajesTracker = false ;
-
-                           public boolean isMensajesSpecified(){
-                               return localMensajesTracker;
-                           }
-
-                           
 
                            /**
                            * Auto generated getter method
-                           * @return java.lang.String[]
+                           * @return java.lang.String
                            */
-                           public  java.lang.String[] getMensajes(){
+                           public  java.lang.String getMensajes(){
                                return localMensajes;
                            }
 
                            
                         
-
-
-                               
-                              /**
-                               * validate the array for Mensajes
+                            /**
+                               * Auto generated setter method
+                               * @param param Mensajes
                                */
-                              protected void validateMensajes(java.lang.String[] param){
-                             
-                              }
-
-
-                             /**
-                              * Auto generated setter method
-                              * @param param Mensajes
-                              */
-                              public void setMensajes(java.lang.String[] param){
-                              
-                                   validateMensajes(param);
-
-                               localMensajesTracker = param != null;
-                                      
-                                      this.localMensajes=param;
-                              }
-
-                               
-                             
-                             /**
-                             * Auto generated add method for the array for convenience
-                             * @param param java.lang.String
-                             */
-                             public void addMensajes(java.lang.String param){
-                                   if (localMensajes == null){
-                                   localMensajes = new java.lang.String[]{};
-                                   }
-
+                               public void setMensajes(java.lang.String param){
                             
-                                 //update the setting tracker
-                                localMensajesTracker = true;
+                                            this.localMensajes=param;
+                                       
+
+                               }
                             
-
-                               java.util.List list =
-                            org.apache.axis2.databinding.utils.ConverterUtil.toList(localMensajes);
-                               list.add(param);
-                               this.localMensajes =
-                             (java.lang.String[])list.toArray(
-                            new java.lang.String[list.size()]);
-
-                             }
-                             
 
      
      
@@ -243,61 +143,43 @@
 
                
                    }
-                if (localCorreosTracker){
-                             if (localCorreos!=null) {
-                                   namespace = "";
-                                   for (int i = 0;i < localCorreos.length;i++){
-                                        
-                                            if (localCorreos[i] != null){
-                                        
-                                                writeStartElement(null, namespace, "correos", xmlWriter);
+               
+                                    namespace = "";
+                                    writeStartElement(null, namespace, "correos", xmlWriter);
+                             
 
-                                            
-                                                        xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCorreos[i]));
-                                                    
-                                                xmlWriter.writeEndElement();
+                                          if (localCorreos==null){
+                                              // write the nil attribute
                                               
-                                                } else {
-                                                   
-                                                           // we have to do nothing since minOccurs is zero
-                                                       
-                                                }
+                                                     throw new org.apache.axis2.databinding.ADBException("correos cannot be null!!");
+                                                  
+                                          }else{
 
-                                   }
-                             } else {
-                                 
-                                         throw new org.apache.axis2.databinding.ADBException("correos cannot be null!!");
-                                    
-                             }
-
-                        } if (localMensajesTracker){
-                             if (localMensajes!=null) {
-                                   namespace = "";
-                                   for (int i = 0;i < localMensajes.length;i++){
                                         
-                                            if (localMensajes[i] != null){
-                                        
-                                                writeStartElement(null, namespace, "mensajes", xmlWriter);
-
+                                                   xmlWriter.writeCharacters(localCorreos);
                                             
-                                                        xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localMensajes[i]));
-                                                    
-                                                xmlWriter.writeEndElement();
-                                              
-                                                } else {
-                                                   
-                                                           // we have to do nothing since minOccurs is zero
-                                                       
-                                                }
-
-                                   }
-                             } else {
-                                 
-                                         throw new org.apache.axis2.databinding.ADBException("mensajes cannot be null!!");
+                                          }
                                     
-                             }
+                                   xmlWriter.writeEndElement();
+                             
+                                    namespace = "";
+                                    writeStartElement(null, namespace, "mensajes", xmlWriter);
+                             
 
-                        }
+                                          if (localMensajes==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("mensajes cannot be null!!");
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localMensajes);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
                     xmlWriter.writeEndElement();
                
 
@@ -305,7 +187,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.example.org/listaEspera/")){
-                return "ns2";
+                return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -482,53 +364,25 @@
                  java.util.ArrayList elementList = new java.util.ArrayList();
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
-                 if (localCorreosTracker){
-                            if (localCorreos!=null){
-                                  for (int i = 0;i < localCorreos.length;i++){
-                                      
-                                         if (localCorreos[i] != null){
-                                          elementList.add(new javax.xml.namespace.QName("",
-                                                                              "correos"));
-                                          elementList.add(
-                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCorreos[i]));
-                                          } else {
-                                             
-                                                    // have to do nothing
-                                                
-                                          }
-                                      
-
-                                  }
-                            } else {
-                              
-                                    throw new org.apache.axis2.databinding.ADBException("correos cannot be null!!");
-                                
-                            }
-
-                        } if (localMensajesTracker){
-                            if (localMensajes!=null){
-                                  for (int i = 0;i < localMensajes.length;i++){
-                                      
-                                         if (localMensajes[i] != null){
-                                          elementList.add(new javax.xml.namespace.QName("",
-                                                                              "mensajes"));
-                                          elementList.add(
-                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localMensajes[i]));
-                                          } else {
-                                             
-                                                    // have to do nothing
-                                                
-                                          }
-                                      
-
-                                  }
-                            } else {
-                              
-                                    throw new org.apache.axis2.databinding.ADBException("mensajes cannot be null!!");
-                                
-                            }
-
-                        }
+                
+                                      elementList.add(new javax.xml.namespace.QName("",
+                                                                      "correos"));
+                                 
+                                        if (localCorreos != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCorreos));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("correos cannot be null!!");
+                                        }
+                                    
+                                      elementList.add(new javax.xml.namespace.QName("",
+                                                                      "mensajes"));
+                                 
+                                        if (localMensajes != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localMensajes));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("mensajes cannot be null!!");
+                                        }
+                                    
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -604,100 +458,56 @@
                     
                     reader.next();
                 
-                        java.util.ArrayList list1 = new java.util.ArrayList();
-                    
-                        java.util.ArrayList list2 = new java.util.ArrayList();
-                    
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
                                     if (reader.isStartElement() && new javax.xml.namespace.QName("","correos").equals(reader.getName())){
                                 
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"correos" +"  cannot be null");
+                                    }
                                     
+
+                                    java.lang.String content = reader.getElementText();
                                     
-                                    // Process the array and step past its final element's end.
-                                    list1.add(reader.getElementText());
-                                            
-                                            //loop until we find a start element that is not part of this array
-                                            boolean loopDone1 = false;
-                                            while(!loopDone1){
-                                                // Ensure we are at the EndElement
-                                                while (!reader.isEndElement()){
-                                                    reader.next();
-                                                }
-                                                // Step out of this element
-                                                reader.next();
-                                                // Step to next element event.
-                                                while (!reader.isStartElement() && !reader.isEndElement())
-                                                    reader.next();
-                                                if (reader.isEndElement()){
-                                                    //two continuous end elements means we are exiting the xml structure
-                                                    loopDone1 = true;
-                                                } else {
-                                                    if (new javax.xml.namespace.QName("","correos").equals(reader.getName())){
-                                                         list1.add(reader.getElementText());
-                                                        
-                                                    }else{
-                                                        loopDone1 = true;
-                                                    }
-                                                }
-                                            }
-                                            // call the converter utility  to convert and set the array
-                                            
-                                                    object.setCorreos((java.lang.String[])
-                                                        list1.toArray(new java.lang.String[list1.size()]));
-                                                
+                                              object.setCorreos(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
                               }  // End of if for expected property start element
                                 
-                                    else {
-                                        
-                                    }
-                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
                                     if (reader.isStartElement() && new javax.xml.namespace.QName("","mensajes").equals(reader.getName())){
                                 
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"mensajes" +"  cannot be null");
+                                    }
                                     
+
+                                    java.lang.String content = reader.getElementText();
                                     
-                                    // Process the array and step past its final element's end.
-                                    list2.add(reader.getElementText());
-                                            
-                                            //loop until we find a start element that is not part of this array
-                                            boolean loopDone2 = false;
-                                            while(!loopDone2){
-                                                // Ensure we are at the EndElement
-                                                while (!reader.isEndElement()){
-                                                    reader.next();
-                                                }
-                                                // Step out of this element
-                                                reader.next();
-                                                // Step to next element event.
-                                                while (!reader.isStartElement() && !reader.isEndElement())
-                                                    reader.next();
-                                                if (reader.isEndElement()){
-                                                    //two continuous end elements means we are exiting the xml structure
-                                                    loopDone2 = true;
-                                                } else {
-                                                    if (new javax.xml.namespace.QName("","mensajes").equals(reader.getName())){
-                                                         list2.add(reader.getElementText());
-                                                        
-                                                    }else{
-                                                        loopDone2 = true;
-                                                    }
-                                                }
-                                            }
-                                            // call the converter utility  to convert and set the array
-                                            
-                                                    object.setMensajes((java.lang.String[])
-                                                        list2.toArray(new java.lang.String[list2.size()]));
-                                                
+                                              object.setMensajes(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
                               }  // End of if for expected property start element
                                 
-                                    else {
-                                        
-                                    }
-                                  
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                              
                             while (!reader.isStartElement() && !reader.isEndElement())
                                 reader.next();
                             

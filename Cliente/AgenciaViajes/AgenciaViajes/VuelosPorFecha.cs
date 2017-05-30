@@ -8,7 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
+<<<<<<< HEAD
 using System.Text;
+=======
+>>>>>>> 2566c5ffbef0cc29e6b56b2c3f94aa882ebdf7c6
 using System.IO;
 namespace AgenciaViajes
 {

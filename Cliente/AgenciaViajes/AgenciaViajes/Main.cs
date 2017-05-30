@@ -12,7 +12,6 @@ namespace AgenciaViajes
 {
     public partial class Main : Form
     {
-        private bool logueado = false; 
         public Main()
         {
             InitializeComponent();
@@ -25,9 +24,12 @@ namespace AgenciaViajes
             if (user.User.Equals(""))
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 //vuelosFecha.Enabled = false;
                 //busquedaVuelos.Enabled = false;
 =======
+=======
+>>>>>>> 2566c5ffbef0cc29e6b56b2c3f94aa882ebdf7c6
                 traslados.Enabled = false;
                 hoteles.Enabled = false;
                 vuelosFecha.Enabled = false;
@@ -38,9 +40,12 @@ namespace AgenciaViajes
             else
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 //vuelosFecha.Enabled = true;
                 //busquedaVuelos.Enabled = true;
 =======
+=======
+>>>>>>> 2566c5ffbef0cc29e6b56b2c3f94aa882ebdf7c6
                 traslados.Enabled = true;
                 hoteles.Enabled = true;
                 vuelosFecha.Enabled = true;

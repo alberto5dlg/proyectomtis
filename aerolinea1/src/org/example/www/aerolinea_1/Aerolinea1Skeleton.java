@@ -11,6 +11,7 @@
      */
     public class Aerolinea1Skeleton{
         
+
     	public ReservarVueloResponse reservarVuelo(ReservarVuelo ent) {
 			ReservarVueloResponse res = new ReservarVueloResponse();
 	       	 try {
@@ -81,6 +82,5 @@
                 //TODO : fill this with the necessary business logic
                 throw new  java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#cancelarVuelo");
         }
-     
     }
     

@@ -28,3 +28,20 @@ Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition 
 
 170530 20:27:46 [Note] \bin\mysqld-opt.exe: Shutdown complete
 
+<<<<<<< HEAD
+=======
+<<<<<<< d2bc27990c17e8f2fcc0d4a2676674523ec9b68c
+<<<<<<< b33b77992f59cc739eeb0e6f7885a5f551b1e5a8
+170530 20:30:24 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+170530 21:09:24 [Note] \bin\mysqld-opt.exe: Normal shutdown
+
+170530 21:09:24 [Note] \bin\mysqld-opt.exe: Shutdown complete
+
+=======
+>>>>>>> añadido login
+=======
+170530 20:30:24 [Note] \bin\mysqld-opt.exe: ready for connections.
+Version: '5.0.67-community-nt'  socket: ''  port: 3311  MySQL Community Edition (GPL)
+>>>>>>> Solucionar conflictos merge
+>>>>>>> 2566c5ffbef0cc29e6b56b2c3f94aa882ebdf7c6
