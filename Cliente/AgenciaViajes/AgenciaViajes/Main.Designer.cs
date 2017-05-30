@@ -73,7 +73,6 @@
             // 
             // vuelosFecha
             // 
-            this.vuelosFecha.Enabled = false;
             this.vuelosFecha.Location = new System.Drawing.Point(149, 168);
             this.vuelosFecha.Name = "vuelosFecha";
             this.vuelosFecha.Size = new System.Drawing.Size(103, 51);

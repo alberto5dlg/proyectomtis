@@ -99,7 +99,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(316, 217);
+            this.button2.Location = new System.Drawing.Point(266, 219);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 6;
@@ -129,9 +129,9 @@
             // 
             this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(93, 242);
+            this.dateTimePicker1.Location = new System.Drawing.Point(103, 242);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(121, 20);
             this.dateTimePicker1.TabIndex = 9;
             // 
             // contratado

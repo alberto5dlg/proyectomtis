@@ -24,13 +24,13 @@ namespace AgenciaViajes
         {
             if (!logueado)
             {
-                vuelosFecha.Enabled = false;
+                //vuelosFecha.Enabled = false;
                 //busquedaVuelos.Enabled = false;
                 ofertasButom.Enabled = false;
             }
             else
             {
-                vuelosFecha.Enabled = true;
+                //vuelosFecha.Enabled = true;
                 //busquedaVuelos.Enabled = true;
                 ofertasButom.Enabled = true;
                 login.Enabled = false;

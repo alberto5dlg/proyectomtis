@@ -22,6 +22,8 @@ namespace AgenciaViajes
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Lhotel1.Text = "";
+            LHotel2.Text = "";
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:9090/consultarHabitaciones");
             request.ContentType = "application/json";
             request.Method = "POST";
@@ -65,13 +67,135 @@ namespace AgenciaViajes
             else
             {
                 LHotel2.Text = "No hay habitaciones disponibles";
-            }
-
-
-           
+            }           
             Console.WriteLine("hola " + respuesta);
             response.Close();
             readStream.Close();
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:9090/reservarHabitaciones");
+                request.ContentType = "application/json";
+                request.Method = "POST";
+
+                string[] fechas1 = dateTimePicker1.Value.ToString().Split(' ');
+                string fecha1 = fechas1[0];
+                Console.WriteLine(fecha1);
+                fechas1 = fecha1.Split('/');
+                string fechaFinal1 = fechas1[2] + "/" + fechas1[1] + "/" + fechas1[0];
+
+                string[] fechas2 = dateTimePicker2.Value.ToString().Split(' ');
+                string fecha2 = fechas2[0];
+                Console.WriteLine(fecha2);
+                fechas2 = fecha2.Split('/');
+                string fechaFinal2 = fechas2[2] + "/" + fechas2[1] + "/" + fechas2[0];
+
+                string datos = "";
+                datos += "{";
+                datos += "\"input\" : \"" + comboBox1.SelectedItem.ToString() + "\",";
+                datos += "\"inicio\": \"" + fechaFinal1 + "\",";
+                datos += "\"fin\": \"" + fechaFinal2 + "\",";
+                datos += "\"hotel\": \"1\"";
+                datos += "}";
+                request.ContentLength = (long)datos.Length;
+                StreamWriter body = new StreamWriter(request.GetRequestStream());
+                Console.WriteLine(datos);
+                body.Write(datos);
+                body.Flush();
+                body.Close();
+
+                WebResponse response = (HttpWebResponse)request.GetResponse();
+                Console.WriteLine("Content length is {0}", response.ContentLength);
+                Console.WriteLine("Content type is {0}", response.ContentType);
+                Stream receiveStream = response.GetResponseStream();
+                StreamReader readStream = new StreamReader(receiveStream);
+                Console.WriteLine("Response stream received.");
+                string respuesta = readStream.ReadToEnd();
+                Console.WriteLine("hola" + respuesta);
+                if (respuesta == "true")
+                {
+                    RHotel1.Text = "La reserva se ha realizado correctamente";
+                }
+                else
+                {
+
+                    RHotel1.Text = "Fallo realizar la reserva, pruebe otras fechas";
+                }
+                response.Close();
+                readStream.Close();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:9090/reservarHabitaciones");
+                request.ContentType = "application/json";
+                request.Method = "POST";
+
+                string[] fechas1 = dateTimePicker3.Value.ToString().Split(' ');
+                string fecha1 = fechas1[0];
+                Console.WriteLine(fecha1);
+                fechas1 = fecha1.Split('/');
+                string fechaFinal1 = fechas1[2] + "/" + fechas1[1] + "/" + fechas1[0];
+
+                string[] fechas2 = dateTimePicker4.Value.ToString().Split(' ');
+                string fecha2 = fechas2[0];
+                Console.WriteLine(fecha2);
+                fechas2 = fecha2.Split('/');
+                string fechaFinal2 = fechas2[2] + "/" + fechas2[1] + "/" + fechas2[0];
+
+                string datos = "";
+                datos += "{";
+                datos += "\"input\" : \"" + comboBox2.SelectedItem.ToString() + "\",";
+                datos += "\"inicio\": \"" + fechaFinal1 + "\",";
+                datos += "\"fin\": \"" + fechaFinal2 + "\",";
+                datos += "\"hotel\": \"2\"";
+                datos += "}";
+                request.ContentLength = (long)datos.Length;
+                StreamWriter body = new StreamWriter(request.GetRequestStream());
+                Console.WriteLine(datos);
+                body.Write(datos);
+                body.Flush();
+                body.Close();
+
+                WebResponse response = (HttpWebResponse)request.GetResponse();
+                Console.WriteLine("Content length is {0}", response.ContentLength);
+                Console.WriteLine("Content type is {0}", response.ContentType);
+                Stream receiveStream = response.GetResponseStream();
+                StreamReader readStream = new StreamReader(receiveStream);
+                Console.WriteLine("Response stream received.");
+                string respuesta = readStream.ReadToEnd();
+                Console.WriteLine("hola" + respuesta);
+                if (respuesta == "true")
+                {
+                    RHotel2.Text = "La reserva se ha realizado correctamente";
+                }
+                else
+                {
+
+                    RHotel2.Text = "Fallo realizar la reserva, pruebe otras fechas";
+                }
+                response.Close();
+                readStream.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
