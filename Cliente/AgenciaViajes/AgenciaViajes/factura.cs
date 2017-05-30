@@ -17,15 +17,17 @@ namespace AgenciaViajes
     {
         public static void crearFactura(string usuario,float precio,string pagada,string detalles)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http:/localhost:3000/api/facturas/crearFactura");
+            string p = Convert.ToString(precio);
+            p = p.Replace(',', '.');
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:3000/api/facturas/crearFactura");
             request.ContentType = "application/json";
             request.Method = "POST";
             string datos = "";
             datos += "{";
-            datos += "\"usuario\" : \"" + usuario + "\",";
-            datos += "\"precio\" : " + precio + ",";
-            datos += "\"pagada\" : \"" + pagada + "\",";
-            datos += "\"detalles\" : \"" + detalles + "\",";
+            datos += "\"usuario\":\"" + usuario + "\",";
+            datos += "\"pagada\":\"" + pagada + "\",";
+            datos += "\"precio\":" + p + ",";
+            datos += "\"detalles\":\"" + detalles + "\"";
             datos += "}";
             request.ContentLength = (long)datos.Length;
             StreamWriter body = new StreamWriter(request.GetRequestStream());
