@@ -41,9 +41,6 @@
     <Reference Include="MySql.Data">
       <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data">
-      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
-    </Reference>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
@@ -79,16 +76,13 @@
     <Compile Include="datosTarjeta.Designer.cs">
       <DependentUpon>datosTarjeta.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Facturas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Facturas.Designer.cs">
       <DependentUpon>Facturas.cs</DependentUpon>
     </Compile>
-=======
     <Compile Include="factura.cs" />
->>>>>>> 407dabf461ff78097cda20fad0f177c394187e29
     <Compile Include="Hoteles.cs">
       <SubType>Form</SubType>
     </Compile>

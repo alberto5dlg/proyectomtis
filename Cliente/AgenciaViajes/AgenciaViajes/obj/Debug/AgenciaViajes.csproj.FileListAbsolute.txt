@@ -64,9 +64,7 @@ C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\De
 C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\MySql.Data.dll
 >>>>>>> 43792ef169a6c83335f2c10464fe97a924ec4023
 >>>>>>> busquedaVuelos1Aerolinea
-<<<<<<< HEAD
 C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.Facturas.resources
-=======
 C:\Users\carlos\Desktop\Carlos\Universidad\16-17\2ºcuatrimestre\MTIS\Proyecto\proyectos\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.datosTarjeta.resources
 C:\Users\carlos\Desktop\Carlos\Universidad\16-17\2ºcuatrimestre\MTIS\Proyecto\proyectos\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.Hoteles.resources
 C:\Users\carlos\Desktop\Carlos\Universidad\16-17\2ºcuatrimestre\MTIS\Proyecto\proyectos\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.Traslados.resources
