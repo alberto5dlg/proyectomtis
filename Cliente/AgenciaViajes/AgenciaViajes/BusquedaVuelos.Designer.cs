@@ -34,17 +34,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.fechainicio = new System.Windows.Forms.DateTimePicker();
-            this.fechafin = new System.Windows.Forms.DateTimePicker();
             this.resultados = new System.Windows.Forms.DataGridView();
-            this.companyia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aerolinea = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoraSalida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoraLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plazas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buscarButon = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.asientos2 = new System.Windows.Forms.Label();
+            this.asientos = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.resultados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,35 +94,21 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(302, 105);
+            this.label4.Location = new System.Drawing.Point(287, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "Fecha Inicio:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(302, 145);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Fecha Final:";
-            // 
             // fechainicio
             // 
-            this.fechainicio.Location = new System.Drawing.Point(406, 105);
+            this.fechainicio.CustomFormat = "yyyy-MM-dd";
+            this.fechainicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.fechainicio.Location = new System.Drawing.Point(391, 99);
             this.fechainicio.Name = "fechainicio";
-            this.fechainicio.Size = new System.Drawing.Size(200, 20);
+            this.fechainicio.Size = new System.Drawing.Size(123, 20);
             this.fechainicio.TabIndex = 7;
-            // 
-            // fechafin
-            // 
-            this.fechafin.Location = new System.Drawing.Point(406, 141);
-            this.fechafin.Name = "fechafin";
-            this.fechafin.Size = new System.Drawing.Size(200, 20);
-            this.fechafin.TabIndex = 8;
             // 
             // resultados
             // 
@@ -129,34 +116,44 @@
             this.resultados.AllowUserToDeleteRows = false;
             this.resultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.resultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.companyia,
+            this.Aerolinea,
+            this.Vuelo,
+            this.Fecha,
             this.HoraSalida,
-            this.HoraLlegada,
             this.Precio,
             this.plazas});
             this.resultados.Location = new System.Drawing.Point(54, 304);
             this.resultados.Name = "resultados";
             this.resultados.ReadOnly = true;
-            this.resultados.Size = new System.Drawing.Size(552, 150);
+            this.resultados.Size = new System.Drawing.Size(448, 150);
             this.resultados.TabIndex = 9;
+            this.resultados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.resultados_CellContentClick);
             // 
-            // companyia
+            // Aerolinea
             // 
-            this.companyia.HeaderText = "Compañia";
-            this.companyia.Name = "companyia";
-            this.companyia.ReadOnly = true;
+            this.Aerolinea.HeaderText = "Aerolinea";
+            this.Aerolinea.Name = "Aerolinea";
+            this.Aerolinea.ReadOnly = true;
+            this.Aerolinea.Visible = false;
+            // 
+            // Vuelo
+            // 
+            this.Vuelo.HeaderText = "Vuelo";
+            this.Vuelo.Name = "Vuelo";
+            this.Vuelo.ReadOnly = true;
+            this.Vuelo.Visible = false;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
             // 
             // HoraSalida
             // 
             this.HoraSalida.HeaderText = "Hora de Salida";
             this.HoraSalida.Name = "HoraSalida";
             this.HoraSalida.ReadOnly = true;
-            // 
-            // HoraLlegada
-            // 
-            this.HoraLlegada.HeaderText = "Hora de Llegada";
-            this.HoraLlegada.Name = "HoraLlegada";
-            this.HoraLlegada.ReadOnly = true;
             // 
             // Precio
             // 
@@ -178,6 +175,7 @@
             this.buscarButon.TabIndex = 10;
             this.buscarButon.Text = "Buscar";
             this.buscarButon.UseVisualStyleBackColor = true;
+            this.buscarButon.Click += new System.EventHandler(this.buscarButon_Click);
             // 
             // label6
             // 
@@ -189,17 +187,33 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Resultados";
             // 
+            // asientos2
+            // 
+            this.asientos2.AutoSize = true;
+            this.asientos2.Location = new System.Drawing.Point(287, 149);
+            this.asientos2.Name = "asientos2";
+            this.asientos2.Size = new System.Drawing.Size(65, 13);
+            this.asientos2.TabIndex = 12;
+            this.asientos2.Text = "Nº Asientos:";
+            // 
+            // asientos
+            // 
+            this.asientos.Location = new System.Drawing.Point(391, 142);
+            this.asientos.Name = "asientos";
+            this.asientos.Size = new System.Drawing.Size(100, 20);
+            this.asientos.TabIndex = 13;
+            // 
             // BusquedaVuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 487);
+            this.Controls.Add(this.asientos);
+            this.Controls.Add(this.asientos2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.buscarButon);
             this.Controls.Add(this.resultados);
-            this.Controls.Add(this.fechafin);
             this.Controls.Add(this.fechainicio);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -222,16 +236,17 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker fechainicio;
-        private System.Windows.Forms.DateTimePicker fechafin;
         private System.Windows.Forms.DataGridView resultados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn companyia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoraSalida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoraLlegada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn plazas;
         private System.Windows.Forms.Button buscarButon;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aerolinea;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Vuelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoraSalida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn plazas;
+        private System.Windows.Forms.Label asientos2;
+        private System.Windows.Forms.TextBox asientos;
     }
 }

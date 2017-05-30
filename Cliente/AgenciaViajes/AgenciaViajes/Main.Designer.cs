@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.busquedaVuelos = new System.Windows.Forms.Button();
@@ -36,6 +37,10 @@
             this.login = new System.Windows.Forms.Button();
             this.registro = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.traslados = new System.Windows.Forms.Button();
+            this.hoteles = new System.Windows.Forms.Button();
+            this.Disponibilidad = new System.Windows.Forms.Timer(this.components);
+            this.facturasButon = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -71,7 +76,6 @@
             // 
             // vuelosFecha
             // 
-            this.vuelosFecha.Enabled = false;
             this.vuelosFecha.Location = new System.Drawing.Point(149, 168);
             this.vuelosFecha.Name = "vuelosFecha";
             this.vuelosFecha.Size = new System.Drawing.Size(103, 51);
@@ -119,11 +123,50 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Haz login para busar tu viaje o Registrate ";
             // 
+            // traslados
+            // 
+            this.traslados.Location = new System.Drawing.Point(149, 262);
+            this.traslados.Name = "traslados";
+            this.traslados.Size = new System.Drawing.Size(103, 51);
+            this.traslados.TabIndex = 8;
+            this.traslados.Text = "Traslados";
+            this.traslados.UseVisualStyleBackColor = true;
+            this.traslados.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // hoteles
+            // 
+            this.hoteles.Location = new System.Drawing.Point(324, 262);
+            this.hoteles.Name = "hoteles";
+            this.hoteles.Size = new System.Drawing.Size(103, 51);
+            this.hoteles.TabIndex = 9;
+            this.hoteles.Text = "Hoteles";
+            this.hoteles.UseVisualStyleBackColor = true;
+            this.hoteles.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // Disponibilidad
+            // 
+            this.Disponibilidad.Enabled = true;
+            this.Disponibilidad.Interval = 20000;
+            this.Disponibilidad.Tick += new System.EventHandler(this.Disponibilidad_Tick);
+            // 
+            // facturasButon
+            // 
+            this.facturasButon.Location = new System.Drawing.Point(494, 262);
+            this.facturasButon.Name = "facturasButon";
+            this.facturasButon.Size = new System.Drawing.Size(103, 51);
+            this.facturasButon.TabIndex = 10;
+            this.facturasButon.Text = "Facturas";
+            this.facturasButon.UseVisualStyleBackColor = true;
+            this.facturasButon.Click += new System.EventHandler(this.facturasButon_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 459);
+            this.Controls.Add(this.facturasButon);
+            this.Controls.Add(this.hoteles);
+            this.Controls.Add(this.traslados);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.registro);
             this.Controls.Add(this.login);
@@ -149,6 +192,10 @@
         private System.Windows.Forms.Button login;
         private System.Windows.Forms.Button registro;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button traslados;
+        private System.Windows.Forms.Button hoteles;
+        private System.Windows.Forms.Timer Disponibilidad;
+        private System.Windows.Forms.Button facturasButon;
     }
 }
 

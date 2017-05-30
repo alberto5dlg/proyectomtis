@@ -32,6 +32,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Json">
+      <HintPath>..\packages\JSON.1.0.1\lib\net40\Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.XmlTransform">
+      <HintPath>..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=2.14.0.832, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NuGet.Core.2.14.0\lib\net40-Client\NuGet.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +69,25 @@
     </Compile>
     <Compile Include="BusquedaVuelos.Designer.cs">
       <DependentUpon>BusquedaVuelos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="datosTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="datosTarjeta.Designer.cs">
+      <DependentUpon>datosTarjeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturas.Designer.cs">
+      <DependentUpon>Facturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="factura.cs" />
+    <Compile Include="Hoteles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hoteles.Designer.cs">
+      <DependentUpon>Hoteles.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -76,6 +115,13 @@
     <Compile Include="Registro.Designer.cs">
       <DependentUpon>Registro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Traslados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Traslados.Designer.cs">
+      <DependentUpon>Traslados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user.cs" />
     <Compile Include="VuelosPorFecha.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +130,15 @@
     </Compile>
     <EmbeddedResource Include="BusquedaVuelos.resx">
       <DependentUpon>BusquedaVuelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="datosTarjeta.resx">
+      <DependentUpon>datosTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturas.resx">
+      <DependentUpon>Facturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hoteles.resx">
+      <DependentUpon>Hoteles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -106,9 +161,13 @@
     <EmbeddedResource Include="Registro.resx">
       <DependentUpon>Registro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Traslados.resx">
+      <DependentUpon>Traslados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VuelosPorFecha.resx">
       <DependentUpon>VuelosPorFecha.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

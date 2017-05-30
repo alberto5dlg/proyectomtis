@@ -63,8 +63,10 @@
             // 
             // passText
             // 
+            this.passText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passText.Location = new System.Drawing.Point(109, 86);
             this.passText.Name = "passText";
+            this.passText.PasswordChar = '·';
             this.passText.Size = new System.Drawing.Size(100, 20);
             this.passText.TabIndex = 3;
             // 
@@ -74,8 +76,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
+            this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
