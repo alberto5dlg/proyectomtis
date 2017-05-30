@@ -23,41 +23,18 @@ namespace AgenciaViajes
         {
             if (user.User.Equals(""))
             {
-<<<<<<< d2bc27990c17e8f2fcc0d4a2676674523ec9b68c
-<<<<<<< 43e70fd40da7390f9fa71b5ee65f229ae8eba36f
-=======
-
->>>>>>> Solucionar conflictos merge
                 traslados.Enabled = false;
                 hoteles.Enabled = false;
                 vuelosFecha.Enabled = false;
                 busquedaVuelos.Enabled = false;
-<<<<<<< d2bc27990c17e8f2fcc0d4a2676674523ec9b68c
-=======
-                //vuelosFecha.Enabled = false;
-                //busquedaVuelos.Enabled = false;
->>>>>>> busquedaVuelos1Aerolinea
-=======
->>>>>>> Solucionar conflictos merge
                 ofertasButom.Enabled = false;
             }
             else
             {
-<<<<<<< d2bc27990c17e8f2fcc0d4a2676674523ec9b68c
-<<<<<<< 43e70fd40da7390f9fa71b5ee65f229ae8eba36f
-=======
->>>>>>> Solucionar conflictos merge
                 traslados.Enabled = true;
                 hoteles.Enabled = true;
                 vuelosFecha.Enabled = true;
                 busquedaVuelos.Enabled = true;
-<<<<<<< d2bc27990c17e8f2fcc0d4a2676674523ec9b68c
-=======
-                //vuelosFecha.Enabled = true;
-                //busquedaVuelos.Enabled = true;
->>>>>>> busquedaVuelos1Aerolinea
-=======
->>>>>>> Solucionar conflictos merge
                 ofertasButom.Enabled = true;
                 login.Enabled = false;
                 registro.Enabled = false; 
