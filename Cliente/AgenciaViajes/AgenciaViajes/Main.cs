@@ -22,16 +22,20 @@ namespace AgenciaViajes
 
         public void estado()
         {
-            if (!logueado)
+            if (user.User.Equals(""))
             {
+                traslados.Enabled = false;
+                hoteles.Enabled = false;
                 vuelosFecha.Enabled = false;
-                //busquedaVuelos.Enabled = false;
+                busquedaVuelos.Enabled = false;
                 ofertasButom.Enabled = false;
             }
             else
             {
+                traslados.Enabled = true;
+                hoteles.Enabled = true;
                 vuelosFecha.Enabled = true;
-                //busquedaVuelos.Enabled = true;
+                busquedaVuelos.Enabled = true;
                 ofertasButom.Enabled = true;
                 login.Enabled = false;
                 registro.Enabled = false; 
@@ -64,7 +68,8 @@ namespace AgenciaViajes
         private void login_Click(object sender, EventArgs e)
         {
             Login log = new Login();
-            log.Show();
+            log.ShowDialog();
+            estado();
         }
 
         private void registro_Click(object sender, EventArgs e)

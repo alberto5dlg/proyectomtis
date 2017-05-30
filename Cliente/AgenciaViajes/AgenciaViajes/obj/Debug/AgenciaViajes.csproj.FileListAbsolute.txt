@@ -46,3 +46,13 @@ C:\Users\carlos\Desktop\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Microsoft.
 C:\Users\carlos\Desktop\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\NuGet.Core.dll
 C:\Users\carlos\Desktop\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Json.pdb
 C:\Users\carlos\Desktop\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.Hoteles.resources
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Json.dll
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Microsoft.Web.XmlTransform.dll
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\NuGet.Core.dll
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Json.pdb
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.Hoteles.resources
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.Traslados.resources
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.datosTarjeta.resources
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\MySql.Data.dll
