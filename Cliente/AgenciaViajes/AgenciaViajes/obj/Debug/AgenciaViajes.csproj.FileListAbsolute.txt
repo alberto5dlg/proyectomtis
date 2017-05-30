@@ -61,3 +61,4 @@ C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\De
 C:\Users\carlos\Desktop\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Newtonsoft.Json.dll
 C:\Users\carlos\Desktop\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Newtonsoft.Json.xml
 >>>>>>> busquedaVuelos1Aerolinea
+C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.Facturas.resources
