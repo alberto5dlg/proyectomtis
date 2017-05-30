@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.resultados = new System.Windows.Forms.DataGridView();
+            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoOferta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DetallesOferta = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +53,7 @@
             // 
             this.resultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.resultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.numero,
             this.Precio,
             this.TipoOferta,
             this.DetallesOferta,
@@ -62,10 +64,18 @@
             this.resultados.ReadOnly = true;
             this.resultados.Size = new System.Drawing.Size(597, 328);
             this.resultados.TabIndex = 1;
+            this.resultados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.resultados_CellContentClick);
+            this.resultados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.resultados_CellContentClick);
+            // 
+            // numero
+            // 
+            this.numero.HeaderText = "Numero";
+            this.numero.Name = "numero";
+            this.numero.ReadOnly = true;
             // 
             // Precio
             // 
-            this.Precio.HeaderText = "Precio";
+            this.Precio.HeaderText = "Precio (€)";
             this.Precio.Name = "Precio";
             this.Precio.ReadOnly = true;
             // 
@@ -112,6 +122,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView resultados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoOferta;
         private System.Windows.Forms.DataGridViewTextBoxColumn DetallesOferta;

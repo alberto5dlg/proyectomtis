@@ -37,7 +37,7 @@
             this.registro = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.traslados = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.hoteles = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -130,22 +130,22 @@
             this.traslados.UseVisualStyleBackColor = true;
             this.traslados.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button1
+            // hoteles
             // 
-            this.button1.Location = new System.Drawing.Point(324, 262);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 51);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Hoteles";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.hoteles.Location = new System.Drawing.Point(324, 262);
+            this.hoteles.Name = "hoteles";
+            this.hoteles.Size = new System.Drawing.Size(103, 51);
+            this.hoteles.TabIndex = 9;
+            this.hoteles.Text = "Hoteles";
+            this.hoteles.UseVisualStyleBackColor = true;
+            this.hoteles.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 459);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.hoteles);
             this.Controls.Add(this.traslados);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.registro);
@@ -173,7 +173,7 @@
         private System.Windows.Forms.Button registro;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button traslados;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button hoteles;
     }
 }
 

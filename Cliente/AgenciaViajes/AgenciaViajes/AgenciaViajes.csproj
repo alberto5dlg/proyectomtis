@@ -38,6 +38,12 @@
     <Reference Include="Microsoft.Web.XmlTransform">
       <HintPath>..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
+=======
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+>>>>>>> 43792ef169a6c83335f2c10464fe97a924ec4023
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -62,6 +68,12 @@
     </Compile>
     <Compile Include="BusquedaVuelos.Designer.cs">
       <DependentUpon>BusquedaVuelos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="datosTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="datosTarjeta.Designer.cs">
+      <DependentUpon>datosTarjeta.cs</DependentUpon>
     </Compile>
     <Compile Include="Hoteles.cs">
       <SubType>Form</SubType>
@@ -101,6 +113,7 @@
     <Compile Include="Traslados.Designer.cs">
       <DependentUpon>Traslados.cs</DependentUpon>
     </Compile>
+    <Compile Include="user.cs" />
     <Compile Include="VuelosPorFecha.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +122,9 @@
     </Compile>
     <EmbeddedResource Include="BusquedaVuelos.resx">
       <DependentUpon>BusquedaVuelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="datosTarjeta.resx">
+      <DependentUpon>datosTarjeta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Hoteles.resx">
       <DependentUpon>Hoteles.cs</DependentUpon>

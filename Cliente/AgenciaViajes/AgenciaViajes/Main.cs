@@ -22,16 +22,30 @@ namespace AgenciaViajes
 
         public void estado()
         {
-            if (!logueado)
+            if (user.User.Equals(""))
             {
+<<<<<<< HEAD
                 //vuelosFecha.Enabled = false;
                 //busquedaVuelos.Enabled = false;
+=======
+                traslados.Enabled = false;
+                hoteles.Enabled = false;
+                vuelosFecha.Enabled = false;
+                busquedaVuelos.Enabled = false;
+>>>>>>> 43792ef169a6c83335f2c10464fe97a924ec4023
                 ofertasButom.Enabled = false;
             }
             else
             {
+<<<<<<< HEAD
                 //vuelosFecha.Enabled = true;
                 //busquedaVuelos.Enabled = true;
+=======
+                traslados.Enabled = true;
+                hoteles.Enabled = true;
+                vuelosFecha.Enabled = true;
+                busquedaVuelos.Enabled = true;
+>>>>>>> 43792ef169a6c83335f2c10464fe97a924ec4023
                 ofertasButom.Enabled = true;
                 login.Enabled = false;
                 registro.Enabled = false; 
@@ -64,7 +78,8 @@ namespace AgenciaViajes
         private void login_Click(object sender, EventArgs e)
         {
             Login log = new Login();
-            log.Show();
+            log.ShowDialog();
+            estado();
         }
 
         private void registro_Click(object sender, EventArgs e)

@@ -34,12 +34,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.userBox = new System.Windows.Forms.TextBox();
+            this.passBox = new System.Windows.Forms.TextBox();
+            this.emailBox = new System.Windows.Forms.TextBox();
+            this.nombreBox = new System.Windows.Forms.TextBox();
+            this.apellidoBox = new System.Windows.Forms.TextBox();
+            this.telfBox = new System.Windows.Forms.TextBox();
             this.Registrate = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -98,47 +98,47 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Apellidos:";
             // 
-            // textBox1
+            // userBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 69);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 6;
+            this.userBox.Location = new System.Drawing.Point(96, 69);
+            this.userBox.Name = "userBox";
+            this.userBox.Size = new System.Drawing.Size(100, 20);
+            this.userBox.TabIndex = 6;
             // 
-            // textBox2
+            // passBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(96, 105);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 7;
+            this.passBox.Location = new System.Drawing.Point(96, 105);
+            this.passBox.Name = "passBox";
+            this.passBox.Size = new System.Drawing.Size(100, 20);
+            this.passBox.TabIndex = 7;
             // 
-            // textBox3
+            // emailBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(96, 138);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 8;
+            this.emailBox.Location = new System.Drawing.Point(96, 138);
+            this.emailBox.Name = "emailBox";
+            this.emailBox.Size = new System.Drawing.Size(100, 20);
+            this.emailBox.TabIndex = 8;
             // 
-            // textBox4
+            // nombreBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(265, 69);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 9;
+            this.nombreBox.Location = new System.Drawing.Point(265, 69);
+            this.nombreBox.Name = "nombreBox";
+            this.nombreBox.Size = new System.Drawing.Size(100, 20);
+            this.nombreBox.TabIndex = 9;
             // 
-            // textBox5
+            // apellidoBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(265, 105);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 10;
+            this.apellidoBox.Location = new System.Drawing.Point(265, 105);
+            this.apellidoBox.Name = "apellidoBox";
+            this.apellidoBox.Size = new System.Drawing.Size(100, 20);
+            this.apellidoBox.TabIndex = 10;
             // 
-            // textBox6
+            // telfBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(265, 138);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 11;
+            this.telfBox.Location = new System.Drawing.Point(265, 138);
+            this.telfBox.Name = "telfBox";
+            this.telfBox.Size = new System.Drawing.Size(100, 20);
+            this.telfBox.TabIndex = 11;
             // 
             // Registrate
             // 
@@ -148,6 +148,7 @@
             this.Registrate.TabIndex = 12;
             this.Registrate.Text = "Registrate";
             this.Registrate.UseVisualStyleBackColor = true;
+            this.Registrate.Click += new System.EventHandler(this.Registrate_Click);
             // 
             // label7
             // 
@@ -166,12 +167,12 @@
             this.ClientSize = new System.Drawing.Size(398, 238);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.Registrate);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.telfBox);
+            this.Controls.Add(this.apellidoBox);
+            this.Controls.Add(this.nombreBox);
+            this.Controls.Add(this.emailBox);
+            this.Controls.Add(this.passBox);
+            this.Controls.Add(this.userBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -193,12 +194,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox userBox;
+        private System.Windows.Forms.TextBox passBox;
+        private System.Windows.Forms.TextBox emailBox;
+        private System.Windows.Forms.TextBox nombreBox;
+        private System.Windows.Forms.TextBox apellidoBox;
+        private System.Windows.Forms.TextBox telfBox;
         private System.Windows.Forms.Button Registrate;
         private System.Windows.Forms.Label label7;
     }
