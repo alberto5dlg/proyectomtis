@@ -25,13 +25,13 @@ namespace AgenciaViajes
             if (!logueado)
             {
                 vuelosFecha.Enabled = false;
-                busquedaVuelos.Enabled = false;
+                //busquedaVuelos.Enabled = false;
                 ofertasButom.Enabled = false;
             }
             else
             {
                 vuelosFecha.Enabled = true;
-                busquedaVuelos.Enabled = true;
+                //busquedaVuelos.Enabled = true;
                 ofertasButom.Enabled = true;
                 login.Enabled = false;
                 registro.Enabled = false; 
@@ -71,6 +71,18 @@ namespace AgenciaViajes
         {
             Registro reg = new Registro();
             reg.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Traslados tras = new Traslados();
+            tras.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Hoteles hot = new Hoteles();
+            hot.Show();
         }
     }
 }
