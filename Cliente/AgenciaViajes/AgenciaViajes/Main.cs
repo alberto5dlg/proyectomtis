@@ -25,6 +25,7 @@ namespace AgenciaViajes
         {
             if (user.User.Equals(""))
             {
+
                 traslados.Enabled = false;
                 hoteles.Enabled = false;
                 vuelosFecha.Enabled = false;
