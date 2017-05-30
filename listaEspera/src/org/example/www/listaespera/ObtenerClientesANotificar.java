@@ -21,7 +21,7 @@
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.example.org/listaEspera/",
                 "obtenerClientesANotificar",
-                "ns2");
+                "ns1");
 
             
 
@@ -57,117 +57,63 @@
 
                         /**
                         * field for Vuelos
-                        * This was an Array!
                         */
 
                         
-                                    protected int[] localVuelos ;
+                                    protected java.lang.String localVuelos ;
                                 
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localVuelosTracker = false ;
-
-                           public boolean isVuelosSpecified(){
-                               return localVuelosTracker;
-                           }
-
-                           
 
                            /**
                            * Auto generated getter method
-                           * @return int[]
+                           * @return java.lang.String
                            */
-                           public  int[] getVuelos(){
+                           public  java.lang.String getVuelos(){
                                return localVuelos;
                            }
 
                            
                         
-
-
-                               
-                              /**
-                               * validate the array for Vuelos
+                            /**
+                               * Auto generated setter method
+                               * @param param Vuelos
                                */
-                              protected void validateVuelos(int[] param){
-                             
-                              }
+                               public void setVuelos(java.lang.String param){
+                            
+                                            this.localVuelos=param;
+                                       
 
-
-                             /**
-                              * Auto generated setter method
-                              * @param param Vuelos
-                              */
-                              public void setVuelos(int[] param){
-                              
-                                   validateVuelos(param);
-
-                               localVuelosTracker = param != null;
-                                      
-                                      this.localVuelos=param;
-                              }
-
-                               
-                             
+                               }
+                            
 
                         /**
                         * field for Plazas
-                        * This was an Array!
                         */
 
                         
-                                    protected int[] localPlazas ;
+                                    protected java.lang.String localPlazas ;
                                 
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localPlazasTracker = false ;
-
-                           public boolean isPlazasSpecified(){
-                               return localPlazasTracker;
-                           }
-
-                           
 
                            /**
                            * Auto generated getter method
-                           * @return int[]
+                           * @return java.lang.String
                            */
-                           public  int[] getPlazas(){
+                           public  java.lang.String getPlazas(){
                                return localPlazas;
                            }
 
                            
                         
-
-
-                               
-                              /**
-                               * validate the array for Plazas
+                            /**
+                               * Auto generated setter method
+                               * @param param Plazas
                                */
-                              protected void validatePlazas(int[] param){
-                             
-                              }
+                               public void setPlazas(java.lang.String param){
+                            
+                                            this.localPlazas=param;
+                                       
 
-
-                             /**
-                              * Auto generated setter method
-                              * @param param Plazas
-                              */
-                              public void setPlazas(int[] param){
-                              
-                                   validatePlazas(param);
-
-                               localPlazasTracker = param != null;
-                                      
-                                      this.localPlazas=param;
-                              }
-
-                               
-                             
+                               }
+                            
 
      
      
@@ -240,59 +186,43 @@
                                                }
                                     
                                    xmlWriter.writeEndElement();
-                              if (localVuelosTracker){
-                             if (localVuelos!=null) {
-                                   namespace = "";
-                                   for (int i = 0;i < localVuelos.length;i++){
+                             
+                                    namespace = "";
+                                    writeStartElement(null, namespace, "vuelos", xmlWriter);
+                             
+
+                                          if (localVuelos==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("vuelos cannot be null!!");
+                                                  
+                                          }else{
+
                                         
-                                                   if (localVuelos[i]!=java.lang.Integer.MIN_VALUE) {
-                                               
-                                                writeStartElement(null, namespace, "vuelos", xmlWriter);
-
+                                                   xmlWriter.writeCharacters(localVuelos);
                                             
-                                                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localVuelos[i]));
-                                                xmlWriter.writeEndElement();
-                                            
-                                                } else {
-                                                   
-                                                           // we have to do nothing since minOccurs is zero
-                                                       
-                                                }
-
-                                   }
-                             } else {
-                                 
-                                         throw new org.apache.axis2.databinding.ADBException("vuelos cannot be null!!");
+                                          }
                                     
-                             }
+                                   xmlWriter.writeEndElement();
+                             
+                                    namespace = "";
+                                    writeStartElement(null, namespace, "plazas", xmlWriter);
+                             
 
-                        } if (localPlazasTracker){
-                             if (localPlazas!=null) {
-                                   namespace = "";
-                                   for (int i = 0;i < localPlazas.length;i++){
+                                          if (localPlazas==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("plazas cannot be null!!");
+                                                  
+                                          }else{
+
                                         
-                                                   if (localPlazas[i]!=java.lang.Integer.MIN_VALUE) {
-                                               
-                                                writeStartElement(null, namespace, "plazas", xmlWriter);
-
+                                                   xmlWriter.writeCharacters(localPlazas);
                                             
-                                                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPlazas[i]));
-                                                xmlWriter.writeEndElement();
-                                            
-                                                } else {
-                                                   
-                                                           // we have to do nothing since minOccurs is zero
-                                                       
-                                                }
-
-                                   }
-                             } else {
-                                 
-                                         throw new org.apache.axis2.databinding.ADBException("plazas cannot be null!!");
+                                          }
                                     
-                             }
-
-                        }
+                                   xmlWriter.writeEndElement();
+                             
                     xmlWriter.writeEndElement();
                
 
@@ -300,7 +230,7 @@
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.example.org/listaEspera/")){
-                return "ns2";
+                return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -483,43 +413,25 @@
                                  
                                 elementList.add(
                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdAerolinea));
-                             if (localVuelosTracker){
-                            if (localVuelos!=null){
-                                  for (int i = 0;i < localVuelos.length;i++){
-                                      
-                                          elementList.add(new javax.xml.namespace.QName("",
-                                                                                                                       "vuelos"));
-                                          elementList.add(
-                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localVuelos[i]));
-
-                                      
-
-                                  }
-                            } else {
-                              
-                                    throw new org.apache.axis2.databinding.ADBException("vuelos cannot be null!!");
-                                
-                            }
-
-                        } if (localPlazasTracker){
-                            if (localPlazas!=null){
-                                  for (int i = 0;i < localPlazas.length;i++){
-                                      
-                                          elementList.add(new javax.xml.namespace.QName("",
-                                                                                                                       "plazas"));
-                                          elementList.add(
-                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPlazas[i]));
-
-                                      
-
-                                  }
-                            } else {
-                              
-                                    throw new org.apache.axis2.databinding.ADBException("plazas cannot be null!!");
-                                
-                            }
-
-                        }
+                            
+                                      elementList.add(new javax.xml.namespace.QName("",
+                                                                      "vuelos"));
+                                 
+                                        if (localVuelos != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localVuelos));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("vuelos cannot be null!!");
+                                        }
+                                    
+                                      elementList.add(new javax.xml.namespace.QName("",
+                                                                      "plazas"));
+                                 
+                                        if (localPlazas != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPlazas));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("plazas cannot be null!!");
+                                        }
+                                    
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -595,10 +507,6 @@
                     
                     reader.next();
                 
-                        java.util.ArrayList list2 = new java.util.ArrayList();
-                    
-                        java.util.ArrayList list3 = new java.util.ArrayList();
-                    
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
@@ -629,93 +537,51 @@
                                 
                                     if (reader.isStartElement() && new javax.xml.namespace.QName("","vuelos").equals(reader.getName())){
                                 
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"vuelos" +"  cannot be null");
+                                    }
                                     
+
+                                    java.lang.String content = reader.getElementText();
                                     
-                                    // Process the array and step past its final element's end.
-                                    list2.add(reader.getElementText());
-                                            
-                                            //loop until we find a start element that is not part of this array
-                                            boolean loopDone2 = false;
-                                            while(!loopDone2){
-                                                // Ensure we are at the EndElement
-                                                while (!reader.isEndElement()){
-                                                    reader.next();
-                                                }
-                                                // Step out of this element
-                                                reader.next();
-                                                // Step to next element event.
-                                                while (!reader.isStartElement() && !reader.isEndElement())
-                                                    reader.next();
-                                                if (reader.isEndElement()){
-                                                    //two continuous end elements means we are exiting the xml structure
-                                                    loopDone2 = true;
-                                                } else {
-                                                    if (new javax.xml.namespace.QName("","vuelos").equals(reader.getName())){
-                                                         list2.add(reader.getElementText());
-                                                        
-                                                    }else{
-                                                        loopDone2 = true;
-                                                    }
-                                                }
-                                            }
-                                            // call the converter utility  to convert and set the array
-                                            
-                                            object.setVuelos((int[])
-                                                org.apache.axis2.databinding.utils.ConverterUtil.convertToArray(
-                                                            int.class,list2));
-                                                
+                                              object.setVuelos(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
                               }  // End of if for expected property start element
                                 
-                                    else {
-                                        
-                                    }
-                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
                                     if (reader.isStartElement() && new javax.xml.namespace.QName("","plazas").equals(reader.getName())){
                                 
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"plazas" +"  cannot be null");
+                                    }
                                     
+
+                                    java.lang.String content = reader.getElementText();
                                     
-                                    // Process the array and step past its final element's end.
-                                    list3.add(reader.getElementText());
-                                            
-                                            //loop until we find a start element that is not part of this array
-                                            boolean loopDone3 = false;
-                                            while(!loopDone3){
-                                                // Ensure we are at the EndElement
-                                                while (!reader.isEndElement()){
-                                                    reader.next();
-                                                }
-                                                // Step out of this element
-                                                reader.next();
-                                                // Step to next element event.
-                                                while (!reader.isStartElement() && !reader.isEndElement())
-                                                    reader.next();
-                                                if (reader.isEndElement()){
-                                                    //two continuous end elements means we are exiting the xml structure
-                                                    loopDone3 = true;
-                                                } else {
-                                                    if (new javax.xml.namespace.QName("","plazas").equals(reader.getName())){
-                                                         list3.add(reader.getElementText());
-                                                        
-                                                    }else{
-                                                        loopDone3 = true;
-                                                    }
-                                                }
-                                            }
-                                            // call the converter utility  to convert and set the array
-                                            
-                                            object.setPlazas((int[])
-                                                org.apache.axis2.databinding.utils.ConverterUtil.convertToArray(
-                                                            int.class,list3));
-                                                
+                                              object.setPlazas(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
                               }  // End of if for expected property start element
                                 
-                                    else {
-                                        
-                                    }
-                                  
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                              
                             while (!reader.isStartElement() && !reader.isEndElement())
                                 reader.next();
                             
