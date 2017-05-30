@@ -8,10 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
-<<<<<<< HEAD
-using System.Text;
-=======
->>>>>>> 2566c5ffbef0cc29e6b56b2c3f94aa882ebdf7c6
 using System.IO;
 
 namespace AgenciaViajes
@@ -99,7 +95,10 @@ namespace AgenciaViajes
             Console.WriteLine("hola" + respuesta);
             if(respuesta=="true")
             {
+                Random r = new Random(0);
+                float precio = Convert.ToSingle(r.Next(10,50));
                 contratado.Text = "El traslado ha sido contratado";
+                factura.crearFactura(user.User, precio, "Pagada", "Traslado en :" + textBox1.Text + "Empresa: " + comboBox1.SelectedItem.ToString());
             }
             else
             {

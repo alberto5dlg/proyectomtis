@@ -8,10 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
-<<<<<<< HEAD
-using System.Text;
-=======
->>>>>>> 2566c5ffbef0cc29e6b56b2c3f94aa882ebdf7c6
 using System.IO;
 
 namespace AgenciaViajes
@@ -125,7 +121,10 @@ namespace AgenciaViajes
                 Console.WriteLine("hola" + respuesta);
                 if (respuesta == "true")
                 {
+                    Random r = new Random(0);
+                    float precio=Convert.ToSingle(r.Next(50,200));
                     RHotel1.Text = "La reserva se ha realizado correctamente";
+                    factura.crearFactura(user.User, precio, "Pagada", "Hotel en :" + textBox1.Text + "Personas: " + textBox2.Text);
                 }
                 else
                 {

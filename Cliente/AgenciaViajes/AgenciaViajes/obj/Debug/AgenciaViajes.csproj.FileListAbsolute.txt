@@ -47,10 +47,8 @@ C:\Users\carlos\Desktop\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\NuGet.Core
 C:\Users\carlos\Desktop\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Json.pdb
 C:\Users\carlos\Desktop\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.Hoteles.resources
 <<<<<<< HEAD
-<<<<<<< HEAD
 C:\Users\carlos\Desktop\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Newtonsoft.Json.dll
 C:\Users\carlos\Desktop\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Newtonsoft.Json.xml
-=======
 =======
 <<<<<<< 43e70fd40da7390f9fa71b5ee65f229ae8eba36f
 >>>>>>> 2566c5ffbef0cc29e6b56b2c3f94aa882ebdf7c6
@@ -64,11 +62,15 @@ C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\De
 C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.datosTarjeta.resources
 C:\Users\Alberto\Desktop\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\MySql.Data.dll
-<<<<<<< HEAD
 >>>>>>> 43792ef169a6c83335f2c10464fe97a924ec4023
-=======
-=======
-C:\Users\carlos\Desktop\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Newtonsoft.Json.dll
-C:\Users\carlos\Desktop\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Newtonsoft.Json.xml
 >>>>>>> busquedaVuelos1Aerolinea
->>>>>>> 2566c5ffbef0cc29e6b56b2c3f94aa882ebdf7c6
+C:\Users\carlos\Desktop\Carlos\Universidad\16-17\2ºcuatrimestre\MTIS\Proyecto\proyectos\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.datosTarjeta.resources
+C:\Users\carlos\Desktop\Carlos\Universidad\16-17\2ºcuatrimestre\MTIS\Proyecto\proyectos\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.Hoteles.resources
+C:\Users\carlos\Desktop\Carlos\Universidad\16-17\2ºcuatrimestre\MTIS\Proyecto\proyectos\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\obj\Debug\AgenciaViajes.Traslados.resources
+C:\Users\carlos\Desktop\Carlos\Universidad\16-17\2ºcuatrimestre\MTIS\Proyecto\proyectos\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Json.dll
+C:\Users\carlos\Desktop\Carlos\Universidad\16-17\2ºcuatrimestre\MTIS\Proyecto\proyectos\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Microsoft.Web.XmlTransform.dll
+C:\Users\carlos\Desktop\Carlos\Universidad\16-17\2ºcuatrimestre\MTIS\Proyecto\proyectos\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\MySql.Data.dll
+C:\Users\carlos\Desktop\Carlos\Universidad\16-17\2ºcuatrimestre\MTIS\Proyecto\proyectos\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Newtonsoft.Json.dll
+C:\Users\carlos\Desktop\Carlos\Universidad\16-17\2ºcuatrimestre\MTIS\Proyecto\proyectos\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\NuGet.Core.dll
+C:\Users\carlos\Desktop\Carlos\Universidad\16-17\2ºcuatrimestre\MTIS\Proyecto\proyectos\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Json.pdb
+C:\Users\carlos\Desktop\Carlos\Universidad\16-17\2ºcuatrimestre\MTIS\Proyecto\proyectos\proyectomtis\Cliente\AgenciaViajes\AgenciaViajes\bin\Debug\Newtonsoft.Json.xml

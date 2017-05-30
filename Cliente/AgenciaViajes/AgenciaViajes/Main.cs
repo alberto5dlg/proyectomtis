@@ -23,34 +23,19 @@ namespace AgenciaViajes
         {
             if (user.User.Equals(""))
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                //vuelosFecha.Enabled = false;
-                //busquedaVuelos.Enabled = false;
-=======
-=======
->>>>>>> 2566c5ffbef0cc29e6b56b2c3f94aa882ebdf7c6
+
                 traslados.Enabled = false;
                 hoteles.Enabled = false;
                 vuelosFecha.Enabled = false;
                 busquedaVuelos.Enabled = false;
->>>>>>> 43792ef169a6c83335f2c10464fe97a924ec4023
                 ofertasButom.Enabled = false;
             }
             else
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                //vuelosFecha.Enabled = true;
-                //busquedaVuelos.Enabled = true;
-=======
-=======
->>>>>>> 2566c5ffbef0cc29e6b56b2c3f94aa882ebdf7c6
                 traslados.Enabled = true;
                 hoteles.Enabled = true;
                 vuelosFecha.Enabled = true;
                 busquedaVuelos.Enabled = true;
->>>>>>> 43792ef169a6c83335f2c10464fe97a924ec4023
                 ofertasButom.Enabled = true;
                 login.Enabled = false;
                 registro.Enabled = false; 

@@ -38,21 +38,16 @@
     <Reference Include="Microsoft.Web.XmlTransform">
       <HintPath>..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
     </Reference>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    <Reference Include="MySql.Data">
-      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
-    </Reference>
->>>>>>> 43792ef169a6c83335f2c10464fe97a924ec4023
-=======
     <Reference Include="MySql.Data">
       <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data">
       <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
->>>>>>> 2566c5ffbef0cc29e6b56b2c3f94aa882ebdf7c6
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -84,6 +79,7 @@
     <Compile Include="datosTarjeta.Designer.cs">
       <DependentUpon>datosTarjeta.cs</DependentUpon>
     </Compile>
+    <Compile Include="factura.cs" />
     <Compile Include="Hoteles.cs">
       <SubType>Form</SubType>
     </Compile>

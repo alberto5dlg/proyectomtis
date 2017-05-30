@@ -36,12 +36,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.fechainicio = new System.Windows.Forms.DateTimePicker();
             this.resultados = new System.Windows.Forms.DataGridView();
-            this.buscarButon = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.Aerolinea = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoraSalida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plazas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buscarButon = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.asientos2 = new System.Windows.Forms.Label();
+            this.asientos = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.resultados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,7 +94,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(289, 124);
+            this.label4.Location = new System.Drawing.Point(287, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 5;
@@ -101,7 +105,7 @@
             // 
             this.fechainicio.CustomFormat = "yyyy-MM-dd";
             this.fechainicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fechainicio.Location = new System.Drawing.Point(393, 124);
+            this.fechainicio.Location = new System.Drawing.Point(391, 99);
             this.fechainicio.Name = "fechainicio";
             this.fechainicio.Size = new System.Drawing.Size(123, 20);
             this.fechainicio.TabIndex = 7;
@@ -112,6 +116,8 @@
             this.resultados.AllowUserToDeleteRows = false;
             this.resultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.resultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Aerolinea,
+            this.Vuelo,
             this.Fecha,
             this.HoraSalida,
             this.Precio,
@@ -119,28 +125,23 @@
             this.resultados.Location = new System.Drawing.Point(54, 304);
             this.resultados.Name = "resultados";
             this.resultados.ReadOnly = true;
-            this.resultados.Size = new System.Drawing.Size(552, 150);
+            this.resultados.Size = new System.Drawing.Size(448, 150);
             this.resultados.TabIndex = 9;
+            this.resultados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.resultados_CellContentClick);
             // 
-            // buscarButon
+            // Aerolinea
             // 
-            this.buscarButon.Location = new System.Drawing.Point(243, 196);
-            this.buscarButon.Name = "buscarButon";
-            this.buscarButon.Size = new System.Drawing.Size(144, 31);
-            this.buscarButon.TabIndex = 10;
-            this.buscarButon.Text = "Buscar";
-            this.buscarButon.UseVisualStyleBackColor = true;
-            this.buscarButon.Click += new System.EventHandler(this.buscarButon_Click);
+            this.Aerolinea.HeaderText = "Aerolinea";
+            this.Aerolinea.Name = "Aerolinea";
+            this.Aerolinea.ReadOnly = true;
+            this.Aerolinea.Visible = false;
             // 
-            // label6
+            // Vuelo
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(49, 261);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(119, 25);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Resultados";
+            this.Vuelo.HeaderText = "Vuelo";
+            this.Vuelo.Name = "Vuelo";
+            this.Vuelo.ReadOnly = true;
+            this.Vuelo.Visible = false;
             // 
             // Fecha
             // 
@@ -166,11 +167,49 @@
             this.plazas.Name = "plazas";
             this.plazas.ReadOnly = true;
             // 
+            // buscarButon
+            // 
+            this.buscarButon.Location = new System.Drawing.Point(243, 196);
+            this.buscarButon.Name = "buscarButon";
+            this.buscarButon.Size = new System.Drawing.Size(144, 31);
+            this.buscarButon.TabIndex = 10;
+            this.buscarButon.Text = "Buscar";
+            this.buscarButon.UseVisualStyleBackColor = true;
+            this.buscarButon.Click += new System.EventHandler(this.buscarButon_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(49, 261);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(119, 25);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Resultados";
+            // 
+            // asientos2
+            // 
+            this.asientos2.AutoSize = true;
+            this.asientos2.Location = new System.Drawing.Point(287, 149);
+            this.asientos2.Name = "asientos2";
+            this.asientos2.Size = new System.Drawing.Size(65, 13);
+            this.asientos2.TabIndex = 12;
+            this.asientos2.Text = "Nº Asientos:";
+            // 
+            // asientos
+            // 
+            this.asientos.Location = new System.Drawing.Point(391, 142);
+            this.asientos.Name = "asientos";
+            this.asientos.Size = new System.Drawing.Size(100, 20);
+            this.asientos.TabIndex = 13;
+            // 
             // BusquedaVuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 487);
+            this.Controls.Add(this.asientos);
+            this.Controls.Add(this.asientos2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.buscarButon);
             this.Controls.Add(this.resultados);
@@ -201,9 +240,13 @@
         private System.Windows.Forms.DataGridView resultados;
         private System.Windows.Forms.Button buscarButon;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aerolinea;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Vuelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoraSalida;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn plazas;
+        private System.Windows.Forms.Label asientos2;
+        private System.Windows.Forms.TextBox asientos;
     }
 }
